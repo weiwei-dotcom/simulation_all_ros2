@@ -16,7 +16,7 @@
     </include>
 
     <!-- Set the robot urdf on the parameter server -->
-    <param name="robot_description" textfile="$(find iris_config)/urdf/iris3.urdf" />
+    <param name="robot_description" textfile="$(find iris_description)/urdf/iris3.urdf" />
 
     <!-- Unpause the simulation after loading the robot model -->
     <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
@@ -27,7 +27,7 @@
         respawn="false" output="screen" />
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find iris_config)/config/ros_controllers.yaml" command="load" />
+    <rosparam file="$(find iris_description)/config/ros_controllers.yaml" command="load" />
 
     <!-- Load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"

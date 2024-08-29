@@ -6,14 +6,14 @@
   <description>
     The robot messgaes package.
   </description>
-  <maintainer email="fanziqi614@gmail.com">Ziqi Fan</maintainer>
+  <maintainer email="zh2362207401@gmail.com">Yitian Zhang</maintainer>
   <license>Apache</license>
-  
+
   <buildtool_depend>catkin</buildtool_depend>
   <depend>message_runtime</depend>
   <depend>message_generation</depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
-  
+
 </package>

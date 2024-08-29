@@ -3,8 +3,199 @@
 Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="gh1_description">
+<robot name="gh1_description">
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/gh1_gazebo</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- Show the trajectory of base_link center. -->
+  <!-- <gazebo>
+        <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
+            <frequency>10</frequency>
+            <plot>
+                <link>base</link>
+                <pose>0 0 0 0 0 0</pose>
+                <material>Gazebo/Yellow</material>
+            </plot>
+        </plugin>
+    </gazebo> -->
+  <!-- Show the trajectory of foot. You can add another trajectory about another foot. -->
+  <!-- <gazebo>
+        <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
+            <frequency>100</frequency>
+            <plot>
+                <link>FL_foot</link>
+                <pose>0 0 0 0 0 0</pose>
+                <material>Gazebo/Green</material>
+            </plot>
+        </plugin>
+    </gazebo> -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
+      <bodyName>body</bodyName>
+      <topicName>/apply_force/body</topicName>
+    </plugin>
+  </gazebo>
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>base_link_imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>1000.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="base">
+    <material>Gazebo/DarkGrey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <gazebo reference="body">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+  </gazebo>
+  <gazebo reference="imu_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- left leg -->
+  <gazebo reference="l_thigh_roll">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="l_thigh_yaw">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="l_thigh_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="l_shank_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="l_foot_pitch">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="l_foot_roll">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- right leg -->
+  <gazebo reference="r_thigh_roll">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="r_thigh_yaw">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="r_thigh_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="r_shank_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="r_foot_pitch">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="r_foot_roll">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0" />
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 0.8 1.0" />
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0" />
+  </material>
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0" />
+  </material>
+  <material name="silver">
+    <color rgba="0.913725490196 0.913725490196 0.847058823529 1.0" />
+  </material>
+  <material name="orange">
+    <color rgba="0.12 0.15 0.2 1.0" />
+  </material>
+  <material name="brown">
+    <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0" />
+  </material>
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0" />
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0" />
+  </material>
+
+  <!-- ########################################################################## -->
+
+  <!-- <link name="world"/>
+    <joint name="base_static_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.5"/>
+        <parent link="world"/>
+        <child link="base"/>
+    </joint> -->
+
   <link name="base">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -28,7 +219,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/body.dae" />
+        <mesh filename="package://gh1_description/meshes/body.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -36,11 +227,28 @@ Stephen Brawner (brawner@gmail.com)
     </visual>
     <collision>
       <origin xyz="0 0 0.175" rpy="0 0 0" />
-      <geometry> <!-- <mesh filename="../meshes/body.dae" /> -->
+      <geometry> <!-- <mesh filename="package://gh1_description/meshes/body.STL" /> -->
         <box size="0.130 0.3 0.35" />
       </geometry>
     </collision>
   </link>
+
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.02" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="z_joint_imu" type="fixed">
+    <origin xyz="-0.0648 0 -0.1015" rpy="0 0 0" />
+    <parent link="body" />
+    <child link="imu_link" />
+  </joint>
+
   <link
     name="Left_hip_roll_Link">
     <inertial>
@@ -52,7 +260,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_hip_roll_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_hip_roll_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -61,7 +269,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_hip_roll_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_hip_roll_Link.STL" /> -->
         <cylinder radius="0.02" length="0.01" />
       </geometry>
     </collision>
@@ -95,7 +303,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_hip_yaw_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_hip_yaw_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -105,7 +313,7 @@ Stephen Brawner (brawner@gmail.com)
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.02" length="0.01" />
-        <!-- <mesh filename="../meshes/Left_hip_yaw_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_hip_yaw_Link.STL" /> -->
       </geometry>
     </collision>
   </link>
@@ -134,7 +342,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_hip_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_hip_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -143,7 +351,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 0.03 -0.2" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_hip_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_hip_pitch_Link.STL" /> -->
         <cylinder radius="0.04" length="0.32" />
       </geometry>
     </collision>
@@ -165,7 +373,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_knee_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_knee_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -174,7 +382,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 0 -0.2" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_knee_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_knee_Link.STL" /> -->
         <cylinder radius="0.02" length="0.3" />
       </geometry>
     </collision>
@@ -196,7 +404,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_ankle_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_ankle_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -205,7 +413,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0.026 0 -0.042" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_ankle_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_ankle_pitch_Link.STL" /> -->
         <box size="0.25 0.07 0.015" />
       </geometry>
     </collision>
@@ -227,7 +435,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_hip_roll_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_hip_roll_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -236,7 +444,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_hip_roll_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_hip_roll_Link.STL" /> -->
         <cylinder radius="0.02" length="0.01" />
       </geometry>
     </collision>
@@ -259,7 +467,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_hip_yaw_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_hip_yaw_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -269,7 +477,7 @@ Stephen Brawner (brawner@gmail.com)
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.02" length="0.01" />
-        <!-- <mesh filename="../meshes/Right_hip_yaw_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_hip_yaw_Link.STL" /> -->
       </geometry>
     </collision>
   </link>
@@ -291,7 +499,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_hip_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_hip_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -300,7 +508,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 -0.03 -0.2" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_hip_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_hip_pitch_Link.STL" /> -->
         <cylinder radius="0.04" length="0.32" />
       </geometry>
     </collision>
@@ -322,7 +530,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_knee_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_knee_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -332,7 +540,7 @@ Stephen Brawner (brawner@gmail.com)
       <origin xyz="0 0 -0.2" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.02" length="0.3" />
-        <!-- <mesh filename="../meshes/Right_knee_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_knee_Link.STL" /> -->
       </geometry>
     </collision>
   </link>
@@ -353,7 +561,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_ankle_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_ankle_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -362,7 +570,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0.026 0 -0.042" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Left_ankle_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Left_ankle_pitch_Link.STL" /> -->
         <box size="0.25 0.07 0.015" />
       </geometry>
     </collision>
@@ -384,7 +592,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_shoulder_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_shoulder_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -393,7 +601,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 0.062 0" rpy="0 1.57 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_shoulder_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_pitch_Link.STL" /> -->
         <cylinder radius="0.05" length="0.0372" />
       </geometry>
     </collision>
@@ -420,7 +628,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_shoulder_roll_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_shoulder_roll_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -429,7 +637,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="-0.016 0 -0.07" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_shoulder_roll_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_roll_Link.STL" /> -->
         <cylinder radius="0.049" length="0.05" />
       </geometry>
     </collision>
@@ -457,7 +665,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_shoulder_yaw_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_shoulder_yaw_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -467,7 +675,7 @@ Stephen Brawner (brawner@gmail.com)
       <origin xyz="0 0 -0.059" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.02" length="0.1" />
-        <!-- <mesh filename="../meshes/Right_shoulder_yaw_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_yaw_Link.STL" /> -->
       </geometry>
     </collision>
   </link>
@@ -488,7 +696,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Left_elbow_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Left_elbow_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -497,7 +705,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0.17 0.015 0" rpy="0 1.57 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_elbow_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_elbow_pitch_Link.STL" /> -->
         <cylinder radius="0.032" length="0.01" />
       </geometry>
     </collision>
@@ -521,7 +729,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_shoulder_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_shoulder_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -530,7 +738,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0 -0.062 0" rpy="0 1.57 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_shoulder_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_pitch_Link.STL" /> -->
         <cylinder radius="0.05" length="0.0372" />
       </geometry>
     </collision>
@@ -552,7 +760,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_shoulder_roll_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_shoulder_roll_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -561,7 +769,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="-0.016 0 -0.07" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_shoulder_roll_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_roll_Link.STL" /> -->
         <cylinder radius="0.049" length="0.05" />
       </geometry>
     </collision>
@@ -592,7 +800,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_shoulder_yaw_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_shoulder_yaw_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -602,7 +810,7 @@ Stephen Brawner (brawner@gmail.com)
       <origin xyz="0 0 -0.059" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.02" length="0.1" />
-        <!-- <mesh filename="../meshes/Right_shoulder_yaw_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_shoulder_yaw_Link.STL" /> -->
       </geometry>
     </collision>
   </link>
@@ -635,7 +843,7 @@ Stephen Brawner (brawner@gmail.com)
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="../meshes/Right_elbow_pitch_Link.dae" />
+        <mesh filename="package://gh1_description/meshes/Right_elbow_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -644,7 +852,7 @@ Stephen Brawner (brawner@gmail.com)
     <collision>
       <origin xyz="0.17 -0.015 0" rpy="0 1.57 0" />
       <geometry>
-        <!-- <mesh filename="../meshes/Right_elbow_pitch_Link.dae" /> -->
+        <!-- <mesh filename="package://gh1_description/meshes/Right_elbow_pitch_Link.STL" /> -->
         <cylinder radius="0.032" length="0.01" />
       </geometry>
     </collision>

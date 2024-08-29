@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by
+Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="iris3">
@@ -13,12 +14,13 @@
     <inertial>
       <origin xyz="0.0028516 -9.0195E-06 0.074637" rpy="0 0 0" />
       <mass value="7.8345" />
-      <inertia ixx="0.018345" ixy="7.5667E-06" ixz="0.00076837" iyy="0.016895" iyz="-5.4969E-06" izz="0.018588" />
+      <inertia ixx="0.018345" ixy="7.5667E-06" ixz="0.00076837" iyy="0.016895" iyz="-5.4969E-06"
+        izz="0.018588" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/base_link.STL" />
+        <mesh filename="package://iris_description/meshes/base_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -27,7 +29,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/base_link.STL" />
+        <mesh filename="package://iris_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -42,12 +44,13 @@
     <inertial>
       <origin xyz="-1.168E-05 -0.028407 0.06315" rpy="0 0 0" />
       <mass value="5.8911" />
-      <inertia ixx="0.0085269" ixy="1.3438E-06" ixz="-2.5107E-06" iyy="0.00801" iyz="0.00077853" izz="0.0084169" />
+      <inertia ixx="0.0085269" ixy="1.3438E-06" ixz="-2.5107E-06" iyy="0.00801" iyz="0.00077853"
+        izz="0.0084169" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link1.STL" />
+        <mesh filename="package://iris_description/meshes/Link1.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -56,7 +59,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link1.STL" />
+        <mesh filename="package://iris_description/meshes/Link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -71,12 +74,13 @@
     <inertial>
       <origin xyz="3.3206E-05 0.13 0.011523" rpy="0 0 0" />
       <mass value="3.2726" />
-      <inertia ixx="0.035921" ixy="-5.4756E-07" ixz="-2.6668E-07" iyy="0.0027285" iyz="-2.3948E-09" izz="0.038096" />
+      <inertia ixx="0.035921" ixy="-5.4756E-07" ixz="-2.6668E-07" iyy="0.0027285" iyz="-2.3948E-09"
+        izz="0.038096" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link2.STL" />
+        <mesh filename="package://iris_description/meshes/Link2.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -85,7 +89,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link2.STL" />
+        <mesh filename="package://iris_description/meshes/Link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -100,12 +104,13 @@
     <inertial>
       <origin xyz="2.8791E-05 0.0054256 -0.054415" rpy="0 0 0" />
       <mass value="5.7323" />
-      <inertia ixx="0.0079383" ixy="-3.0896E-06" ixz="4.6168E-06" iyy="0.0075193" iyz="0.00064614" izz="0.0075409" />
+      <inertia ixx="0.0079383" ixy="-3.0896E-06" ixz="4.6168E-06" iyy="0.0075193" iyz="0.00064614"
+        izz="0.0075409" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link3.STL" />
+        <mesh filename="package://iris_description/meshes/Link3.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -114,7 +119,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link3.STL" />
+        <mesh filename="package://iris_description/meshes/Link3.STL" />
       </geometry>
     </collision>
   </link>
@@ -129,12 +134,13 @@
     <inertial>
       <origin xyz="-1.9758E-05 0.018994 -0.11496" rpy="0 0 0" />
       <mass value="5.6587" />
-      <inertia ixx="0.012181" ixy="-5.5076E-08" ixz="-6.5469E-07" iyy="0.011681" iyz="0.0021098" izz="0.0053873" />
+      <inertia ixx="0.012181" ixy="-5.5076E-08" ixz="-6.5469E-07" iyy="0.011681" iyz="0.0021098"
+        izz="0.0053873" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link4.STL" />
+        <mesh filename="package://iris_description/meshes/Link4.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -143,7 +149,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link4.STL" />
+        <mesh filename="package://iris_description/meshes/Link4.STL" />
       </geometry>
     </collision>
   </link>
@@ -158,12 +164,13 @@
     <inertial>
       <origin xyz="-3.644E-05 0.095994 -0.063695" rpy="0 0 0" />
       <mass value="3.7446" />
-      <inertia ixx="0.008619" ixy="1.5506E-06" ixz="-3.1559E-06" iyy="0.0053531" iyz="0.002528" izz="0.0068338" />
+      <inertia ixx="0.008619" ixy="1.5506E-06" ixz="-3.1559E-06" iyy="0.0053531" iyz="0.002528"
+        izz="0.0068338" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link5.STL" />
+        <mesh filename="package://iris_description/meshes/Link5.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -172,7 +179,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link5.STL" />
+        <mesh filename="package://iris_description/meshes/Link5.STL" />
       </geometry>
     </collision>
   </link>
@@ -187,12 +194,13 @@
     <inertial>
       <origin xyz="0.00060533 -0.00072807 0.02091" rpy="0 0 0" />
       <mass value="1.0032" />
-      <inertia ixx="0.00059254" ixy="-1.4767E-05" ixz="3.4108E-06" iyy="0.00059408" iyz="-3.762E-06" izz="0.00094124" />
+      <inertia ixx="0.00059254" ixy="-1.4767E-05" ixz="3.4108E-06" iyy="0.00059408" iyz="-3.762E-06"
+        izz="0.00094124" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link6.STL" />
+        <mesh filename="package://iris_description/meshes/Link6.STL" />
       </geometry>
       <material name="">
         <color rgba="0.75294 0.75294 0.75294 1" />
@@ -201,7 +209,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iris_config/meshes/Link6.STL" />
+        <mesh filename="package://iris_description/meshes/Link6.STL" />
       </geometry>
     </collision>
   </link>

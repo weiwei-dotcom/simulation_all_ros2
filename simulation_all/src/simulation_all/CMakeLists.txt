@@ -8,6 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
 
+
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 find_package(gazebo REQUIRED)
 
@@ -26,6 +28,8 @@ find_package(catkin REQUIRED COMPONENTS
     rospy
 )
 
+
+
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
 # find_package(yaml-cpp REQUIRED)
@@ -38,8 +42,10 @@ catkin_package(
     rospy
 )
 
+
 include_directories(
     include
     ${catkin_INCLUDE_DIRS}
 )
+
 
