@@ -22,30 +22,26 @@
     </include>
 
     <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" textfile="$(find
-    gh1_description)/urdf/gh1_description.urdf" />
-    <!-- <param name="robot_description"
-        command="$(find xacro)/xacro --> <!--inorder
-    '$(arg dollar)$(arg robot_path)/xacro/robot.xacro'
-    DEBUG:=$(arg user_debug)" /> -->
+    <!--<param name="robot_description" textfile="$(find
+     gh1_description)/urdf/$(arg robot_path).urdf" />
+ -->
+    <param name="robot_description" textfile="$(arg dollar)$(arg robot_path)/urdf/$(arg rname)_description.urdf" />
+    <!-- <param name="robot_description" command="$(find xacro)/xacro -->    <!--inorder
+    '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' DEBUG:=$(arg user_debug)" /> -->
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
-    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
-        args="-urdf -z 2.0 -model $(arg rname)_gazebo -param robot_description -unpause" />
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -z 2.0 -model $(arg rname)_gazebo -param robot_description -unpause" />
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(arg dollar)$(arg robot_path)/config/robot_control.yaml" command="load" />
 
     <!-- load the controllers -->
-    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
-        output="screen" ns="/$(arg rname)_gazebo"
-        args="joint_state_controller
+    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false" output="screen" ns="/$(arg rname)_gazebo" args="joint_state_controller
           l_hip_roll_controller l_hip_yaw_controller l_hip_pitch_controller l_knee_pitch_controller l_ankle_pitch_controller
           r_hip_roll_controller r_hip_yaw_controller r_hip_pitch_controller r_knee_pitch_controller r_ankle_pitch_controller " />
 
     <!-- convert joint states to TF transforms for rviz, etc -->
-    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
-        respawn="false" output="screen">
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="false" output="screen">
         <remap from="/joint_states" to="/$(arg rname)_gazebo/joint_states" />
     </node>
 

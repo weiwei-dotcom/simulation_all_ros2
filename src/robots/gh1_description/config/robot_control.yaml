@@ -1,4 +1,4 @@
-gr1t1_gazebo:
+gh1_gazebo:
     # Publish all joint states -----------------------------------
     joint_state_controller:
         type: joint_state_controller/JointStateController
