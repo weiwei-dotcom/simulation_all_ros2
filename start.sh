@@ -12,9 +12,11 @@ if [ $# == 1 ];then
     fi
 elif [ $# == 2 ]; then
     if [ "$1" == 'qr' ]; then
-            roslaunch simulation_all gazebo_qr.launch rname:=$2
-        elif [ "$1" == 'human' ]; then
-            roslaunch simulation_all gazebo_gh.launch rname:=$2
+        roslaunch simulation_all gazebo_qr.launch rname:=$2
+    elif [ "$1" == 'human' ]; then
+        roslaunch simulation_all gazebo_gh.launch rname:=$2
+    elif [ "$1" == 'arm' ]; then
+        roslaunch simulation_all gazebo_arm.launch rname:=$2
     fi
 elif [ $# == 3 ]; then
     if [ "$1" == 'qr' ]; then

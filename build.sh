@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -r devel/ build/
+
 cd src/
 
 rm CMakeLists.txt
