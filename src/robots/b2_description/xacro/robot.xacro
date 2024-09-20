@@ -144,17 +144,17 @@
         <material name="silver"/>
         </visual>
         <collision>
-        <origin xyz="0.018 0 -0.11" rpy="0 -0.30 0" />
+        <origin xyz="0.018 0 -0.16" rpy="0 -0.10 0" />
         <geometry>
-            <box size= "0.02 0.02 0.18"/>
+            <box size= "0.02 0.02 0.24"/>
         </geometry>
         </collision>
-        <collision>
+        <!-- <collision>
         <origin xyz="0.03 0 -0.245" rpy="0 0.35 0" />
         <geometry>
-            <box size= "0.02 0.02 0.08"/>
+            "<box size= "0.02 0.02 0.06"/>
         </geometry>
-        </collision>
+        </collision> -->
         <inertial>
         <origin rpy="0 0 0" xyz="0.0079835 -6.7794E-06 -0.18022"/>
         <mass value="0.23"/>
@@ -277,17 +277,17 @@
         <material name="silver"/>
         </visual>
         <collision>
-        <origin xyz="0.018 0 -0.11" rpy="0 -0.30 0" />
+        <origin xyz="0.018 0 -0.16" rpy="0 -0.10 0" />
         <geometry>
-            <box size= "0.02 0.02 0.18"/>
+            <box size= "0.02 0.02 0.24"/>
         </geometry>
         </collision>
-        <collision>
+        <!-- <collision>
         <origin xyz="0.03 0 -0.245" rpy="0 0.35 0" />
         <geometry>
-            <box size= "0.02 0.02 0.08"/>
+            "<box size= "0.02 0.02 0.06"/>
         </geometry>
-        </collision>
+        </collision> -->
         <inertial>
         <origin rpy="0 0 0" xyz="0.0079835 -6.7598E-06 -0.18022"/>
         <mass value="0.23"/>
@@ -410,17 +410,17 @@
         <material name="silver"/>
         </visual>
         <collision>
-        <origin xyz="0.018 0 -0.11" rpy="0 -0.30 0" />
+        <origin xyz="0.018 0 -0.16" rpy="0 -0.10 0" />
         <geometry>
-            <box size= "0.02 0.02 0.18"/>
+            <box size= "0.02 0.02 0.24"/>
         </geometry>
         </collision>
-        <collision>
+        <!-- <collision>
         <origin xyz="0.03 0 -0.245" rpy="0 0.35 0" />
         <geometry>
-            <box size= "0.02 0.02 0.08"/>
+            "<box size= "0.02 0.02 0.06"/>
         </geometry>
-        </collision>
+        </collision> -->
         <inertial>
         <origin rpy="0 0 0" xyz="0.0079835 -6.7795E-06 -0.18022"/>
         <mass value="0.23"/>
@@ -543,17 +543,17 @@
         <material name="silver"/>
         </visual>
         <collision>
-        <origin xyz="0.018 0 -0.11" rpy="0 -0.30 0" />
+        <origin xyz="0.018 0 -0.16" rpy="0 -0.10 0" />
         <geometry>
-            <box size= "0.02 0.02 0.18"/>
+            <box size= "0.02 0.02 0.24"/>
         </geometry>
         </collision>
-        <collision>
+        <!-- <collision>
         <origin xyz="0.03 0 -0.245" rpy="0 0.35 0" />
         <geometry>
-            <box size= "0.02 0.02 0.08"/>
+            "<box size= "0.02 0.02 0.06"/>
         </geometry>
-        </collision>
+        </collision> -->
         <inertial>
         <origin rpy="0 0 0" xyz="0.0079835 -6.7801E-06 -0.18022"/>
         <mass value="0.23"/>
