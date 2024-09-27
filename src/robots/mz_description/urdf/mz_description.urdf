@@ -46,7 +46,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/trunk.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/trunk.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -102,7 +102,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://mz_description/meshes/FR_hip.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/FR_hip.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -147,7 +147,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/thigh.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/thigh.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -177,7 +177,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/calf.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/calf.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -241,7 +241,7 @@
       <!-- the same as a1 -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/FL_hip.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/FL_hip.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -280,7 +280,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/thigh_mirror.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/thigh_mirror.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -310,7 +310,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/calf.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/calf.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -374,7 +374,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/RR_hip.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/RR_hip.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -413,7 +413,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/thigh.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/thigh.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -443,7 +443,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/calf.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/calf.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -507,7 +507,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://mz_description/meshes/RL_hip.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/RL_hip.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -546,7 +546,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/thigh_mirror.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/thigh_mirror.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
@@ -576,7 +576,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mz_description/meshes/calf.dae" scale="1 1 1"/>
+        <mesh filename="../meshes/calf.dae" scale="1 1 1"/>
       </geometry>
       <material name="silver"/>
     </visual>
