@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-    <name>wl_description</name>
+    <name>sz_description</name>
     <version>0.0.0</version>
-    <description>The wl_description package</description>
+    <description>The sz_description package</description>
 
     <maintainer email="zh2362207401@gmail.com">WL</maintainer>
     <license>TODO</license>
