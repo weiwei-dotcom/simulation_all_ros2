@@ -9,6 +9,22 @@
     <xacro:include filename="$(find sz_description)/xacro/transmission.xacro"/>
     <xacro:include filename="$(find sz_description)/xacro/gazebo.xacro"/>
 
+    <material name="blue">
+        <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+    
+    <material name="green">
+        <color rgba="0.0 0.8 0.0 1.0"/>
+    </material>
+    
+    <material name="silver">
+        <color rgba="0.913725490196 0.913725490196 0.847058823529 0.5"/>
+    </material>
+    
+    <material name="red">
+        <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+
     <xacro:if value="$(arg DEBUG)">
         <link name="world"/>
         <joint name="base_static_joint" type="fixed">
