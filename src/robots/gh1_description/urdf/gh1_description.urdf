@@ -196,6 +196,14 @@ Stephen Brawner (brawner@gmail.com)
         <child link="base"/>
     </joint> -->
 
+  <!-- this code is for the debug mode -->
+  <link name="world" />
+  <joint name="base_static_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 -0.5" />
+    <parent link="world" />
+    <child link="base" />
+  </joint>
+
   <link name="base">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
