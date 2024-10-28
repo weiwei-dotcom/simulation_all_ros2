@@ -365,6 +365,7 @@ Stephen Brawner (brawner@gmail.com)
       link="l_thigh_roll" />
     <axis
       xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-0.17"
       upper="1.05"
@@ -422,6 +423,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="l_thigh_yaw" />
     <axis
       xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.66"
       upper="1.66"
@@ -476,6 +478,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="l_thigh_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -530,6 +533,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="l_shank_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="0.56"
       upper="2.23"
@@ -584,6 +588,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="l_foot_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"
@@ -638,6 +643,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="r_thigh_roll" />
     <axis
       xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.05"
       upper="0.17"
@@ -693,6 +699,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="r_thigh_yaw" />
     <axis
       xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.66"
       upper="1.66"
@@ -748,6 +755,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="r_thigh_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -802,6 +810,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="r_shank_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="0.56"
       upper="2.23"
@@ -856,6 +865,7 @@ Stephen Brawner (brawner@gmail.com)
     <child link="r_foot_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"
