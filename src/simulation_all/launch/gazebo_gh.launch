@@ -27,12 +27,12 @@
      gh1_description)/urdf/$(arg robot_path).urdf" />
  -->
 
-    <!-- <param name="robot_description" textfile="$(arg dollar)$(arg robot_path)/xacro/robot.xacro" DEBUG:="$(arg user_debug)"/> -->
+    <!-- <param name="robot_description" textfile="$(arg dollar)$(arg robot_path)/urdf/gr1t1_description.urdf"/> -->
 
     <!-- Load the URDF into the ROS Parameter Server -->
     <param name="robot_description"
         command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' DEBUG:=$(arg user_debug)" />
-
+        
     <!-- <param name="robot_description" command="$(find xacro)/xacro -->    <!--inorder
     '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' DEBUG:=$(arg user_debug)" /> -->
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
