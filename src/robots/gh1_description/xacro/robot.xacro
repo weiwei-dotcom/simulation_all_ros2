@@ -40,7 +40,7 @@
   <xacro:if value="$(arg DEBUG)">
     <link name="world" />
     <joint name="base_static_joint" type="fixed">
-      <origin rpy="0 0 0" xyz="0 0 -0.5" />
+      <origin rpy="0 0 0" xyz="0 0 1.2" />
       <parent link="world" />
       <child link="base" />
     </joint>
@@ -64,7 +64,7 @@
   <link name="body">
     <inertial>
       <origin
-        xyz="-0.0057915 -8.0007E-06 -0.045258"
+        xyz="-0.0057915 -8.0007E-06 0.16"
         rpy="0 0 0" />
       <mass
         value="23.55" />
@@ -207,7 +207,6 @@
       link="l_thigh_roll" />
     <axis
       xyz="1 0 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-0.17"
       upper="1.05"
@@ -265,10 +264,9 @@
     <child link="l_thigh_yaw" />
     <axis
       xyz="0 0 1" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
-      lower="-1.66"
-      upper="1.66"
+      lower="-0.1"
+      upper="0.1"
       effort="70"
       velocity="12.552" />
   </joint>
@@ -320,7 +318,6 @@
     <child link="l_thigh_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -375,9 +372,8 @@
     <child link="l_shank_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
-      lower="0.56"
+      lower="0"
       upper="2.23"
       effort="120"
       velocity="20.92" />
@@ -412,12 +408,36 @@
           rgba="1 1 1 0.3" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin
         xyz="0.025 0 -0.045"
         rpy="0 0 0" />
       <geometry>
         <box size="0.25 0.05 0.02"/>
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin
+        xyz="0.02 0 -0.04"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.015" length="0.22"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0.13 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="-0.09 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
   </link>
@@ -430,7 +450,6 @@
     <child link="l_foot_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"
@@ -485,7 +504,6 @@
     <child link="r_thigh_roll" />
     <axis
       xyz="1 0 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-1.05"
       upper="0.17"
@@ -541,10 +559,9 @@
     <child link="r_thigh_yaw" />
     <axis
       xyz="0 0 1" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
-      lower="-1.66"
-      upper="1.66"
+      lower="-0.1"
+      upper="0.1"
       effort="70"
       velocity="12.552" />
   </joint>
@@ -597,7 +614,6 @@
     <child link="r_thigh_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -652,9 +668,8 @@
     <child link="r_shank_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
-      lower="0.56"
+      lower="0"
       upper="2.23"
       effort="120"
       velocity="20.92" />
@@ -689,12 +704,36 @@
           rgba="1 1 1 0.3" />
       </material>
     </visual>
-    <collision>
+    <!-- <collision>
       <origin
         xyz="0.025 0 -0.045"
         rpy="0 0 0" />
       <geometry>
         <box size="0.25 0.05 0.02"/>
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin
+        xyz="0.02 0 -0.04"
+        rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.015" length="0.22"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0.13 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="-0.09 0 -0.04"
+        rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
   </link>
@@ -707,7 +746,6 @@
     <child link="r_foot_pitch" />
     <axis
       xyz="0 1 0" />
-    <dynamics damping="0.03" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"
