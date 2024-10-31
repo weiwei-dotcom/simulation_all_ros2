@@ -196,6 +196,14 @@ Stephen Brawner (brawner@gmail.com)
         <child link="base"/>
     </joint> -->
 
+  <!-- this code is for the debug mode -->
+  <link name="world" />
+  <joint name="base_static_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 -0.5" />
+    <parent link="world" />
+    <child link="base" />
+  </joint>
+
   <link name="base">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
@@ -306,20 +314,20 @@ Stephen Brawner (brawner@gmail.com)
   </joint>
 
   <link
-    name="Left_hip_roll_Link">
+    name="l_thigh_roll">
     <inertial>
       <origin
-        xyz="0.078159 -3.7473E-05 0.003801"
+        xyz="0.078159 0.0 0.003801"
         rpy="0 0 0" />
       <mass
-        value="0.76576" />
+        value="2.19" />
       <inertia
-        ixx="0.00088124"
-        ixy="1.4062E-07"
-        ixz="-9.2277E-06"
-        iyy="0.0010088"
-        iyz="-8.1204E-08"
-        izz="0.0016698" />
+        ixx="0.00262800"
+        ixy="0"
+        ixz="0"
+        iyy="0.00262800"
+        iyz="0"
+        izz="0.00394200" />
     </inertial>
     <visual>
       <origin
@@ -354,9 +362,10 @@ Stephen Brawner (brawner@gmail.com)
     <parent
       link="body" />
     <child
-      link="Left_hip_roll_Link" />
+      link="l_thigh_roll" />
     <axis
       xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-0.17"
       upper="1.05"
@@ -365,20 +374,20 @@ Stephen Brawner (brawner@gmail.com)
   </joint>
 
   <link
-    name="Left_hip_yaw_Link">
+    name="l_thigh_yaw">
     <inertial>
       <origin
         xyz="-1.5406E-05 -0.039347 -0.093587"
         rpy="0 0 0" />
       <mass
-        value="0.68726" />
+        value="2.72" />
       <inertia
-        ixx="0.00080879"
-        ixy="-1.6372E-07"
-        ixz="1.5807E-06"
-        iyy="0.0012282"
-        iyz="-8.2225E-05"
-        izz="0.00073367" />
+        ixx="0.00754800"
+        ixy="0"
+        ixz="0"
+        iyy="0.00754800"
+        iyz="0"
+        izz="0.00489600" />
     </inertial>
     <visual>
       <origin
@@ -410,10 +419,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0.087 0 -0.015"
       rpy="0 0 0" />
-    <parent link="Left_hip_roll_Link" />
-    <child link="Left_hip_yaw_Link" />
+    <parent link="l_thigh_roll" />
+    <child link="l_thigh_yaw" />
     <axis
       xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.66"
       upper="1.66"
@@ -421,20 +431,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="12.552" />
   </joint>
 
-  <link name="Left_hip_pitch_Link">
+  <link name="l_thigh_pitch">
     <inertial>
       <origin
         xyz="0.0075478 0.052643 -0.12044"
         rpy="0 0 0" />
       <mass
-        value="1.2137" />
+        value="4.07" />
       <inertia
-        ixx="0.016215"
-        ixy="8.0504E-06"
-        ixz="0.00033236"
-        iyy="0.017297"
-        iyz="-6.1781E-05"
-        izz="0.0012749" />
+        ixx="0.04239583"
+        ixy="0"
+        ixz="0"
+        iyy="0.04320983"
+        iyz="0"
+        izz="0.00250983" />
     </inertial>
     <visual>
       <origin
@@ -464,10 +474,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 -0.041 -0.127"
       rpy="0 0 0" />
-    <parent link="Left_hip_yaw_Link" />
-    <child link="Left_hip_pitch_Link" />
+    <parent link="l_thigh_yaw" />
+    <child link="l_thigh_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -475,20 +486,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="20.92" />
   </joint>
 
-  <link name="Left_knee_Link">
+  <link name="l_shank_pitch">
     <inertial>
       <origin
         xyz="0.0023769 -0.0025816 -0.15422"
         rpy="0 0 0" />
       <mass
-        value="0.70946" />
+        value="1.88" />
       <inertia
-        ixx="0.0064055"
-        ixy="5.0717E-06"
-        ixz="0.00010127"
-        iyy="0.0067305"
-        iyz="-0.00012575"
-        izz="0.00041137" />
+        ixx="0.01617442"
+        ixy="0"
+        ixz="0"
+        iyy="0.01660667"
+        iyz="0"
+        izz="0.00069576" />
     </inertial>
     <visual>
       <origin
@@ -518,10 +529,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 0.041 -0.42"
       rpy="0 0 0" />
-    <parent link="Left_hip_pitch_Link" />
-    <child link="Left_knee_Link" />
+    <parent link="l_thigh_pitch" />
+    <child link="l_shank_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="0.56"
       upper="2.23"
@@ -529,20 +541,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="20.92" />
   </joint>
 
-  <link name="Left_ankle_pitch_Link">
+  <link name="l_foot_pitch">
     <inertial>
       <origin
         xyz="0.022131 0.0001084 -0.040348"
         rpy="0 0 0" />
       <mass
-        value="0.27473" />
+        value="0.55" />
       <inertia
-        ixx="6.8584E-05"
-        ixy="-1.5384E-08"
-        ixz="1.456E-05"
-        iyy="0.001329"
-        iyz="8.0695E-09"
-        izz="0.001353" />
+        ixx="0.00013292"
+        ixy="0"
+        ixz="0"
+        iyy="0.00288292"
+        iyz="0"
+        izz="0.00297917" />
     </inertial>
     <visual>
       <origin
@@ -572,10 +584,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 0 -0.4"
       rpy="0 0 0" />
-    <parent link="Left_knee_Link" />
-    <child link="Left_ankle_pitch_Link" />
+    <parent link="l_shank_pitch" />
+    <child link="l_foot_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"
@@ -583,20 +596,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="46.024" />
   </joint>
 
-  <link name="Right_hip_roll_Link">
+  <link name="r_thigh_roll">
     <inertial>
       <origin
-        xyz="0.078159 -3.7473E-05 0.003801"
+        xyz="0.078159 0.0 0.003801"
         rpy="0 0 0" />
       <mass
-        value="0.76576" />
+        value="2.19" />
       <inertia
-        ixx="0.00088124"
-        ixy="1.4062E-07"
-        ixz="-9.2277E-06"
-        iyy="0.0010088"
-        iyz="-8.1204E-08"
-        izz="0.0016698" />
+        ixx="0.00262800"
+        ixy="0"
+        ixz="0"
+        iyy="0.00262800"
+        iyz="0"
+        izz="0.00394200" />
     </inertial>
     <visual>
       <origin
@@ -627,9 +640,10 @@ Stephen Brawner (brawner@gmail.com)
       xyz="-0.08275 -0.135 -0.2975"
       rpy="0 0 0" />
     <parent link="body" />
-    <child link="Right_hip_roll_Link" />
+    <child link="r_thigh_roll" />
     <axis
       xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.05"
       upper="0.17"
@@ -638,20 +652,20 @@ Stephen Brawner (brawner@gmail.com)
   </joint>
 
   <link
-    name="Right_hip_yaw_Link">
+    name="r_thigh_yaw">
     <inertial>
       <origin
         xyz="-1.5311E-05 0.039347 -0.093587"
         rpy="0 0 0" />
       <mass
-        value="0.68726" />
+        value="2.72" />
       <inertia
-        ixx="0.00080878"
-        ixy="1.6125E-07"
-        ixz="1.5811E-06"
-        iyy="0.0012282"
-        iyz="8.2224E-05"
-        izz="0.00073367" />
+        ixx="0.00754800"
+        ixy="0"
+        ixz="0"
+        iyy="0.00754800"
+        iyz="0"
+        izz="0.00489600" />
     </inertial>
     <visual>
       <origin
@@ -681,10 +695,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0.087 0 -0.015"
       rpy="0 0 0" />
-    <parent link="Right_hip_roll_Link" />
-    <child link="Right_hip_yaw_Link" />
+    <parent link="r_thigh_roll" />
+    <child link="r_thigh_yaw" />
     <axis
       xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.66"
       upper="1.66"
@@ -693,20 +708,20 @@ Stephen Brawner (brawner@gmail.com)
   </joint>
 
   <link
-    name="Right_hip_pitch_Link">
+    name="r_thigh_pitch">
     <inertial>
       <origin
         xyz="0.0075476 -0.052643 -0.12045"
         rpy="0 0 0" />
       <mass
-        value="1.2137" />
+        value="4.07" />
       <inertia
-        ixx="0.016215"
-        ixy="-8.0494E-06"
-        ixz="0.00033238"
-        iyy="0.017297"
-        iyz="6.1775E-05"
-        izz="0.0012749" />
+        ixx="0.04239583"
+        ixy="0"
+        ixz="0"
+        iyy="0.04320983"
+        iyz="0"
+        izz="0.00250983" />
     </inertial>
     <visual>
       <origin
@@ -736,10 +751,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 0.041 -0.127"
       rpy="0 0 0" />
-    <parent link="Right_hip_yaw_Link" />
-    <child link="Right_hip_pitch_Link" />
+    <parent link="r_thigh_yaw" />
+    <child link="r_thigh_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.75"
       upper="1.75"
@@ -747,20 +763,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="20.92" />
   </joint>
 
-  <link name="Right_knee_Link">
+  <link name="r_shank_pitch">
     <inertial>
       <origin
         xyz="0.0023769 0.0025816 -0.15422"
         rpy="0 0 0" />
       <mass
-        value="0.70946" />
+        value="1.88" />
       <inertia
-        ixx="0.0064055"
-        ixy="-5.0717E-06"
-        ixz="0.00010127"
-        iyy="0.0067305"
-        iyz="0.00012575"
-        izz="0.00041137" />
+        ixx="0.01617442"
+        ixy="0"
+        ixz="0"
+        iyy="0.01660667"
+        iyz="0"
+        izz="0.00069576" />
     </inertial>
     <visual>
       <origin
@@ -790,10 +806,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 -0.041 -0.42"
       rpy="0 0 0" />
-    <parent link="Right_hip_pitch_Link" />
-    <child link="Right_knee_Link" />
+    <parent link="r_thigh_pitch" />
+    <child link="r_shank_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="0.56"
       upper="2.23"
@@ -801,20 +818,20 @@ Stephen Brawner (brawner@gmail.com)
       velocity="20.92" />
   </joint>
 
-  <link name="Right_ankle_pitch_Link">
+  <link name="r_foot_pitch">
     <inertial>
       <origin
         xyz="0.022131 -0.0001084 -0.040348"
         rpy="0 0 0" />
       <mass
-        value="0.27473" />
+        value="0.55" />
       <inertia
-        ixx="6.8584E-05"
-        ixy="1.5384E-08"
-        ixz="1.456E-05"
-        iyy="0.001329"
-        iyz="-8.0723E-09"
-        izz="0.001353" />
+        ixx="0.00013292"
+        ixy="0"
+        ixz="0"
+        iyy="0.00288292"
+        iyz="0"
+        izz="0.00297917" />
     </inertial>
     <visual>
       <origin
@@ -844,10 +861,11 @@ Stephen Brawner (brawner@gmail.com)
     <origin
       xyz="0 0 -0.4"
       rpy="0 0 0" />
-    <parent link="Right_knee_Link" />
-    <child link="Right_ankle_pitch_Link" />
+    <parent link="r_shank_pitch" />
+    <child link="r_foot_pitch" />
     <axis
       xyz="0 1 0" />
+    <dynamics damping="0.1" friction="0.2"/>
     <limit
       lower="-1.08"
       upper="0.59"

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <robot>
+  <!-- ros_control plugin -->
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>/gh1_gazebo</robotNamespace>
+      <robotNamespace>/gr1t1_gazebo</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
-
-  <!-- Show the trajectory of base_link center. -->
+  <!-- Show the trajectory of body center. -->
   <!-- <gazebo>
         <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
             <frequency>10</frequency>
@@ -64,10 +64,9 @@
   <gazebo reference="body">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <kp value="1000000.0" />
-    <kd value="1.0" />
+    <kp value="1000000.0"/>
+    <kd value="1.0"/>
   </gazebo>
-
   <gazebo reference="imu_link">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
@@ -107,8 +106,8 @@
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <self_collide>1</self_collide>
-    <kp value="1000000.0" />
-    <kd value="1.0" />
+    <kp value="1000000.0"/>
+    <kd value="1.0"/>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
@@ -116,8 +115,8 @@
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <self_collide>1</self_collide>
-    <kp value="1000000.0" />
-    <kd value="1.0" />
+    <kp value="1000000.0"/>
+    <kd value="1.0"/>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
@@ -142,7 +141,7 @@
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
-
+  
   <gazebo reference="r_shank_pitch">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
@@ -154,8 +153,8 @@
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <self_collide>1</self_collide>
-    <kp value="1000000.0" />
-    <kd value="1.0" />
+    <kp value="1000000.0"/>
+    <kd value="1.0"/>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
@@ -163,8 +162,8 @@
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <self_collide>1</self_collide>
-    <kp value="1000000.0" />
-    <kd value="1.0" />
+    <kp value="1000000.0"/>
+    <kd value="1.0"/>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 </robot>
