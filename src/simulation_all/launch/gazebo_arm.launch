@@ -39,7 +39,7 @@
     <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
 
     <!-- Spawn the robot in Gazebo -->
-    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -x 7.0 -y -7.5 -z 0.53 -model $(arg rname)_gazebo -param robot_description -unpause" />
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -x 7.0 -y -7.5 -z 0.8 -model $(arg rname)_gazebo -param robot_description -unpause" />
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(arg dollar)$(arg robot_path)/config/ros_controllers.yaml" command="load" />
