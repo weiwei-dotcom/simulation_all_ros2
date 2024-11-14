@@ -9,6 +9,21 @@
     <arg name="gui" default="true" />
     <arg name="headless" default="false" />
     <arg name="debug" default="false" />
+<<<<<<< HEAD
+=======
+    <arg name="initial_joint_positions" default="
+     -J l_hip_roll 0 
+     -J l_hip_yaw 0 
+     -J l_hip_pitch -0.2 
+     -J l_knee_pitch 0.4 
+     -J l_ankle_pitch -0.2 
+     -J r_hip_roll 0 
+     -J r_hip_yaw 0 
+     -J r_hip_pitch -0.2 
+     -J r_knee_pitch 0.4 
+     -J r_ankle_pitch -0.2" doc="Initial joint configuration of the robot"/>
+
+>>>>>>> 7451be88493b29e68a35bd3cfa0e3fd2903516c2
     <arg name="user_debug" default="false" />
     <arg name="initial_joint_positions" 
         default=" -J l_hip_roll 0 -J l_hip_yaw 0 -J l_hip_pitch -0.3 -J l_knee_pitch 0.7 -J l_ankle_pitch -0.4 -J r_hip_roll 0 -J r_hip_yaw 0 -J r_hip_pitch -0.3 -J r_knee_pitch 0.7 -J r_ankle_pitch -0.4" 
@@ -39,7 +54,11 @@
     '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' DEBUG:=$(arg user_debug)" /> -->
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
+<<<<<<< HEAD
     <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -z 1.29 -model $(arg rname)_gazebo $(arg initial_joint_positions) -param robot_description " />
+=======
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -z 1.35 -model $(arg rname)_gazebo -param robot_description $(arg initial_joint_positions)" />
+>>>>>>> 7451be88493b29e68a35bd3cfa0e3fd2903516c2
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(arg dollar)$(arg robot_path)/config/robot_control.yaml" command="load" />
