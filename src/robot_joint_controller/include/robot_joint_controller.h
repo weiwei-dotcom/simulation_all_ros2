@@ -1,9 +1,9 @@
 #ifndef ROBOT_JOINT_CONTROLLER_H
 #define ROBOT_JOINT_CONTROLLER_H
 
-#include <ros/node_handle.h>
+#include <rclcpp/rclcpp.hpp>
 #include <urdf/model.h>
-#include <control_toolbox/pid.h>
+#include <control_toolbox/pid.hpp>
 #include <realtime_tools/realtime_publisher.h>
 #include <hardware_interface/joint_command_interface.h>
 #include <controller_interface/controller.h>
@@ -11,8 +11,8 @@
 #include <realtime_tools/realtime_buffer.h>
 #include <controller_interface/controller.h>
 #include <hardware_interface/joint_command_interface.h>
-#include "robot_msgs/MotorCommand.h"
-#include "robot_msgs/MotorState.h"
+#include "robot_msgs/msg/motor_command.h"
+#include "robot_msgs/msg/motor_state.h"
 #include <geometry_msgs/WrenchStamped.h>
 
 #include <stdio.h>

@@ -1,0 +1,72 @@
+[0.010s] Invoking command in '/home/wl/Documents/simulation_all_ros2/build/robot_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/wl/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/wl/Documents/simulation_all_ros2/install/robot_msgs
+[0.102s] -- The C compiler identification is GNU 9.4.0
+[0.165s] -- The CXX compiler identification is GNU 9.4.0
+[0.171s] -- Check for working C compiler: /usr/bin/cc
+[0.221s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.222s] -- Detecting C compiler ABI info
+[0.268s] -- Detecting C compiler ABI info - done
+[0.276s] -- Detecting C compile features
+[0.277s] -- Detecting C compile features - done
+[0.279s] -- Check for working CXX compiler: /usr/bin/c++
+[0.334s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.335s] -- Detecting CXX compiler ABI info
+[0.391s] -- Detecting CXX compiler ABI info - done
+[0.399s] -- Detecting CXX compile features
+[0.400s] -- Detecting CXX compile features - done
+[0.402s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.423s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.423s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.604s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.607s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.614s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.691s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.714s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.784s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.808s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.839s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.868s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.942s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[1.102s] CMake Error at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:60 (message):
+[1.102s]   execute_process(/usr/bin/python3 -m rosidl_adapter --package-name
+[1.102s]   robot_msgs --arguments-file
+[1.102s]   /home/wl/Documents/simulation_all_ros2/build/robot_msgs/rosidl_adapter__arguments__robot_msgs.json
+[1.102s]   --output-dir
+[1.102s]   /home/wl/Documents/simulation_all_ros2/build/robot_msgs/rosidl_adapter/robot_msgs
+[1.102s]   --output-file
+[1.102s]   /home/wl/Documents/simulation_all_ros2/build/robot_msgs/rosidl_adapter/robot_msgs.idls)
+[1.102s]   returned error code 1:
+[1.102s] 
+[1.102s]   Error processing 'float32 tauEst' of 'robot_msgs/MotorState': ''tauEst' is
+[1.102s]   an invalid field name.  It should have the pattern
+[1.103s]   '^(?!.*__)(?!.*_$)[a-z][a-z0-9_]*$''
+[1.103s] 
+[1.103s]   Traceback (most recent call last):
+[1.103s] 
+[1.103s]     File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+[1.103s]       return _run_code(code, main_globals, None,
+[1.103s]     File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+[1.103s]       exec(code, run_globals)
+[1.103s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__main__.py", line 19, in <module>
+[1.103s]       sys.exit(main())
+[1.103s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/main.py", line 53, in main
+[1.103s]       abs_idl_file = convert_to_idl(
+[1.103s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__init__.py", line 19, in convert_to_idl
+[1.103s]       return convert_msg_to_idl(
+[1.103s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/msg/__init__.py", line 28, in convert_msg_to_idl
+[1.103s]       msg = parse_message_string(package_name, input_file.stem, content)
+[1.103s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 515, in parse_message_string
+[1.103s]       fields.append(Field(
+[1.104s]     File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 353, in __init__
+[1.104s]       raise NameError(
+[1.104s] 
+[1.104s]   NameError: 'tauEst' is an invalid field name.  It should have the pattern
+[1.104s]   '^(?!.*__)(?!.*_$)[a-z][a-z0-9_]*$'
+[1.104s] 
+[1.104s] Call Stack (most recent call first):
+[1.104s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)
+[1.104s]   CMakeLists.txt:26 (rosidl_generate_interfaces)
+[1.104s] 
+[1.104s] 
+[1.104s] -- Configuring incomplete, errors occurred!
+[1.104s] See also "/home/wl/Documents/simulation_all_ros2/build/robot_msgs/CMakeFiles/CMakeOutput.log".
+[1.109s] Invoked command in '/home/wl/Documents/simulation_all_ros2/build/robot_msgs' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/wl/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/wl/Documents/simulation_all_ros2/install/robot_msgs

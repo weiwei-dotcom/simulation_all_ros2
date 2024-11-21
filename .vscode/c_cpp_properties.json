@@ -6,10 +6,10 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/home/wl/data/Code/simulation/devel/include/**",
-        "/opt/ros/noetic/include/**",
-        "/home/wl/data/Code/simulation/src/robot_joint_controller/include/**",
-        "/usr/include/**"
+        "/usr/include/**",
+        "/opt/ros/foxy/include/**",
+        "/${workspaceFolder}/install/**",
+        "/opt/ros/foxy/share/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

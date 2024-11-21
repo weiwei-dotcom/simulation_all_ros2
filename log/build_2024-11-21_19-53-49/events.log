@@ -1,0 +1,382 @@
+[0.000000] (-) TimerEvent: {}
+[0.000274] (-) JobUnselected: {'identifier': 'a1_description'}
+[0.000332] (-) JobUnselected: {'identifier': 'gh1_description'}
+[0.000435] (-) JobUnselected: {'identifier': 'go1_description'}
+[0.000585] (-) JobUnselected: {'identifier': 'gr1t1_description'}
+[0.000675] (-) JobUnselected: {'identifier': 'gr1t2_description'}
+[0.000779] (-) JobUnselected: {'identifier': 'iris_description'}
+[0.000812] (-) JobUnselected: {'identifier': 'mz_description'}
+[0.000854] (-) JobUnselected: {'identifier': 'qa01_description'}
+[0.000879] (-) JobUnselected: {'identifier': 'rm_65_b_description'}
+[0.000903] (-) JobUnselected: {'identifier': 'robot_joint_controller'}
+[0.000982] (-) JobUnselected: {'identifier': 'seven_description'}
+[0.000996] (-) JobUnselected: {'identifier': 'simulation_all'}
+[0.001019] (-) JobUnselected: {'identifier': 'sz_description'}
+[0.001035] (robot_msgs) JobQueued: {'identifier': 'robot_msgs', 'dependencies': OrderedDict()}
+[0.001087] (robot_msgs) JobStarted: {'identifier': 'robot_msgs'}
+[0.007177] (robot_msgs) JobProgress: {'identifier': 'robot_msgs', 'progress': 'cmake'}
+[0.007612] (robot_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/wl/Documents/simulation_all_ros2/src/robot_msgs', '-DCMAKE_INSTALL_PREFIX=/home/wl/Documents/simulation_all_ros2/install/robot_msgs'], 'cwd': '/home/wl/Documents/simulation_all_ros2/build/robot_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('SVGA_VGPU10', '0'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wl'), ('LC_TIME', 'zh_CN.UTF-8'), ('SSH_AGENT_PID', '1341'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'fcitx'), ('HOME', '/home/wl'), ('CHROME_DESKTOP', 'code.desktop'), ('CONDA_SHLVL', '0'), ('TERM_PROGRAM_VERSION', '1.95.2'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1239'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6600'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wl'), ('JOURNAL_STREAM', '8:31659'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'wl'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/include/onnx:/home/wl/anaconda3/condabin:/opt/gcc-aarch64-10.2/bin:/opt/gcc-aarch64-10.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/wl:@/tmp/.ICE-unix/1385,unix/wl:/tmp/.ICE-unix/1385'), ('INVOCATION_ID', '49c02fe46e6848a391cd6d863e2f23ab'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0.0'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-e2bbbf5ae3.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('CONDA_PYTHON_EXE', '/home/wl/anaconda3/bin/python'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wl/Documents/simulation_all_ros2/build/robot_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CONDA_EXE', '/home/wl/anaconda3/bin/conda'), ('CLUTTER_IM_MODULE', 'fcitx'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.019667] (robot_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.035186] (robot_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.035330] (robot_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.100006] (-) TimerEvent: {}
+[0.200264] (-) TimerEvent: {}
+[0.211536] (robot_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[0.212861] (robot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.215437] (robot_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.300385] (-) TimerEvent: {}
+[0.333572] (robot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.350468] (robot_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[0.373038] (robot_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[0.397660] (robot_msgs) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[0.400469] (-) TimerEvent: {}
+[0.465886] (robot_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[0.500584] (-) TimerEvent: {}
+[0.600844] (-) TimerEvent: {}
+[0.639533] (robot_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[0.700960] (-) TimerEvent: {}
+[0.801183] (-) TimerEvent: {}
+[0.871870] (robot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.901279] (-) TimerEvent: {}
+[0.990471] (robot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.001375] (-) TimerEvent: {}
+[1.009053] (robot_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[1.010437] (robot_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[1.030456] (robot_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[1.030679] (robot_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.030754] (robot_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[1.030809] (robot_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[1.045291] (robot_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[1.101491] (-) TimerEvent: {}
+[1.117028] (robot_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[1.139268] (robot_msgs) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.140751] (robot_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.141700] (robot_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.145386] (robot_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.196359] (robot_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[1.198088] (robot_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/wl/Documents/simulation_all_ros2/build/robot_msgs\n'}
+[1.201592] (-) TimerEvent: {}
+[1.201994] (robot_msgs) CommandEnded: {'returncode': 0}
+[1.204156] (robot_msgs) JobProgress: {'identifier': 'robot_msgs', 'progress': 'build'}
+[1.204220] (robot_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wl/Documents/simulation_all_ros2/build/robot_msgs', '--', '-j16', '-l16'], 'cwd': '/home/wl/Documents/simulation_all_ros2/build/robot_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('SVGA_VGPU10', '0'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wl'), ('LC_TIME', 'zh_CN.UTF-8'), ('SSH_AGENT_PID', '1341'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'fcitx'), ('HOME', '/home/wl'), ('CHROME_DESKTOP', 'code.desktop'), ('CONDA_SHLVL', '0'), ('TERM_PROGRAM_VERSION', '1.95.2'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1239'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6600'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wl'), ('JOURNAL_STREAM', '8:31659'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'wl'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/include/onnx:/home/wl/anaconda3/condabin:/opt/gcc-aarch64-10.2/bin:/opt/gcc-aarch64-10.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/wl:@/tmp/.ICE-unix/1385,unix/wl:/tmp/.ICE-unix/1385'), ('INVOCATION_ID', '49c02fe46e6848a391cd6d863e2f23ab'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0.0'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-e2bbbf5ae3.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('CONDA_PYTHON_EXE', '/home/wl/anaconda3/bin/python'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wl/Documents/simulation_all_ros2/build/robot_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CONDA_EXE', '/home/wl/anaconda3/bin/conda'), ('CLUTTER_IM_MODULE', 'fcitx'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[1.232802] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__cpp\x1b[0m\n'}
+[1.233040] (robot_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.240474] (robot_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.301676] (-) TimerEvent: {}
+[1.401958] (-) TimerEvent: {}
+[1.502286] (-) TimerEvent: {}
+[1.602575] (-) TimerEvent: {}
+[1.620417] (robot_msgs) StdoutLine: {'line': b'[  3%] Built target robot_msgs__cpp\n'}
+[1.632848] (robot_msgs) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[1.633135] (robot_msgs) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[1.637824] (robot_msgs) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[1.655518] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_generator_c\x1b[0m\n'}
+[1.669644] (robot_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/motor_command__functions.c.o\x1b[0m\n'}
+[1.670604] (robot_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/robot_state__functions.c.o\x1b[0m\n'}
+[1.670759] (robot_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/robot_command__functions.c.o\x1b[0m\n'}
+[1.670829] (robot_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/motor_state__functions.c.o\x1b[0m\n'}
+[1.670888] (robot_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/imu__functions.c.o\x1b[0m\n'}
+[1.702672] (-) TimerEvent: {}
+[1.719174] (robot_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32m\x1b[1mLinking C shared library librobot_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[1.756359] (robot_msgs) StdoutLine: {'line': b'[ 17%] Built target robot_msgs__rosidl_generator_c\n'}
+[1.765231] (robot_msgs) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[1.765462] (robot_msgs) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[1.802777] (-) TimerEvent: {}
+[1.903078] (-) TimerEvent: {}
+[1.939807] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_cpp\x1b[0m\n'}
+[1.952526] (robot_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/imu__type_support.cpp.o\x1b[0m\n'}
+[1.953522] (robot_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/robot_command__type_support.cpp.o\x1b[0m\n'}
+[1.953699] (robot_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/motor_command__type_support.cpp.o\x1b[0m\n'}
+[1.953808] (robot_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/motor_state__type_support.cpp.o\x1b[0m\n'}
+[1.953896] (robot_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/robot_state__type_support.cpp.o\x1b[0m\n'}
+[2.003279] (-) TimerEvent: {}
+[2.014492] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[2.029645] (robot_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_state__type_support.cpp.o\x1b[0m\n'}
+[2.030315] (robot_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/motor_state__type_support.cpp.o\x1b[0m\n'}
+[2.030468] (robot_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_command__type_support.cpp.o\x1b[0m\n'}
+[2.030566] (robot_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/motor_command__type_support.cpp.o\x1b[0m\n'}
+[2.030724] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[2.034106] (robot_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/imu__type_support.cpp.o\x1b[0m\n'}
+[2.058779] (robot_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/motor_command__type_support.cpp.o\x1b[0m\n'}
+[2.081123] (robot_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/motor_state__type_support.cpp.o\x1b[0m\n'}
+[2.084354] (robot_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_command__type_support.cpp.o\x1b[0m\n'}
+[2.091312] (robot_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_state__type_support.cpp.o\x1b[0m\n'}
+[2.103336] (-) TimerEvent: {}
+[2.204151] (-) TimerEvent: {}
+[2.304983] (-) TimerEvent: {}
+[2.324010] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_c\x1b[0m\n'}
+[2.335275] (robot_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/imu__type_support.cpp.o\x1b[0m\n'}
+[2.350318] (robot_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/motor_command__type_support.cpp.o\x1b[0m\n'}
+[2.355825] (robot_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/motor_state__type_support.cpp.o\x1b[0m\n'}
+[2.356854] (robot_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/robot_command__type_support.cpp.o\x1b[0m\n'}
+[2.363007] (robot_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/robot_state__type_support.cpp.o\x1b[0m\n'}
+[2.372799] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[2.384808] (robot_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32m\x1b[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[2.402221] (robot_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/imu__type_support.cpp.o\x1b[0m\n'}
+[2.402604] (robot_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/motor_state__type_support.c.o\x1b[0m\n'}
+[2.402746] (robot_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/motor_command__type_support.c.o\x1b[0m\n'}
+[2.405112] (-) TimerEvent: {}
+[2.408520] (robot_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_command__type_support.c.o\x1b[0m\n'}
+[2.425346] (robot_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_state__type_support.c.o\x1b[0m\n'}
+[2.434697] (robot_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/imu__type_support.c.o\x1b[0m\n'}
+[2.447165] (robot_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[2.459337] (robot_msgs) StdoutLine: {'line': b'[ 63%] Built target robot_msgs__rosidl_typesupport_cpp\n'}
+[2.461869] (robot_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[2.473236] (robot_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking C shared library librobot_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[2.489646] (robot_msgs) StdoutLine: {'line': b'[ 66%] Built target robot_msgs__rosidl_typesupport_c\n'}
+[2.505250] (-) TimerEvent: {}
+[2.507543] (robot_msgs) StdoutLine: {'line': b'[ 66%] Built target robot_msgs__rosidl_typesupport_introspection_c\n'}
+[2.545407] (robot_msgs) StdoutLine: {'line': b'[ 66%] Built target robot_msgs__rosidl_typesupport_introspection_cpp\n'}
+[2.605335] (-) TimerEvent: {}
+[2.705593] (-) TimerEvent: {}
+[2.767995] (robot_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32m\x1b[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[2.805685] (-) TimerEvent: {}
+[2.855038] (robot_msgs) StdoutLine: {'line': b'[ 68%] Built target robot_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[2.864118] (robot_msgs) StdoutLine: {'line': b'[ 69%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.905778] (-) TimerEvent: {}
+[3.006058] (-) TimerEvent: {}
+[3.106292] (-) TimerEvent: {}
+[3.196682] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[3.206402] (-) TimerEvent: {}
+[3.210295] (robot_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/imu__type_support_c.cpp.o\x1b[0m\n'}
+[3.210506] (robot_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/motor_command__type_support_c.cpp.o\x1b[0m\n'}
+[3.210579] (robot_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_command__type_support_c.cpp.o\x1b[0m\n'}
+[3.210639] (robot_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_state__type_support_c.cpp.o\x1b[0m\n'}
+[3.210697] (robot_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/motor_state__type_support_c.cpp.o\x1b[0m\n'}
+[3.306525] (-) TimerEvent: {}
+[3.406806] (-) TimerEvent: {}
+[3.466524] (robot_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32m\x1b[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[3.506924] (-) TimerEvent: {}
+[3.525527] (robot_msgs) StdoutLine: {'line': b'[ 79%] Built target robot_msgs__rosidl_typesupport_fastrtps_c\n'}
+[3.532882] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs\x1b[0m\n'}
+[3.540573] (robot_msgs) StdoutLine: {'line': b'[ 79%] Built target robot_msgs\n'}
+[3.547234] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__py\x1b[0m\n'}
+[3.554492] (robot_msgs) StdoutLine: {'line': b'[ 80%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[3.607002] (-) TimerEvent: {}
+[3.707203] (-) TimerEvent: {}
+[3.807402] (-) TimerEvent: {}
+[3.907630] (-) TimerEvent: {}
+[4.007858] (-) TimerEvent: {}
+[4.108086] (-) TimerEvent: {}
+[4.208324] (-) TimerEvent: {}
+[4.239440] (robot_msgs) StdoutLine: {'line': b'[ 80%] Built target robot_msgs__py\n'}
+[4.246130] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__python\x1b[0m\n'}
+[4.274809] (robot_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_motor_command_s.c.o\x1b[0m\n'}
+[4.275025] (robot_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_command_s.c.o\x1b[0m\n'}
+[4.275108] (robot_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_imu_s.c.o\x1b[0m\n'}
+[4.275171] (robot_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_motor_state_s.c.o\x1b[0m\n'}
+[4.275227] (robot_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_state_s.c.o\x1b[0m\n'}
+[4.308450] (-) TimerEvent: {}
+[4.348098] (robot_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/robot_msgs/librobot_msgs__python.so\x1b[0m\n'}
+[4.379393] (robot_msgs) StdoutLine: {'line': b'[ 90%] Built target robot_msgs__python\n'}
+[4.386003] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[4.386145] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[4.386207] (robot_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[4.398468] (robot_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[4.398673] (robot_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[4.398771] (robot_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[4.408548] (-) TimerEvent: {}
+[4.461810] (robot_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[4.461980] (robot_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[4.462482] (robot_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\x1b[0m\n'}
+[4.490497] (robot_msgs) StdoutLine: {'line': b'[100%] Built target robot_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[4.490675] (robot_msgs) StdoutLine: {'line': b'[100%] Built target robot_msgs__rosidl_typesupport_c__pyext\n'}
+[4.508660] (-) TimerEvent: {}
+[4.510897] (robot_msgs) StdoutLine: {'line': b'[100%] Built target robot_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[4.519681] (robot_msgs) CommandEnded: {'returncode': 0}
+[4.582832] (robot_msgs) JobProgress: {'identifier': 'robot_msgs', 'progress': 'install'}
+[4.591012] (robot_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/wl/Documents/simulation_all_ros2/build/robot_msgs'], 'cwd': '/home/wl/Documents/simulation_all_ros2/build/robot_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('SVGA_VGPU10', '0'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wl'), ('LC_TIME', 'zh_CN.UTF-8'), ('SSH_AGENT_PID', '1341'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'fcitx'), ('HOME', '/home/wl'), ('CHROME_DESKTOP', 'code.desktop'), ('CONDA_SHLVL', '0'), ('TERM_PROGRAM_VERSION', '1.95.2'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1239'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6600'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wl'), ('JOURNAL_STREAM', '8:31659'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'wl'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/include/onnx:/home/wl/anaconda3/condabin:/opt/gcc-aarch64-10.2/bin:/opt/gcc-aarch64-10.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/wl:@/tmp/.ICE-unix/1385,unix/wl:/tmp/.ICE-unix/1385'), ('INVOCATION_ID', '49c02fe46e6848a391cd6d863e2f23ab'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0.0'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-e2bbbf5ae3.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('CONDA_PYTHON_EXE', '/home/wl/anaconda3/bin/python'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wl/Documents/simulation_all_ros2/build/robot_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CONDA_EXE', '/home/wl/anaconda3/bin/conda'), ('CLUTTER_IM_MODULE', 'fcitx'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[4.597661] (robot_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.597851] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/ament_index/resource_index/rosidl_interfaces/robot_msgs\n'}
+[4.598000] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.598100] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.598187] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_command.h\n'}
+[4.598286] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.598384] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__struct.h\n'}
+[4.598478] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__type_support.h\n'}
+[4.598575] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__type_support.h\n'}
+[4.598660] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__functions.c\n'}
+[4.598759] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__struct.h\n'}
+[4.598861] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__functions.c\n'}
+[4.598956] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__struct.h\n'}
+[4.599035] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__type_support.h\n'}
+[4.599133] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__functions.c\n'}
+[4.599230] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__functions.h\n'}
+[4.599307] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__functions.c\n'}
+[4.599385] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__functions.h\n'}
+[4.599440] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__functions.h\n'}
+[4.599513] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__struct.h\n'}
+[4.599589] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__functions.h\n'}
+[4.599646] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__functions.c\n'}
+[4.599699] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__type_support.h\n'}
+[4.599754] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__functions.h\n'}
+[4.599884] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__type_support.h\n'}
+[4.599967] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__struct.h\n'}
+[4.600060] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/imu.h\n'}
+[4.600154] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_state.h\n'}
+[4.600211] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/robot_state.h\n'}
+[4.600288] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[4.600347] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/robot_command.h\n'}
+[4.600400] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/library_path.sh\n'}
+[4.600455] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/library_path.dsv\n'}
+[4.600584] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_generator_c.so\n'}
+[4.600667] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_generator_c.so" to ""\n'}
+[4.600766] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.600857] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.600932] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.600988] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__rosidl_typesupport_fastrtps_c.h\n'}
+[4.601064] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__rosidl_typesupport_fastrtps_c.h\n'}
+[4.601120] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__rosidl_typesupport_fastrtps_c.h\n'}
+[4.601173] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__rosidl_typesupport_fastrtps_c.h\n'}
+[4.601279] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__rosidl_typesupport_fastrtps_c.h\n'}
+[4.601379] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[4.601464] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[4.601561] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[4.601652] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.601736] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.601834] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.601909] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.601964] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.602039] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/dds_fastrtps\n'}
+[4.602092] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.602145] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.602219] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.602293] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[4.602346] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[4.602400] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[4.602521] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.602617] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.602706] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.602800] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__rosidl_typesupport_introspection_c.h\n'}
+[4.602892] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__rosidl_typesupport_introspection_c.h\n'}
+[4.602991] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__type_support.c\n'}
+[4.603093] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__type_support.c\n'}
+[4.603190] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__type_support.c\n'}
+[4.603283] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__rosidl_typesupport_introspection_c.h\n'}
+[4.603370] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__rosidl_typesupport_introspection_c.h\n'}
+[4.603466] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__type_support.c\n'}
+[4.603555] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__type_support.c\n'}
+[4.603639] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__rosidl_typesupport_introspection_c.h\n'}
+[4.603735] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[4.603826] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_c.so\n'}
+[4.603910] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[4.604018] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_c.so\n'}
+[4.604102] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_c.so" to ""\n'}
+[4.604197] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.604260] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.604322] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_command.hpp\n'}
+[4.604392] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/robot_command.hpp\n'}
+[4.604456] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[4.604519] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.604571] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__builder.hpp\n'}
+[4.604623] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__traits.hpp\n'}
+[4.604686] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__type_support.hpp\n'}
+[4.604744] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__traits.hpp\n'}
+[4.604795] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__struct.hpp\n'}
+[4.604855] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__type_support.hpp\n'}
+[4.604908] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__type_support.hpp\n'}
+[4.604970] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__traits.hpp\n'}
+[4.605022] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__builder.hpp\n'}
+[4.605073] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__type_support.hpp\n'}
+[4.605137] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__struct.hpp\n'}
+[4.605199] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__traits.hpp\n'}
+[4.605267] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__struct.hpp\n'}
+[4.605319] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__builder.hpp\n'}
+[4.605381] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__struct.hpp\n'}
+[4.605434] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__builder.hpp\n'}
+[4.605485] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__traits.hpp\n'}
+[4.605535] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__builder.hpp\n'}
+[4.605587] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__struct.hpp\n'}
+[4.605641] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__type_support.hpp\n'}
+[4.605694] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/robot_state.hpp\n'}
+[4.605746] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_state.hpp\n'}
+[4.605798] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/imu.hpp\n'}
+[4.605849] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs\n'}
+[4.605901] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg\n'}
+[4.605953] (robot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail\n'}
+[4.606009] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.606062] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__type_support.cpp\n'}
+[4.606113] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.606165] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.606216] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.606267] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__type_support.cpp\n'}
+[4.606319] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/robot_command__type_support.cpp\n'}
+[4.606371] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/imu__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.606424] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__type_support.cpp\n'}
+[4.606475] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__type_support.cpp\n'}
+[4.606526] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[4.606577] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[4.606628] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_cpp.so\n'}
+[4.606679] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[4.606731] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/pythonpath.sh\n'}
+[4.606781] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/pythonpath.dsv\n'}
+[4.606834] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/__init__.py\n'}
+[4.608713] (-) TimerEvent: {}
+[4.626361] (robot_msgs) StdoutLine: {'line': b"Compiling '/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/__init__.py'...\n"}
+[4.629195] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg\n'}
+[4.629391] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/__init__.py\n'}
+[4.629506] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_motor_state.py\n'}
+[4.629577] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_motor_state_s.c\n'}
+[4.629657] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_command_s.c\n'}
+[4.629727] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_imu.py\n'}
+[4.629794] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_state_s.c\n'}
+[4.629869] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_motor_command.py\n'}
+[4.629926] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_state.py\n'}
+[4.629992] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_command.py\n'}
+[4.630047] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_motor_command_s.c\n'}
+[4.630099] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_imu_s.c\n'}
+[4.630151] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so\n'}
+[4.630258] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[4.630405] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so\n'}
+[4.630732] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[4.630829] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so\n'}
+[4.631162] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""\n'}
+[4.631234] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__python.so\n'}
+[4.631426] (robot_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wl/Documents/simulation_all_ros2/install/robot_msgs/lib/librobot_msgs__python.so" to ""\n'}
+[4.631503] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/MotorCommand.idl\n'}
+[4.631585] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/MotorState.idl\n'}
+[4.631650] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/RobotCommand.idl\n'}
+[4.631719] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/RobotState.idl\n'}
+[4.631793] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/IMU.idl\n'}
+[4.631871] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/MotorCommand.msg\n'}
+[4.631951] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/MotorState.msg\n'}
+[4.632027] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/RobotCommand.msg\n'}
+[4.632103] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/RobotState.msg\n'}
+[4.632179] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/msg/IMU.msg\n'}
+[4.632291] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/ament_index/resource_index/package_run_dependencies/robot_msgs\n'}
+[4.632397] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/ament_index/resource_index/parent_prefix_path/robot_msgs\n'}
+[4.632481] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/ament_prefix_path.sh\n'}
+[4.632561] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/ament_prefix_path.dsv\n'}
+[4.632640] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/path.sh\n'}
+[4.632719] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/environment/path.dsv\n'}
+[4.632799] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/local_setup.bash\n'}
+[4.632882] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/local_setup.sh\n'}
+[4.632965] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/local_setup.zsh\n'}
+[4.633047] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/local_setup.dsv\n'}
+[4.633131] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/package.dsv\n'}
+[4.633243] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/ament_index/resource_index/packages/robot_msgs\n'}
+[4.633369] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cExport.cmake\n'}
+[4.633459] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[4.633577] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[4.633665] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[4.633775] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cExport.cmake\n'}
+[4.633860] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[4.633968] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cppExport.cmake\n'}
+[4.634085] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[4.634173] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[4.634282] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[4.634368] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[4.634449] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[4.634529] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[4.634615] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.634695] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[4.634773] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.634852] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[4.634929] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[4.635011] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgsConfig.cmake\n'}
+[4.635088] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake/robot_msgsConfig-version.cmake\n'}
+[4.635201] (robot_msgs) StdoutLine: {'line': b'-- Installing: /home/wl/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/package.xml\n'}
+[4.636693] (robot_msgs) CommandEnded: {'returncode': 0}
+[4.708998] (-) TimerEvent: {}
+[4.712569] (robot_msgs) JobEnded: {'identifier': 'robot_msgs', 'rc': 0}
+[4.713155] (-) EventReactorShutdown: {}

@@ -1,0 +1,2 @@
+Invoking command in '/home/wl/Documents/simulation_all_ros2/build/robot_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/wl/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/wl/Documents/simulation_all_ros2/install/robot_msgs
+Invoked command in '/home/wl/Documents/simulation_all_ros2/build/robot_msgs' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/wl/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/wl/Documents/simulation_all_ros2/install/robot_msgs
