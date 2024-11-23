@@ -8,6 +8,7 @@
       "includePath": [
         "/usr/include/**",
         "/opt/ros/foxy/include/**",
+        "/${workspaceFolder}/install/robot_msgs/**",
         "/${workspaceFolder}/install/**",
         "/opt/ros/foxy/share/**"
       ],

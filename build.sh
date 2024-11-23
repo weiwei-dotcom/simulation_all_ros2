@@ -1,15 +1,6 @@
 #!/bin/bash
+rm -r install/ build/
 
-rm -r devel/ build/
+source /opt/ros/foxy/setup.bash
 
-cd src/
-
-rm CMakeLists.txt
-
-source /opt/ros/noetic/setup.bash
-
-catkin_init_workspace
-
-cd ..
-
-catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+colcon build --packages-select simulation_all_ros2

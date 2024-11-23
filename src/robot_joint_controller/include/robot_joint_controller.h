@@ -7,13 +7,11 @@
 #include <realtime_tools/realtime_publisher.h>
 #include <hardware_interface/joint_command_interface.h>
 #include <controller_interface/controller.h>
-#include <std_msgs/Float64.h>
+#include <std_msgs/msg/float64.h>
 #include <realtime_tools/realtime_buffer.h>
-#include <controller_interface/controller.h>
-#include <hardware_interface/joint_command_interface.h>
-#include "robot_msgs/msg/motor_command.h"
-#include "robot_msgs/msg/motor_state.h"
-#include <geometry_msgs/WrenchStamped.h>
+#include "robot_msgs/msg/motor_command.hpp"
+#include "robot_msgs/msg/motor_state.hpp"
+#include <geometry_msgs/msg/WrenchStamped.h>
 
 #include <stdio.h>
 #include <stdint.h>
