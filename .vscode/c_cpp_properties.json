@@ -9,8 +9,9 @@
         "/usr/include/**",
         "/opt/ros/foxy/include/**",
         "/${workspaceFolder}/install/robot_msgs/**",
+        "/${workspaceFolder}/src/robot_joint_controller/include/**",
         "/${workspaceFolder}/install/**",
-        "/opt/ros/foxy/share/**"
+        "/opt/ros/foxy/share/**",
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

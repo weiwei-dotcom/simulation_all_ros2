@@ -19,8 +19,8 @@ namespace robot_joint_controller
 
 RobotJointController::RobotJointController()
 {
-    memset(&lastCommand, 0, sizeof(robot_msgs::msg::MotorCommand));
-    memset(&lastState, 0, sizeof(robot_msgs::msg::MotorState));
+    memset(&lastCommand, 0, sizeof(robot_msgs::MotorCommand));
+    memset(&lastState, 0, sizeof(robot_msgs::MotorState));
     memset(&servoCommand, 0, sizeof(ServoCommand));
 }
 
@@ -74,7 +74,7 @@ bool RobotJointController::init(hardware_interface::EffortJointInterface *robot,
     sub_command = n.subscribe("command", 20, &RobotJointController::setCommandCB, this);
 
     // Start realtime state publisher
-    controller_state_publisher_.reset(new realtime_tools::RealtimePublisher<robot_msgs::msg::MotorState>(n, name_space + "/state", 1));
+    controller_state_publisher_.reset(new realtime_tools::RealtimePublisher<robot_msgs::MotorState>(n, name_space + "/state", 1));
 
     return true;
 }
@@ -112,7 +112,7 @@ void RobotJointController::starting(const ros::Time &time)
 }
 
 // Controller update loop in realtime
-void RobotJointController::update(const ros::Time &time, const ros::Duration &period)
+void RobotJointController::update(const ros::Time &time, const ros::Duration & period)
 {
     double currentPos, currentVel, calcTorque;
     lastCommand = *(command.readFromRT());
