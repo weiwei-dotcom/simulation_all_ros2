@@ -1,0 +1,6 @@
+Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ww/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/ww/Documents/simulation_all_ros2/install/robot_msgs
+Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ww/Documents/simulation_all_ros2/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/ww/Documents/simulation_all_ros2/install/robot_msgs
+Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_msgs -- -j12 -l12
+Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_msgs -- -j12 -l12
+Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ww/Documents/simulation_all_ros2/build/robot_msgs
+Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ww/Documents/simulation_all_ros2/build/robot_msgs

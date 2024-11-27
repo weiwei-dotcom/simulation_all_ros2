@@ -1,0 +1,185 @@
+[0.008s] Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_joint_controller -- -j12 -l12
+[0.034s] [35m[1mScanning dependencies of target robot_joint_controller[0m
+[0.051s] [ 50%] [32mBuilding CXX object CMakeFiles/robot_joint_controller.dir/src/robot_joint_controller.cpp.o[0m
+[0.114s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:2[m[K:
+[0.114s] [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.h:36:2:[m[K [01;35m[Kwarning: [m[K#warning Including header <pluginlib/class_list_macros.h> is deprecated, include <pluginlib/class_list_macros.hpp> instead. [[01;35m[K-Wcpp[m[K]
+[0.114s]    36 | #[01;35m[Kwarning[m[K Including header <pluginlib/class_list_macros.h> is deprecated, \
+[0.114s]       |  [01;35m[K^~~~~~~[m[K
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual controller_interface::return_type robot_joint_controller::RobotJointController::init(const string&)[m[K’:
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:45:68:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid* memset(void*, int, size_t)[m[K’ clearing an object of non-trivial type ‘[01m[Kusing MotorCommand = struct robot_msgs::msg::MotorCommand_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct robot_msgs::msg::MotorCommand_<std::allocator<void> >[m[K’}; use assignment or value-initialization instead [[01;35m[K-Wclass-memaccess[m[K]
+[0.866s]    45 |     memset(&last_command_, 0, sizeof(robot_msgs::msg::MotorCommand)[01;35m[K)[m[K;
+[0.866s]       |                                                                    [01;35m[K^[m[K
+[0.866s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_command.hpp:7[m[K,
+[0.866s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:13[m[K,
+[0.866s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_command__struct.hpp:31:8:[m[K [01;36m[Knote: [m[K‘[01m[Kusing MotorCommand = struct robot_msgs::msg::MotorCommand_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct robot_msgs::msg::MotorCommand_<std::allocator<void> >[m[K’} declared here
+[0.866s]    31 | struct [01;36m[KMotorCommand_[m[K
+[0.866s]       |        [01;36m[K^~~~~~~~~~~~~[m[K
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:46:64:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvoid* memset(void*, int, size_t)[m[K’ clearing an object of non-trivial type ‘[01m[Kusing MotorState = struct robot_msgs::msg::MotorState_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct robot_msgs::msg::MotorState_<std::allocator<void> >[m[K’}; use assignment or value-initialization instead [[01;35m[K-Wclass-memaccess[m[K]
+[0.866s]    46 |     memset(&last_state_, 0, sizeof(robot_msgs::msg::MotorState)[01;35m[K)[m[K;
+[0.866s]       |                                                                [01;35m[K^[m[K
+[0.866s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/motor_state.hpp:7[m[K,
+[0.866s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:14[m[K,
+[0.866s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/install/robot_msgs/include/robot_msgs/msg/detail/motor_state__struct.hpp:31:8:[m[K [01;36m[Knote: [m[K‘[01m[Kusing MotorState = struct robot_msgs::msg::MotorState_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct robot_msgs::msg::MotorState_<std::allocator<void> >[m[K’} declared here
+[0.866s]    31 | struct [01;36m[KMotorState_[m[K
+[0.866s]       |        [01;36m[K^~~~~~~~~~~[m[K
+[0.866s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:48:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[0.866s]    48 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[0.867s]       |                                               [01;35m[K^~~~~~~[m[K
+[0.867s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[0.867s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.867s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[0.867s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[0.867s]       |   [01;36m[K^~~~~~~[m[K
+[0.867s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:48:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[0.867s]    48 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[0.867s]       |                                               [01;35m[K^~~~~~~[m[K
+[0.867s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[0.867s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.867s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[0.867s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[0.867s]       |   [01;36m[K^~~~~~~[m[K
+[0.868s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_configure(const rclcpp_lifecycle::State&)[m[K’:
+[0.868s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:51:104:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[0.868s]    51 | RobotJointController::CallbackReturn RobotJointController::on_configure([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[0.868s]       |                                                                         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[0.880s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_activate(const rclcpp_lifecycle::State&)[m[K’:
+[0.880s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:67:103:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[0.880s]    67 | RobotJointController::CallbackReturn RobotJointController::on_activate([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[0.880s]       |                                                                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[0.882s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual controller_interface::return_type robot_joint_controller::RobotJointController::update()[m[K’:
+[0.882s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:207:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[0.882s]   207 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[0.882s]       |                                               [01;35m[K^~~~~~~[m[K
+[0.882s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[0.882s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.882s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[0.882s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[0.882s]       |   [01;36m[K^~~~~~~[m[K
+[0.882s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:207:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[0.882s]   207 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[0.882s]       |                                               [01;35m[K^~~~~~~[m[K
+[0.882s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[0.882s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[0.882s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[0.882s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[0.882s]       |   [01;36m[K^~~~~~~[m[K
+[0.882s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_deactivate(const rclcpp_lifecycle::State&)[m[K’:
+[0.882s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:210:105:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[0.882s]   210 | RobotJointController::CallbackReturn RobotJointController::on_deactivate([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[0.882s]       |                                                                          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[1.554s] In file included from [01m[K/opt/ros/foxy/include/class_loader/class_loader_core.hpp:57[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/class_loader/class_loader.hpp:55[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.hpp:40[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.h:39[m[K,
+[1.555s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:2[m[K:
+[1.555s] /opt/ros/foxy/include/class_loader/meta_object.hpp: In instantiation of ‘[01m[KB* class_loader::impl::MetaObject<C, B>::create() const [with C = robot_joint_controller::RobotJointController; B = controller_interface::ControllerInterface][m[K’:
+[1.555s] [01m[K/opt/ros/foxy/include/class_loader/meta_object.hpp:216:7:[m[K   required from here
+[1.555s] [01m[K/opt/ros/foxy/include/class_loader/meta_object.hpp:218:12:[m[K [01;31m[Kerror: [m[Kuse of deleted function ‘[01m[Krobot_joint_controller::RobotJointController::RobotJointController()[m[K’
+[1.555s]   218 |     return [01;31m[Knew C[m[K;
+[1.555s]       |            [01;31m[K^~~~~[m[K
+[1.555s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.555s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:45:7:[m[K [01;36m[Knote: [m[K‘[01m[Krobot_joint_controller::RobotJointController::RobotJointController()[m[K’ is implicitly deleted because the default definition would be ill-formed:
+[1.555s]    45 | class [01;36m[KRobotJointController[m[K: public controller_interface::ControllerInterface
+[1.555s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[1.555s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:45:7:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::reference_wrapper<hardware_interface::LoanedCommandInterface>::reference_wrapper()[m[K’
+[1.555s] In file included from [01m[K/usr/include/c++/9/bits/shared_ptr_base.h:54[m[K,
+[1.555s]                  from [01m[K/usr/include/c++/9/bits/shared_ptr.h:52[m[K,
+[1.555s]                  from [01m[K/usr/include/c++/9/memory:81[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/urdf_model/types.h:40[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/urdf_model/joint.h:44[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/urdf_model/link.h:44[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/urdf_model/model.h:42[m[K,
+[1.555s]                  from [01m[K/opt/ros/foxy/include/urdf/model.h:43[m[K,
+[1.555s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:4[m[K,
+[1.555s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.555s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::reference_wrapper<_Tp>::reference_wrapper(const std::reference_wrapper<_Tp>&) [with _Tp = hardware_interface::LoanedCommandInterface][m[K’
+[1.555s]   320 |       [01;36m[Kreference_wrapper[m[K(const reference_wrapper&) = default;
+[1.555s]       |       [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.555s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.555s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Up, class, class> std::reference_wrapper<_Tp>::reference_wrapper(_Up&&)[m[K’
+[1.555s]   315 |  [01;36m[Kreference_wrapper[m[K(_Up&& __uref)
+[1.555s]       |  [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.555s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.555s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.555s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:45:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.555s]    45 | class [01;36m[KRobotJointController[m[K: public controller_interface::ControllerInterface
+[1.555s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[1.555s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:45:7:[m[K [01;31m[Kerror: [m[Kuse of deleted function ‘[01m[KJointState::JointState()[m[K’
+[1.555s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;36m[Knote: [m[K‘[01m[KJointState::JointState()[m[K’ is implicitly deleted because the default definition would be ill-formed:
+[1.556s]    41 | } [01;36m[KJointState[m[K;
+[1.556s]       |   [01;36m[K^~~~~~~~~~[m[K
+[1.556s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::reference_wrapper<hardware_interface::LoanedStateInterface>::reference_wrapper()[m[K’
+[1.556s] In file included from [01m[K/usr/include/c++/9/bits/shared_ptr_base.h:54[m[K,
+[1.556s]                  from [01m[K/usr/include/c++/9/bits/shared_ptr.h:52[m[K,
+[1.556s]                  from [01m[K/usr/include/c++/9/memory:81[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/types.h:40[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/joint.h:44[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/link.h:44[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/model.h:42[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf/model.h:43[m[K,
+[1.556s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:4[m[K,
+[1.556s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::reference_wrapper<_Tp>::reference_wrapper(const std::reference_wrapper<_Tp>&) [with _Tp = hardware_interface::LoanedStateInterface][m[K’
+[1.556s]   320 |       [01;36m[Kreference_wrapper[m[K(const reference_wrapper&) = default;
+[1.556s]       |       [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Up, class, class> std::reference_wrapper<_Tp>::reference_wrapper(_Up&&)[m[K’
+[1.556s]   315 |  [01;36m[Kreference_wrapper[m[K(_Up&& __uref)
+[1.556s]       |  [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.556s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.556s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.556s]    41 | } [01;36m[KJointState[m[K;
+[1.556s]       |   [01;36m[K^~~~~~~~~~[m[K
+[1.556s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::reference_wrapper<hardware_interface::LoanedStateInterface>::reference_wrapper()[m[K’
+[1.556s] In file included from [01m[K/usr/include/c++/9/bits/shared_ptr_base.h:54[m[K,
+[1.556s]                  from [01m[K/usr/include/c++/9/bits/shared_ptr.h:52[m[K,
+[1.556s]                  from [01m[K/usr/include/c++/9/memory:81[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/types.h:40[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/joint.h:44[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/link.h:44[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf_model/model.h:42[m[K,
+[1.556s]                  from [01m[K/opt/ros/foxy/include/urdf/model.h:43[m[K,
+[1.556s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:4[m[K,
+[1.556s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::reference_wrapper<_Tp>::reference_wrapper(const std::reference_wrapper<_Tp>&) [with _Tp = hardware_interface::LoanedStateInterface][m[K’
+[1.556s]   320 |       [01;36m[Kreference_wrapper[m[K(const reference_wrapper&) = default;
+[1.556s]       |       [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.556s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Up, class, class> std::reference_wrapper<_Tp>::reference_wrapper(_Up&&)[m[K’
+[1.557s]   315 |  [01;36m[Kreference_wrapper[m[K(_Up&& __uref)
+[1.557s]       |  [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.557s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.557s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.557s]    41 | } [01;36m[KJointState[m[K;
+[1.557s]       |   [01;36m[K^~~~~~~~~~[m[K
+[1.557s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::reference_wrapper<hardware_interface::LoanedStateInterface>::reference_wrapper()[m[K’
+[1.557s] In file included from [01m[K/usr/include/c++/9/bits/shared_ptr_base.h:54[m[K,
+[1.557s]                  from [01m[K/usr/include/c++/9/bits/shared_ptr.h:52[m[K,
+[1.557s]                  from [01m[K/usr/include/c++/9/memory:81[m[K,
+[1.557s]                  from [01m[K/opt/ros/foxy/include/urdf_model/types.h:40[m[K,
+[1.557s]                  from [01m[K/opt/ros/foxy/include/urdf_model/joint.h:44[m[K,
+[1.557s]                  from [01m[K/opt/ros/foxy/include/urdf_model/link.h:44[m[K,
+[1.557s]                  from [01m[K/opt/ros/foxy/include/urdf_model/model.h:42[m[K,
+[1.557s]                  from [01m[K/opt/ros/foxy/include/urdf/model.h:43[m[K,
+[1.557s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:4[m[K,
+[1.557s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::reference_wrapper<_Tp>::reference_wrapper(const std::reference_wrapper<_Tp>&) [with _Tp = hardware_interface::LoanedStateInterface][m[K’
+[1.557s]   320 |       [01;36m[Kreference_wrapper[m[K(const reference_wrapper&) = default;
+[1.557s]       |       [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:320:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Up, class, class> std::reference_wrapper<_Tp>::reference_wrapper(_Up&&)[m[K’
+[1.557s]   315 |  [01;36m[Kreference_wrapper[m[K(_Up&& __uref)
+[1.557s]       |  [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.557s] [01m[K/usr/include/c++/9/bits/refwrap.h:315:2:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.557s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[1.557s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:41:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.557s]    41 | } [01;36m[KJointState[m[K;
+[1.557s]       |   [01;36m[K^~~~~~~~~~[m[K
+[1.694s] make[2]: *** [CMakeFiles/robot_joint_controller.dir/build.make:63：CMakeFiles/robot_joint_controller.dir/src/robot_joint_controller.cpp.o] 错误 1
+[1.694s] make[1]: *** [CMakeFiles/Makefile2:78：CMakeFiles/robot_joint_controller.dir/all] 错误 2
+[1.694s] make: *** [Makefile:141：all] 错误 2
+[1.695s] Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller' returned '2': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_joint_controller -- -j12 -l12

@@ -1,0 +1,112 @@
+[0.008s] Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/ww/Documents/simulation_all_ros2/src/robot_joint_controller -DCMAKE_INSTALL_PREFIX=/home/ww/Documents/simulation_all_ros2/install/robot_joint_controller
+[0.044s] -- The CXX compiler identification is GNU 9.4.0
+[0.047s] -- Check for working CXX compiler: /usr/bin/c++
+[0.089s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.090s] -- Detecting CXX compiler ABI info
+[0.136s] -- Detecting CXX compiler ABI info - done
+[0.144s] -- Detecting CXX compile features
+[0.144s] -- Detecting CXX compile features - done
+[0.146s] -- Found controller_manager: 0.11.0 (/opt/ros/foxy/share/controller_manager/cmake)
+[0.160s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.160s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.291s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.294s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.333s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.350s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.393s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.759s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.760s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.761s] -- Looking for C++ include pthread.h
+[0.807s] -- Looking for C++ include pthread.h - found
+[0.807s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.856s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.856s] -- Looking for pthread_create in pthreads
+[0.893s] -- Looking for pthread_create in pthreads - not found
+[0.893s] -- Looking for pthread_create in pthread
+[0.939s] -- Looking for pthread_create in pthread - found
+[0.940s] -- Found Threads: TRUE  
+[1.150s] -- Found realtime_tools: 2.2.0 (/opt/ros/foxy/share/realtime_tools/cmake)
+[1.173s] -- Found robot_msgs: 0.0.0 (/home/ww/Documents/simulation_all_ros2/install/robot_msgs/share/robot_msgs/cmake)
+[1.405s] -- Configuring done
+[1.426s] -- Generating done
+[1.427s] -- Build files have been written to: /home/ww/Documents/simulation_all_ros2/build/robot_joint_controller
+[1.434s] Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller' returned '0': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/ww/Documents/simulation_all_ros2/src/robot_joint_controller -DCMAKE_INSTALL_PREFIX=/home/ww/Documents/simulation_all_ros2/install/robot_joint_controller
+[1.435s] Invoking command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_joint_controller -- -j12 -l12
+[1.457s] [35m[1mScanning dependencies of target robot_joint_controller[0m
+[1.510s] [ 50%] [32mBuilding CXX object CMakeFiles/robot_joint_controller.dir/src/robot_joint_controller.cpp.o[0m
+[1.590s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:2[m[K:
+[1.591s] [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.h:36:2:[m[K [01;35m[Kwarning: [m[K#warning Including header <pluginlib/class_list_macros.h> is deprecated, include <pluginlib/class_list_macros.hpp> instead. [[01;35m[K-Wcpp[m[K]
+[1.591s]    36 | #[01;35m[Kwarning[m[K Including header <pluginlib/class_list_macros.h> is deprecated, \
+[1.591s]       |  [01;35m[K^~~~~~~[m[K
+[2.388s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual controller_interface::return_type robot_joint_controller::RobotJointController::init(const string&)[m[K’:
+[2.388s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:62:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[2.388s]    62 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[2.388s]       |                                               [01;35m[K^~~~~~~[m[K
+[2.388s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[2.388s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[2.388s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[2.388s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[2.388s]       |   [01;36m[K^~~~~~~[m[K
+[2.388s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:62:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[2.388s]    62 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[2.388s]       |                                               [01;35m[K^~~~~~~[m[K
+[2.388s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[2.388s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[2.388s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[2.388s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[2.388s]       |   [01;36m[K^~~~~~~[m[K
+[2.390s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_configure(const rclcpp_lifecycle::State&)[m[K’:
+[2.390s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:65:104:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.390s]    65 | RobotJointController::CallbackReturn RobotJointController::on_configure([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[2.390s]       |                                                                         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[2.402s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_activate(const rclcpp_lifecycle::State&)[m[K’:
+[2.402s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:81:103:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.402s]    81 | RobotJointController::CallbackReturn RobotJointController::on_activate([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[2.402s]       |                                                                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[2.404s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual controller_interface::return_type robot_joint_controller::RobotJointController::update()[m[K’:
+[2.404s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:221:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[2.404s]   221 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[2.404s]       |                                               [01;35m[K^~~~~~~[m[K
+[2.404s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[2.404s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[2.404s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[2.404s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[2.404s]       |   [01;36m[K^~~~~~~[m[K
+[2.404s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:221:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kcontroller_interface::return_type::SUCCESS[m[K’ is deprecated: Use controller_interface::return_type::OK instead. [[01;35m[K-Wdeprecated-declarations[m[K]
+[2.405s]   221 |     return controller_interface::return_type::[01;35m[KSUCCESS[m[K;
+[2.405s]       |                                               [01;35m[K^~~~~~~[m[K
+[2.405s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[2.405s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[2.405s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:42:3:[m[K [01;36m[Knote: [m[Kdeclared here
+[2.405s]    42 |   [01;36m[KSUCCESS[m[K [[deprecated("Use controller_interface::return_type::OK instead.")]] = OK
+[2.405s]       |   [01;36m[K^~~~~~~[m[K
+[2.405s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:[m[K In member function ‘[01m[Kvirtual robot_joint_controller::RobotJointController::CallbackReturn robot_joint_controller::RobotJointController::on_deactivate(const rclcpp_lifecycle::State&)[m[K’:
+[2.405s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:224:105:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.405s]   224 | RobotJointController::CallbackReturn RobotJointController::on_deactivate([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+[2.405s]       |                                                                          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[3.114s] In file included from [01m[K/opt/ros/foxy/include/class_loader/class_loader_core.hpp:57[m[K,
+[3.114s]                  from [01m[K/opt/ros/foxy/include/class_loader/class_loader.hpp:55[m[K,
+[3.114s]                  from [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.hpp:40[m[K,
+[3.114s]                  from [01m[K/opt/ros/foxy/include/pluginlib/class_list_macros.h:39[m[K,
+[3.114s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:2[m[K:
+[3.114s] /opt/ros/foxy/include/class_loader/meta_object.hpp: In instantiation of ‘[01m[KB* class_loader::impl::MetaObject<C, B>::create() const [with C = robot_joint_controller::RobotJointController; B = controller_interface::ControllerInterface][m[K’:
+[3.114s] [01m[K/opt/ros/foxy/include/class_loader/meta_object.hpp:216:7:[m[K   required from here
+[3.114s] [01m[K/opt/ros/foxy/include/class_loader/meta_object.hpp:218:12:[m[K [01;31m[Kerror: [m[Kinvalid new-expression of abstract class type ‘[01m[Krobot_joint_controller::RobotJointController[m[K’
+[3.114s]   218 |     return [01;31m[Knew C[m[K;
+[3.114s]       |            [01;31m[K^~~~~[m[K
+[3.114s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[3.114s] [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:45:7:[m[K [01;36m[Knote: [m[K  because the following virtual functions are pure within ‘[01m[Krobot_joint_controller::RobotJointController[m[K’:
+[3.114s]    45 | class [01;36m[KRobotJointController[m[K: public controller_interface::ControllerInterface
+[3.114s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.114s] In file included from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/include/robot_joint_controller.hpp:7[m[K,
+[3.114s]                  from [01m[K/home/ww/Documents/simulation_all_ros2/src/robot_joint_controller/src/robot_joint_controller.cpp:1[m[K:
+[3.114s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:78:34:[m[K [01;36m[Knote: [m[K	‘[01m[Kvirtual controller_interface::InterfaceConfiguration controller_interface::ControllerInterface::command_interface_configuration() const[m[K’
+[3.114s]    78 |   virtual InterfaceConfiguration [01;36m[Kcommand_interface_configuration[m[K() const = 0;
+[3.114s]       |                                  [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.114s] [01m[K/opt/ros/foxy/include/controller_interface/controller_interface.hpp:81:34:[m[K [01;36m[Knote: [m[K	‘[01m[Kvirtual controller_interface::InterfaceConfiguration controller_interface::ControllerInterface::state_interface_configuration() const[m[K’
+[3.114s]    81 |   virtual InterfaceConfiguration [01;36m[Kstate_interface_configuration[m[K() const = 0;
+[3.114s]       |                                  [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.262s] make[2]: *** [CMakeFiles/robot_joint_controller.dir/build.make:63：CMakeFiles/robot_joint_controller.dir/src/robot_joint_controller.cpp.o] 错误 1
+[3.262s] make[1]: *** [CMakeFiles/Makefile2:78：CMakeFiles/robot_joint_controller.dir/all] 错误 2
+[3.262s] make: *** [Makefile:141：all] 错误 2
+[3.264s] Invoked command in '/home/ww/Documents/simulation_all_ros2/build/robot_joint_controller' returned '2': AMENT_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ww/Documents/simulation_all_ros2/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ww/Documents/simulation_all_ros2/build/robot_joint_controller -- -j12 -l12
