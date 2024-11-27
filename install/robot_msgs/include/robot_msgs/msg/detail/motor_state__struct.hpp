@@ -37,11 +37,11 @@ struct MotorState_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->q = 0.0f;
-      this->dq = 0.0f;
-      this->ddq = 0.0f;
-      this->tau_est = 0.0f;
-      this->cur = 0.0f;
+      this->q = 0.0;
+      this->dq = 0.0;
+      this->ddq = 0.0;
+      this->tau_est = 0.0;
+      this->cur = 0.0;
     }
   }
 
@@ -51,58 +51,58 @@ struct MotorState_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->q = 0.0f;
-      this->dq = 0.0f;
-      this->ddq = 0.0f;
-      this->tau_est = 0.0f;
-      this->cur = 0.0f;
+      this->q = 0.0;
+      this->dq = 0.0;
+      this->ddq = 0.0;
+      this->tau_est = 0.0;
+      this->cur = 0.0;
     }
   }
 
   // field types and members
   using _q_type =
-    float;
+    double;
   _q_type q;
   using _dq_type =
-    float;
+    double;
   _dq_type dq;
   using _ddq_type =
-    float;
+    double;
   _ddq_type ddq;
   using _tau_est_type =
-    float;
+    double;
   _tau_est_type tau_est;
   using _cur_type =
-    float;
+    double;
   _cur_type cur;
 
   // setters for named parameter idiom
   Type & set__q(
-    const float & _arg)
+    const double & _arg)
   {
     this->q = _arg;
     return *this;
   }
   Type & set__dq(
-    const float & _arg)
+    const double & _arg)
   {
     this->dq = _arg;
     return *this;
   }
   Type & set__ddq(
-    const float & _arg)
+    const double & _arg)
   {
     this->ddq = _arg;
     return *this;
   }
   Type & set__tau_est(
-    const float & _arg)
+    const double & _arg)
   {
     this->tau_est = _arg;
     return *this;
   }
   Type & set__cur(
-    const float & _arg)
+    const double & _arg)
   {
     this->cur = _arg;
     return *this;

@@ -37,11 +37,11 @@ struct MotorCommand_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->q = 0.0f;
-      this->dq = 0.0f;
-      this->tau = 0.0f;
-      this->kp = 0.0f;
-      this->kd = 0.0f;
+      this->q = 0.0;
+      this->dq = 0.0;
+      this->tau = 0.0;
+      this->kp = 0.0;
+      this->kd = 0.0;
     }
   }
 
@@ -51,58 +51,58 @@ struct MotorCommand_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->q = 0.0f;
-      this->dq = 0.0f;
-      this->tau = 0.0f;
-      this->kp = 0.0f;
-      this->kd = 0.0f;
+      this->q = 0.0;
+      this->dq = 0.0;
+      this->tau = 0.0;
+      this->kp = 0.0;
+      this->kd = 0.0;
     }
   }
 
   // field types and members
   using _q_type =
-    float;
+    double;
   _q_type q;
   using _dq_type =
-    float;
+    double;
   _dq_type dq;
   using _tau_type =
-    float;
+    double;
   _tau_type tau;
   using _kp_type =
-    float;
+    double;
   _kp_type kp;
   using _kd_type =
-    float;
+    double;
   _kd_type kd;
 
   // setters for named parameter idiom
   Type & set__q(
-    const float & _arg)
+    const double & _arg)
   {
     this->q = _arg;
     return *this;
   }
   Type & set__dq(
-    const float & _arg)
+    const double & _arg)
   {
     this->dq = _arg;
     return *this;
   }
   Type & set__tau(
-    const float & _arg)
+    const double & _arg)
   {
     this->tau = _arg;
     return *this;
   }
   Type & set__kp(
-    const float & _arg)
+    const double & _arg)
   {
     this->kp = _arg;
     return *this;
   }
   Type & set__kd(
-    const float & _arg)
+    const double & _arg)
   {
     this->kd = _arg;
     return *this;

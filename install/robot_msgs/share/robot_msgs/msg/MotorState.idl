@@ -8,23 +8,23 @@ module robot_msgs {
     struct MotorState {
       @verbatim (language="comment", text=
         " motor current position (rad)")
-      float q;
+      double q;
 
       @verbatim (language="comment", text=
         " motor current speed (rad/s)")
-      float dq;
+      double dq;
 
       @verbatim (language="comment", text=
         " motor current speed (rad/s)")
-      float ddq;
+      double ddq;
 
       @verbatim (language="comment", text=
         " current estimated output torque (N*m)")
-      float tau_est;
+      double tau_est;
 
       @verbatim (language="comment", text=
         " current estimated output cur (N*m)")
-      float cur;
+      double cur;
     };
   };
 };

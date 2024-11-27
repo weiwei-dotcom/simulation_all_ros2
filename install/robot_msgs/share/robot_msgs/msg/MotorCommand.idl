@@ -8,23 +8,23 @@ module robot_msgs {
     struct MotorCommand {
       @verbatim (language="comment", text=
         " motor target position")
-      float q;
+      double q;
 
       @verbatim (language="comment", text=
         " motor target velocity")
-      float dq;
+      double dq;
 
       @verbatim (language="comment", text=
         " motor target torque")
-      float tau;
+      double tau;
 
       @verbatim (language="comment", text=
         " motor spring stiffness coefficient")
-      float kp;
+      double kp;
 
       @verbatim (language="comment", text=
         " motor damper coefficient")
-      float kd;
+      double kd;
     };
   };
 };

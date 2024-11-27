@@ -3,7 +3,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <urdf/model.h>
-#include <control_toolbox/pid.hpp>
+#include <control_toolbox/pid.hpp> // 这个是由于可能rqt调试需要用到， 可以删掉
 #include <realtime_tools/realtime_publisher.h>
 #include <hardware_interface/loaned_command_interface.hpp>
 #include <controller_interface/controller_interface.hpp>
@@ -12,7 +12,7 @@
 #include <realtime_tools/realtime_buffer.h>
 #include "robot_msgs/msg/motor_command.hpp"
 #include "robot_msgs/msg/motor_state.hpp"
-#include <geometry_msgs/msg/wrench_stamped.h>
+#include <geometry_msgs/msg/wrench_stamped.hpp>
 
 #include <stdio.h>
 #include <stdint.h>
@@ -52,18 +52,19 @@ private:
     
     std::reference_wrapper<hardware_interface::LoanedCommandInterface> joint_command_interface_; //todo:
     JointState joint_state_;
-    rclcpp::Subscription<robot_msgs::msg::MotorCommand>::SharedPtr sub_command_;
-    control_toolbox::Pid pid_controller_;
-    std::shared_ptr<realtime_tools::RealtimePublisher<robot_msgs::msg::MotorState>> controller_state_publisher_ ;
+    rclcpp::Subscription<robot_msgs::msg::MotorCommand>::SharedPtr joint_command_subscriber_;
+    std::shared_ptr<realtime_tools::RealtimePublisher<robot_msgs::msg::MotorState>> joint_state_publisher_ ;
 
 public:
     urdf::JointConstSharedPtr joint_urdf_;
     std::string joint_name_; 
-    realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> command_;
-    robot_msgs::msg::MotorCommand lastCommand_;
-    robot_msgs::msg::MotorState lastState_;
+    realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> realtime_cmd_buffer_;
 
-    ServoCommand servoCommand_;
+    robot_msgs::msg::MotorCommand last_command_;
+    robot_msgs::msg::MotorCommand last_servo_command_;
+    robot_msgs::msg::MotorState last_state_;
+
+    ServoCommand servo_command_;
 
     RobotJointController();
     ~RobotJointController();
@@ -77,10 +78,6 @@ public:
     void positionLimits(double &position);
     void velocityLimits(double &velocity);
     void effortLimits(double &effort);
-
-    void setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min, const bool &antiwindup = false);
-    void getGains(double &p, double &i, double &d, double &i_max, double &i_min, bool &antiwindup);
-    void getGains(double &p, double &i, double &d, double &i_max, double &i_min);
 };
 }
 

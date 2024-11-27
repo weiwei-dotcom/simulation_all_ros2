@@ -40,7 +40,7 @@ void MotorCommand_fini_function(void * message_memory)
 static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorCommand_message_member_array[5] = {
   {
     "q",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -55,7 +55,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorCommand_
   },
   {
     "dq",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -70,7 +70,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorCommand_
   },
   {
     "tau",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -85,7 +85,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorCommand_
   },
   {
     "kp",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -100,7 +100,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorCommand_
   },
   {
     "kd",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array

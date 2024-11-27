@@ -20,11 +20,11 @@ extern "C"
 // Struct defined in msg/MotorState in the package robot_msgs.
 typedef struct robot_msgs__msg__MotorState
 {
-  float q;
-  float dq;
-  float ddq;
-  float tau_est;
-  float cur;
+  double q;
+  double dq;
+  double ddq;
+  double tau_est;
+  double cur;
 } robot_msgs__msg__MotorState;
 
 // Struct for a sequence of robot_msgs__msg__MotorState.

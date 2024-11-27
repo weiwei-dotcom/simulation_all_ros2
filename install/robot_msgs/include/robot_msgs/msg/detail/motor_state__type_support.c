@@ -34,7 +34,7 @@ void MotorState__rosidl_typesupport_introspection_c__MotorState_fini_function(vo
 static rosidl_typesupport_introspection_c__MessageMember MotorState__rosidl_typesupport_introspection_c__MotorState_message_member_array[5] = {
   {
     "q",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -49,7 +49,7 @@ static rosidl_typesupport_introspection_c__MessageMember MotorState__rosidl_type
   },
   {
     "dq",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -64,7 +64,7 @@ static rosidl_typesupport_introspection_c__MessageMember MotorState__rosidl_type
   },
   {
     "ddq",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -79,7 +79,7 @@ static rosidl_typesupport_introspection_c__MessageMember MotorState__rosidl_type
   },
   {
     "tau_est",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -94,7 +94,7 @@ static rosidl_typesupport_introspection_c__MessageMember MotorState__rosidl_type
   },
   {
     "cur",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
