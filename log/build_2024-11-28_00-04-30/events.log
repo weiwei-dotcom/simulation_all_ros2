@@ -1,0 +1,19 @@
+[0.000000] (-) TimerEvent: {}
+[0.000173] (-) JobUnselected: {'identifier': 'a1_description'}
+[0.000284] (-) JobUnselected: {'identifier': 'gh1_description'}
+[0.000410] (-) JobUnselected: {'identifier': 'go1_description'}
+[0.000420] (-) JobUnselected: {'identifier': 'gr1t1_description'}
+[0.000427] (-) JobUnselected: {'identifier': 'gr1t2_description'}
+[0.000434] (-) JobUnselected: {'identifier': 'iris_description'}
+[0.000441] (-) JobUnselected: {'identifier': 'mz_description'}
+[0.000448] (-) JobUnselected: {'identifier': 'qa01_description'}
+[0.000455] (-) JobUnselected: {'identifier': 'rm_65_b_description'}
+[0.000462] (-) JobUnselected: {'identifier': 'robot_msgs'}
+[0.000468] (-) JobUnselected: {'identifier': 'seven_description'}
+[0.000475] (-) JobUnselected: {'identifier': 'simulation_all'}
+[0.000482] (-) JobUnselected: {'identifier': 'simulation_all_ros2'}
+[0.000489] (-) JobUnselected: {'identifier': 'sz_description'}
+[0.000498] (robot_joint_controller) JobQueued: {'identifier': 'robot_joint_controller', 'dependencies': OrderedDict([('robot_msgs', '/home/ww/Documents/simulation_all_ros2/install/robot_msgs')])}
+[0.000510] (robot_joint_controller) JobStarted: {'identifier': 'robot_joint_controller'}
+[0.005832] (robot_joint_controller) JobEnded: {'identifier': 'robot_joint_controller', 'rc': 1}
+[0.016086] (-) EventReactorShutdown: {}
