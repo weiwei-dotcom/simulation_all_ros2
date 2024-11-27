@@ -1,19 +1,19 @@
 #ifndef ROBOT_JOINT_CONTROLLER_HPP
 #define ROBOT_JOINT_CONTROLLER_HPP
 
-#include <rclcpp/rclcpp.hpp>
 #include <urdf/model.h>
 #include <control_toolbox/pid.hpp> // 这个是由于可能rqt调试需要用到， 可以删掉
 #include <realtime_tools/realtime_publisher.h>
 #include <hardware_interface/loaned_command_interface.hpp>
 #include <controller_interface/controller_interface.hpp>
 #include <hardware_interface/types/hardware_interface_type_values.hpp>
-#include <std_msgs/msg/float64.h>
 #include <realtime_tools/realtime_buffer.h>
+#include <rclcpp/rclcpp.hpp>
+
+#include <std_msgs/msg/float64.h>
 #include "robot_msgs/msg/motor_command.hpp"
 #include "robot_msgs/msg/motor_state.hpp"
 #include <geometry_msgs/msg/wrench_stamped.hpp>
-
 #include <stdio.h>
 #include <stdint.h>
 #include <algorithm>

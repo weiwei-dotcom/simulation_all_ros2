@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 project(robot_joint_controller LANGUAGES CXX)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
@@ -21,7 +21,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
 )
 
 # Specify the required version of ros2_control
-find_package(controller_manager)
+find_package(controller_manager 4.0.0)
 # Handle the case where the required version is not found
 if(NOT controller_manager_FOUND)
   message(FATAL_ERROR "ros2_control version 4.0.0 or higher is required. "
@@ -38,12 +38,13 @@ endforeach()
 ## COMPILE
 add_library(
   robot_joint_controller
+  SHARED
   src/robot_joint_controller.cpp
 )
 target_compile_features(robot_joint_controller PUBLIC cxx_std_17)
 target_include_directories(robot_joint_controller PUBLIC
 $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-$<INSTALL_INTERFACE:include/robot_joint_controller>
+$<INSTALL_INTERFACE:include/ros2_control_demo_example_11>
 )
 ament_target_dependencies(
   robot_joint_controller PUBLIC
@@ -51,9 +52,13 @@ ament_target_dependencies(
 )
 
 # Export hardware plugins
-pluginlib_export_plugin_description_file(controller_interface robot_joint_controller_plugins.xml)
+pluginlib_export_plugin_description_file(hardware_interface robot_joint_controller_plugins.xml)
 
 # INSTALL
+install(
+  DIRECTORY hardware/include/
+  DESTINATION include/robot_joint_controller
+)
 # install(
 #   DIRECTORY description/launch description/ros2_control description/urdf
 #   DESTINATION share/ros2_control_demo_example_11

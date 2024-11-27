@@ -1,5 +1,4 @@
-#include "robot_joint_controller.h"
-
+#include "robot_joint_controller.hpp"
 #include <pluginlib/class_list_macros.h>
 
 // #define rqtTune // use rqt or not
@@ -17,177 +16,236 @@ double clamp(double &value, double min, double max)
 namespace robot_joint_controller
 {
 
-RobotJointController::RobotJointController()
-{
-    memset(&lastCommand, 0, sizeof(robot_msgs::MotorCommand));
-    memset(&lastState, 0, sizeof(robot_msgs::MotorState));
-    memset(&servoCommand, 0, sizeof(ServoCommand));
-}
+RobotJointController::~RobotJointController() {}
 
-RobotJointController::~RobotJointController()
-{
-    sub_ft.shutdown();
-    sub_command.shutdown();
-}
+// void RobotJointController::setCommandCB(const robot_msgs::msg::MotorCommandConstPtr &msg)
+// {
+//     lastCommand.q = msg->q;
+//     lastCommand.kp = msg->kp;
+//     lastCommand.dq = msg->dq;
+//     lastCommand.kd = msg->kd;
+//     lastCommand.tau = msg->tau;
+//     // the writeFromNonRT can be used in RT, if you have the guarantee that
+//     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
+//     //  * there is only one single rt thread
+//     command.writeFromNonRT(lastCommand);
+// }
 
-void RobotJointController::setCommandCB(const robot_msgs::MotorCommandConstPtr &msg)
+void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
 {
-    lastCommand.q = msg->q;
-    lastCommand.kp = msg->kp;
-    lastCommand.dq = msg->dq;
-    lastCommand.kd = msg->kd;
-    lastCommand.tau = msg->tau;
+    last_command_.q = msg->q;
+    last_command_.kp = msg->kp;
+    last_command_.dq = msg->dq;
+    last_command_.kd = msg->kd;
+    last_command_.tau = msg->tau;
+
     // the writeFromNonRT can be used in RT, if you have the guarantee that
     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
     //  * there is only one single rt thread
-    command.writeFromNonRT(lastCommand);
+    realtime_cmd_buffer_.writeFromNonRT(last_command_);
 }
 
-// Controller initialization in non-realtime
-bool RobotJointController::init(hardware_interface::EffortJointInterface *robot, ros::NodeHandle &n)
-{
-    name_space = n.getNamespace();
-    if (!n.getParam("joint", joint_name)) {
-        ROS_ERROR("No joint given in namespace: '%s')", n.getNamespace().c_str());
-        return false;
+controller_interface::return_type RobotJointController::init(const std::string & controller_name) {
+    auto ret = ControllerInterface::init(controller_name);
+
+    if (ret != controller_interface::return_type::OK)
+    {
+        return ret;
     }
 
-    // load pid param from ymal only if rqt need
-#ifdef rqtTune
-    // Load PID Controller using gains set on parameter server
-    if (!pid_controller_.init(ros::NodeHandle(n, "pid"))) return false;
-#endif
+    auto_declare("joint", "joint_name");
+    auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
 
-    urdf::Model urdf;  // Get URDF info about joint
-    if (!urdf.initParamWithNodeHandle("robot_description", n)) {
-        ROS_ERROR("Failed to parse urdf file");
-        return false;
+    // TODO:
+    // pid_controller暂时用不到到时候有问题再说
+
+    return controller_interface::return_type::SUCCESS;
+}
+
+RobotJointController::CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State &previous_state) {
+
+    urdf::Model model;
+    if (!model.initString(get_node()->get_parameter("robot_description").as_string())) {
+        RCLCPP_ERROR(get_node()->get_logger(), "Failed to parse urdf file");
+        return CallbackReturn::ERROR;
     }
-    joint_urdf = urdf.getJoint(joint_name);
-    if (!joint_urdf) {
-        ROS_ERROR("Could not find joint '%s' in urdf", joint_name.c_str());
-        return false;
+    joint_name_ = get_node()->get_parameter("joint").as_string();
+    joint_urdf_ = model.getJoint(joint_name_);
+    if (!joint_urdf_) {
+        RCLCPP_ERROR(get_node()->get_logger(), "Could not find joint '%s' in urdf", joint_name_.c_str());
+        return CallbackReturn::ERROR;
     }
-    joint = robot->getHandle(joint_name);
-
-    // Start command subscriber
-    sub_command = n.subscribe("command", 20, &RobotJointController::setCommandCB, this);
-
-    // Start realtime state publisher
-    controller_state_publisher_.reset(new realtime_tools::RealtimePublisher<robot_msgs::MotorState>(n, name_space + "/state", 1));
-
-    return true;
+    return CallbackReturn::SUCCESS;
 }
 
-void RobotJointController::setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min,
-                                    const bool &antiwindup)
-{
-    pid_controller_.setGains(p, i, d, i_max, i_min, antiwindup);
+RobotJointController::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state) {
+    auto command_interface_it = std::find_if(
+        command_interfaces_.begin(), command_interfaces_.end(), 
+        [](const hardware_interface::LoanedCommandInterface & command_interface) {
+            return command_interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
+        }
+    );
+    if (command_interface_it == command_interfaces_.end())
+    {
+        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 position command interface");
+        return CallbackReturn::ERROR;
+    }
+    if (command_interface_it->get_name() != joint_name_)
+    {
+        RCLCPP_ERROR_STREAM(
+        get_node()->get_logger(), "Position command interface is different than joint name `"
+                                << command_interface_it->get_name() << "` != `" << joint_name_
+                                << "`");
+        return CallbackReturn::ERROR;
+    }
+    const auto pos_state_it = std::find_if(
+        state_interfaces_.begin(), state_interfaces_.end(), 
+        [](const hardware_interface::LoanedStateInterface & state_interface) {
+            return state_interface.get_interface_name() == hardware_interface::HW_IF_POSITION;
+        }
+    );
+    if (pos_state_it == state_interfaces_.end()) {
+        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 position state interface");
+        return CallbackReturn::ERROR;
+    }
+    if (pos_state_it->get_name() != joint_name_) {
+        RCLCPP_ERROR_STREAM(
+        get_node()->get_logger(), "Position state interface is different than joint name `"
+                                << pos_state_it->get_name() << "` != `" << joint_name_
+                                << "`");
+        return CallbackReturn::ERROR;
+    }
+    const auto vel_state_it = std::find_if(
+        state_interfaces_.begin(), state_interfaces_.end(),
+        [] (const hardware_interface::LoanedStateInterface & state_interface) {
+            return state_interface.get_interface_name() == hardware_interface::HW_IF_VELOCITY;
+        }
+    );
+    if (vel_state_it == state_interfaces_.end()) {
+        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 velocity state interface");
+        return CallbackReturn::ERROR;
+    }
+    if (vel_state_it->get_name() != joint_name_) {
+        RCLCPP_ERROR_STREAM(
+            get_node()->get_logger(), "Velocity state interface is different than joint name `"
+                                << vel_state_it->get_name() << "` != `" << joint_name_
+                                << "`");
+        return CallbackReturn::ERROR;
+    }
+    const auto eff_state_it = std::find_if(
+        state_interfaces_.begin(), state_interfaces_.end(),
+        [] (const hardware_interface::LoanedStateInterface & state_interface) {
+            return state_interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
+        }
+    );
+    if (eff_state_it == state_interfaces_.end()) {
+        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 effort state interface");
+        return CallbackReturn::ERROR;
+    }
+    if (eff_state_it->get_name() != joint_name_) {
+        RCLCPP_ERROR_STREAM(
+            get_node()->get_logger(), "Effort state interface is different than joint name `"
+                                << eff_state_it->get_name() << "` != `" << joint_name_
+                                << "`");
+        return CallbackReturn::ERROR;
+    }
+
+    joint_command_interface_ = *command_interface_it;
+    joint_state_.pos = *pos_state_it;
+    joint_state_.vel = *vel_state_it;
+    joint_state_.eff = *eff_state_it;
+
+    std::string name_space = get_node()->get_namespace();
+
+    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("command", 10,
+        std::bind(&RobotJointController::setCommandCB,
+            this,
+            std::placeholders::_1));
+    joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
+        get_node()->create_publisher<MotorState>(name_space + "/state", 10));
+
+    double init_pos = joint_state_.pos.get().get_value();
+    last_command_.q = init_pos;
+    last_state_.q = init_pos;
+    last_command_.dq = 0;
+    last_state_.dq = 0;
+    last_command_.tau = 0;
+    last_state_.tau_est = 0;
+    realtime_cmd_buffer_.initRT(last_command_);
+
+    return CallbackReturn::SUCCESS;
 }
 
-void RobotJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min, bool &antiwindup)
-{
-    pid_controller_.getGains(p, i, d, i_max, i_min, antiwindup);
-}
-
-void RobotJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min)
-{
-    bool dummy;
-    pid_controller_.getGains(p, i, d, i_max, i_min, dummy);
-}
-
-// Controller startup in realtime
-void RobotJointController::starting(const ros::Time &time)
-{
-    double init_pos = joint.getPosition();
-    lastCommand.q = init_pos;
-    lastState.q = init_pos;
-    lastCommand.dq = 0;
-    lastState.dq = 0;
-    lastCommand.tau = 0;
-    lastState.tauEst = 0;
-    command.initRT(lastCommand);
-
-    pid_controller_.reset();
-}
-
-// Controller update loop in realtime
-void RobotJointController::update(const ros::Time &time, const ros::Duration & period)
-{
-    double currentPos, currentVel, calcTorque;
-    lastCommand = *(command.readFromRT());
+controller_interface::return_type RobotJointController::update() {
+    double currentPos, currentVel, currentTau, calcTorque;
+    robot_msgs::msg::MotorCommand current_command = *(realtime_cmd_buffer_.readFromRT());
 
     // set command data
-    servoCommand.pos = lastCommand.q;
-    positionLimits(servoCommand.pos);
-    servoCommand.posStiffness = lastCommand.kp;
-    if (fabs(lastCommand.q - PosStopF) < 0.00001) {
-        servoCommand.posStiffness = 0;
+    robot_msgs::msg::MotorCommand current_servo_command = current_command;
+    positionLimits(current_servo_command.q);
+    if (fabs(current_command.q - PosStopF) < 0.00001) {
+        current_servo_command.kp = 0;
     }
-    servoCommand.vel = lastCommand.dq;
-    velocityLimits(servoCommand.vel);
-    servoCommand.velStiffness = lastCommand.kd;
-    if (fabs(lastCommand.dq - VelStopF) < 0.00001) {
-        servoCommand.velStiffness = 0;
+    velocityLimits(current_servo_command.dq);
+    if (fabs(current_command.dq - VelStopF) < 0.00001) {
+        current_servo_command.kd = 0;
     }
-    servoCommand.torque = lastCommand.tau;
-    effortLimits(servoCommand.torque);
+    effortLimits(current_servo_command.tau);
 
-    // rqt set P D gains
-#ifdef rqtTune
-    double i, i_max, i_min;
-    getGains(servoCommand.posStiffness, i, servoCommand.velStiffness, i_max, i_min);
-#endif
-
-    currentPos = joint.getPosition();
-    // currentVel = computeVel(currentPos, (double)lastState.q, (double)lastState.dq, period.toSec());
-    // calcTorque = computeTorque(currentPos, currentVel, servoCommand);
-    currentVel = (currentPos - (double)lastState.q) / period.toSec();
-    calcTorque = servoCommand.posStiffness * (servoCommand.pos - currentPos) + servoCommand.velStiffness * (servoCommand.vel - currentVel) +
-                 servoCommand.torque;
+    currentPos = joint_state_.pos.get().get_value();
+    currentVel = joint_state_.vel.get().get_value();
+    // // 也可以使用位置差分的方式计算速度
+    // currentVel = currentPos - last_state_.q;
+    calcTorque = current_servo_command.kp * (current_servo_command.q - currentPos) + current_servo_command.kd * (current_servo_command.dq - currentVel) +
+                 current_servo_command.tau;
     effortLimits(calcTorque);
 
     //
-    joint.setCommand(calcTorque);
+    joint_command_interface_.get().set_value(calcTorque);
 
-    // joint.setCommand(servoCommand.pos);
+    last_servo_command_ = current_servo_command;
+    last_command_ = current_command;
 
-    lastState.q = currentPos;
-    lastState.dq = currentVel;
-    // lastState.tauEst = calcTorque;
-    lastState.tauEst = joint.getEffort();
-
+    currentTau = joint_state_.eff.get().get_value();
     // publish state
-    if (controller_state_publisher_ && controller_state_publisher_->trylock()) {
-        controller_state_publisher_->msg_.q = lastState.q;
-        controller_state_publisher_->msg_.dq = lastState.dq;
-        controller_state_publisher_->msg_.tauEst = lastState.tauEst;
-        controller_state_publisher_->unlockAndPublish();
+    if (joint_state_publisher_ && joint_state_publisher_->trylock()) {
+        joint_state_publisher_->msg_.q = currentPos;
+        joint_state_publisher_->msg_.dq = currentVel;
+        joint_state_publisher_->msg_.tau_est = currentTau;
+        joint_state_publisher_->unlockAndPublish();
     }
+    last_state_.q = currentPos;
+    last_state_.dq = currentVel;
+    last_state_.tau_est = currentTau;
+
+    return controller_interface::return_type::SUCCESS;
 }
 
-// Controller stopping in realtime
-void RobotJointController::stopping() {}
+RobotJointController::CallbackReturn RobotJointController::on_deactivate(const rclcpp_lifecycle::State &previous_state) {
+    joint_state_publisher_.reset();
+    joint_command_subscriber_.reset();
+    release_interfaces();
+    return RobotJointController::CallbackReturn::SUCCESS;
+}
 
 void RobotJointController::positionLimits(double &position)
 {
-    if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
-        clamp(position, joint_urdf->limits->lower, joint_urdf->limits->upper);
+    if (joint_urdf_->type == urdf::Joint::REVOLUTE || joint_urdf_->type == urdf::Joint::PRISMATIC)
+        clamp(position, joint_urdf_->limits->lower, joint_urdf_->limits->upper);
 }
 
 void RobotJointController::velocityLimits(double &velocity)
 {
-    if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
-        clamp(velocity, -joint_urdf->limits->velocity, joint_urdf->limits->velocity);
+    if (joint_urdf_->type == urdf::Joint::REVOLUTE || joint_urdf_->type == urdf::Joint::PRISMATIC)
+        clamp(velocity, -joint_urdf_->limits->velocity, joint_urdf_->limits->velocity);
 }
 
 void RobotJointController::effortLimits(double &effort)
 {
-    if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
-        clamp(effort, -joint_urdf->limits->effort, joint_urdf->limits->effort);
+    if (joint_urdf_->type == urdf::Joint::REVOLUTE || joint_urdf_->type == urdf::Joint::PRISMATIC)
+        clamp(effort, -joint_urdf_->limits->effort, joint_urdf_->limits->effort);
 }
 
 }  // namespace robot_joint_controller
 
-// Register controller to pluginlib
-PLUGINLIB_EXPORT_CLASS(robot_joint_controller::RobotJointController, controller_interface::ControllerBase);
+PLUGINLIB_EXPORT_CLASS(robot_joint_controller::RobotJointController, controller_interface::ControllerInterface);

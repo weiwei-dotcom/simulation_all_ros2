@@ -1,5 +1,4 @@
 #include "robot_joint_controller_ros2.hpp"
-#include <pluginlib/class_list_macros.hpp>
 
 // #define rqtTune // use rqt or not
 
@@ -169,7 +168,7 @@ RobotJointController::CallbackReturn RobotJointController::on_activate(const rcl
             this,
             std::placeholders::_1));
     joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
-        get_node()->create_publisher<MotorState>(name_space + "/state", 1));
+        get_node()->create_publisher<MotorState>(name_space + "/state", 10));
 
     double init_pos = joint_state_.pos.get().get_value();
     last_command_.q = init_pos;
@@ -255,6 +254,5 @@ void RobotJointController::effortLimits(double &effort)
 
 }  // namespace robot_joint_controller
 
-// TODO: 注释掉可能会存在问题
-// // Register controller to pluginlib
-// PLUGINLIB_EXPORT_CLASS(robot_joint_controller::RobotJointController, controller_interface::ControllerBase);
+#include <pluginlib/class_list_macros.hpp>
+PLUGINLIB_EXPORT_CLASS(robot_joint_controller::RobotJointController, controller_interface::ControllerInterface)
