@@ -18,19 +18,6 @@ namespace robot_joint_controller
 
 RobotJointController::~RobotJointController() {}
 
-// void RobotJointController::setCommandCB(const robot_msgs::msg::MotorCommandConstPtr &msg)
-// {
-//     lastCommand.q = msg->q;
-//     lastCommand.kp = msg->kp;
-//     lastCommand.dq = msg->dq;
-//     lastCommand.kd = msg->kd;
-//     lastCommand.tau = msg->tau;
-//     // the writeFromNonRT can be used in RT, if you have the guarantee that
-//     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
-//     //  * there is only one single rt thread
-//     command.writeFromNonRT(lastCommand);
-// }
-
 void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
 {
     last_command_.q = msg->q;
@@ -55,9 +42,6 @@ controller_interface::return_type RobotJointController::init(const std::string &
 
     auto_declare("joint", "joint_name");
     auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
-
-    // TODO:
-    // pid_controller暂时用不到到时候有问题再说
 
     return controller_interface::return_type::SUCCESS;
 }
