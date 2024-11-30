@@ -1,6 +1,6 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.substitutions import LaunchConfiguration, Command, FindExecutable, PathJoinSubstitution, EnvironmentVariable
+from launch.substitutions import LaunchConfiguration, Command, FindExecutable, PathJoinSubstitution, TextSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -17,7 +17,6 @@ def generate_launch_description():
     declared_areguments.append(DeclareLaunchArgument('description_path', 
                                                      default_value=FindPackageShare(robot_name), 
                                                      description='description root path'))
-
     declared_areguments.append(DeclareLaunchArgument('dollar', default_value='$', description='dollar sign'))
     declared_areguments.append(DeclareLaunchArgument('paused', default_value='true', description='Pause simulation'))
     declared_areguments.append(DeclareLaunchArgument('use_sim_time', default_value='true', description='Use simulation time'))
@@ -25,13 +24,6 @@ def generate_launch_description():
     declared_areguments.append(DeclareLaunchArgument('headless', default_value='false', description='Headless mode'))
     declared_areguments.append(DeclareLaunchArgument('debug', default_value='false', description='Debug mode'))
     declared_areguments.append(DeclareLaunchArgument('user_debug', default_value='false', description='User debug mode'))
-    declared_areguments.append(DeclareLaunchArgument('initial_joint_positions',
-                            default_value='''-J l_hip_roll 0 -J l_hip_yaw 0 -J l_hip_pitch -0.2 
-                            -J l_knee_pitch 0.4 -J l_ankle_pitch -0.2 
-                            -J r_hip_roll 0 -J r_hip_yaw 0 -J r_hip_pitch -0.2 
-                            -J r_knee_pitch 0.4 -J r_ankle_pitch -0.2''',
-                            description='Initial joint configuration of the robot'))
-
 
     world_file_name = LaunchConfiguration('world_file_name')
 
@@ -60,19 +52,24 @@ def generate_launch_description():
     )
 
     robot_urdf_content = Command([xacro_exe_path, " ", xacro_path, " use_sim:=true", " DEBUG:=", LaunchConfiguration('user_debug')])
-    robot_urdf = {"robot_urdf": robot_urdf_content}
+    robot_description = {"robot_description": robot_urdf_content}
 
     # Load robot description
     robot_tf_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[robot_urdf]
+        parameters=[robot_description]
     )
     
     # TODO:
     gazebo_name = robot_name
-    initial_joint_positions = LaunchConfiguration("initial_joint_positions")
+
+    initial_joint_positions = ['-J', 'l_hip_roll'   , '0'   , '-J', 'r_hip_roll'   , '0'   , 
+                               '-J', 'l_hip_yaw'    , '0'   , '-J', 'r_hip_yaw'    , '0'   ,
+                               '-J', 'l_hip_pitch'  , '-0.2', '-J', 'r_hip_pitch'  , '-0.2', 
+                               '-J', 'l_knee_pitch' , '0.4' , '-J', 'r_knee_pitch' , '0.4' ,
+                               '-J', 'l_ankle_pitch', '-0.2', '-J', 'r_ankle_pitch', '-0.2']
     # Spawn robot in Gazebo
     robot_model = Node(
         package='gazebo_ros',
@@ -82,10 +79,9 @@ def generate_launch_description():
         arguments=[
             '-entity', gazebo_name,
             '-z', '1.35',
-            '-file', robot_urdf_content,
-            '-robot_namespace', gazebo_name, 
-            initial_joint_positions 
-        ]
+            "-topic", "robot_description",
+            '-robot_namespace', gazebo_name] 
+            + initial_joint_positions
     )
 
     # 加载 YAML 参数到 controller_manager
@@ -95,7 +91,7 @@ def generate_launch_description():
         executable='ros2_control_node',
         name='controller_manager',
         output='screen',
-        parameters=[robot_urdf, control_yaml_path]
+        parameters=[robot_description, control_yaml_path]
     )
 
     controller_names = ['joint_state_controller',
