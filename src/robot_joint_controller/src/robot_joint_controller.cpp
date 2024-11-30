@@ -41,7 +41,7 @@ controller_interface::return_type RobotJointController::init(const std::string &
     }
 
     auto_declare("joint", "joint_name");
-    auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
+    auto_declare("robot_urdf", "robot_urdf"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
 
     return controller_interface::return_type::SUCCESS;
 }
@@ -49,7 +49,7 @@ controller_interface::return_type RobotJointController::init(const std::string &
 RobotJointController::CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State &previous_state) {
 
     urdf::Model model;
-    if (!model.initString(get_node()->get_parameter("robot_description").as_string())) {
+    if (!model.initString(get_node()->get_parameter("robot_urdf").as_string())) {
         RCLCPP_ERROR(get_node()->get_logger(), "Failed to parse urdf file");
         return CallbackReturn::ERROR;
     }
