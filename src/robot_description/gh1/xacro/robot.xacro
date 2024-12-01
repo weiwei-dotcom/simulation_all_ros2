@@ -210,7 +210,6 @@
     <limit
       lower="-0.17"
       upper="1.05"
-      value="1.00"
       effort="120"
       velocity="20.92" />
   </joint>
@@ -761,7 +760,7 @@
     </joint>
     <actuator name="l_hip_roll_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -772,7 +771,7 @@
     </joint>
     <actuator name="l_hip_yaw_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -783,7 +782,7 @@
     </joint>
     <actuator name="l_hip_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -794,7 +793,7 @@
     </joint>
     <actuator name="l_knee_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -805,7 +804,7 @@
     </joint>
     <actuator name="l_ankle_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -816,7 +815,7 @@
     </joint>
     <actuator name="r_hip_roll_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -827,7 +826,7 @@
     </joint>
     <actuator name="r_hip_yaw_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -838,7 +837,7 @@
     </joint>
     <actuator name="r_hip_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -849,7 +848,7 @@
     </joint>
     <actuator name="r_knee_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -860,8 +859,76 @@
     </joint>
     <actuator name="r_ankle_pitch_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
+  <ros2_control name="gh1" type="loan_command">
+    <hardware>
+      <plugin>robot_joint_controller/RobotJointController</plugin>
+      <param name="example_param_hw_start_duration_sec">2.0</param>
+      <param name="example_param_hw_stop_duration_sec">3.0</param>
+    </hardware>
+    <joint name="l_hip_roll">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_hip_yaw">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_hip_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_knee_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_ankle_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_roll">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_yaw">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_knee_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_ankle_pitch">
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
 
 </robot>

@@ -2,15 +2,16 @@
 <robot>
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>/gh1_gazebo</robotNamespace>
+      <robotNamespace>gh1</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
 
   <gazebo>
     <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
-      <bodyName>body</bodyName>
+      <link_name>body</link_name>
       <topicName>/apply_force/body</topicName>
+      <force_frame>body</force_frame>
     </plugin>
   </gazebo>
 
