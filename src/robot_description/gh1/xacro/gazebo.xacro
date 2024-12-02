@@ -61,7 +61,7 @@
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
-  <gazebo reference="l_thigh_yaw">
+<!-- <gazebo reference="l_thigh_yaw">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
     <self_collide>1</self_collide>
@@ -145,5 +145,5 @@
     <kp value="1000000.0" />
     <kd value="1.0" />
     <material>Gazebo/DarkGrey</material>
-  </gazebo>
+  </gazebo> -->
 </robot>

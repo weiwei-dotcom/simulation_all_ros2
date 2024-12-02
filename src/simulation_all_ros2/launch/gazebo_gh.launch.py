@@ -99,6 +99,12 @@ def generate_launch_description():
                         'r_knee_pitch_controller', 'r_ankle_pitch_controller']
 
     # Load joint controller configurations from YAML
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+    )
+
     robot_controllers = []
     for controller_name in controller_names:
         robot_controllers.append(
@@ -116,7 +122,8 @@ def generate_launch_description():
         gazebo_launch,
         robot_model,
         robot_tf_node,
-        robot_config
+        robot_config,
+        joint_state_broadcaster_spawner
     ]
 
             
