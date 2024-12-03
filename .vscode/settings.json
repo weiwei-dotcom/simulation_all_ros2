@@ -1,11 +1,12 @@
 {
     "python.autoComplete.extraPaths": [
         "/home/wl/data/Code/simulation/devel/lib/python3/dist-packages",
-        "/opt/ros/noetic/lib/python3/dist-packages"
+        "/opt/ros/foxy/lib/python3.8/site-packages",
+        ""
     ],
     "python.analysis.extraPaths": [
         "/home/wl/data/Code/simulation/devel/lib/python3/dist-packages",
-        "/opt/ros/noetic/lib/python3/dist-packages"
+        "/opt/ros/foxy/lib/python3.8/site-packages"
     ],
     "cmake.sourceDirectory": "/home/wl/Documents/simulation_all/src/robot_joint_controller",
     "files.associations": {

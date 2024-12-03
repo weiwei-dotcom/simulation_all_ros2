@@ -13,13 +13,6 @@ for gh1 robot</p>
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>rviz2</exec_depend>
-  <depend>rclcpp</depend>
-  <depend>tf2_ros</depend>
-  <depend>std_msgs</depend>
-  <depend>joint_state_publisher</depend>
-  <depend>gazebo</depend>
-  <exec_depend>ros2launch</exec_depend>
-  <exec_depend>xacro</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
