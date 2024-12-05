@@ -59,53 +59,53 @@ def generate_launch_description():
         name='urdf_spawner',
         output='screen',
         arguments=[
-            '-entity', "gh1",
+            '-entity', "gh1_gazebo",
             '-z', '1.35',
             "-topic", "robot_description",
-            '-robot_namespace', "gh1",
-            "-J", "l_hip_roll", "0.3"] 
+            '-robot_namespace', "gh1_gazebo"] 
     )
 
-    # # 加载 YAML 参数到 controller_manager
-    # control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
-    # robot_config = Node(
-    #     package='controller_manager',
-    #     executable='ros2_control_node',
-    #     name='controller_manager',
-    #     output='screen',
-    #     parameters=[robot_description, control_yaml_path]
-    # )
+    # 加载 YAML 参数到 controller_manager
+    control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
+    robot_config = Node(
+        package='controller_manager',
+        executable='ros2_control_node',
+        name='controller_manager',
+        output='screen',
+        parameters=[robot_description, control_yaml_path]
+    )
 
-    # controller_names = ['l_hip_roll_controller']
+    controller_names = ['l_hip_roll_controller']
 
-    # # Load joint controller configurations from YAML
-    # joint_state_broadcaster_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner.py",
-    #     arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
-    # )
+    # Load joint controller configurations from YAML
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+    )
 
-    # robot_controllers = []
-    # for controller_name in controller_names:
-    #     robot_controllers.append(
-    #         Node(
-    #             package='controller_manager',
-    #             executable='spawner.py',
-    #             name='controller_spawner',
-    #             output='screen',
-    #             namespace = 'gh1', # 这里要修改为机器人的命名空间
-    #             arguments=[controller_name],
-    #         )
-    #     )
+    robot_controllers = []
+    for controller_name in controller_names:
+        robot_controllers.append(
+            Node(
+                package='controller_manager',
+                executable='spawner.py',
+                name='controller_spawner',
+                output='screen',
+                parameters=[robot_description],
+                namespace = 'gh1', # 这里要修改为机器人的命名空间
+                arguments=[controller_name]
+            )
+        )
 
     nodes = [
         gazebo_launch,
         robot_tf_node,
         robot_model,
-        # robot_config,
-        # joint_state_broadcaster_spawner
+        robot_config,
+        joint_state_broadcaster_spawner
     ]
 
             
-    # return LaunchDescription(declared_areguments + nodes + robot_controllers)
-    return LaunchDescription(declared_areguments + nodes)
+    return LaunchDescription(declared_areguments + nodes + robot_controllers)
+    # return LaunchDescription(declared_areguments + nodes)

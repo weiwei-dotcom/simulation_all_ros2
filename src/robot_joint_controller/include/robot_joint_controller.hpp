@@ -2,11 +2,18 @@
 #define ROBOT_JOINT_CONTROLLER_HPP
 
 #include <urdf/model.h>
-#include <realtime_tools/realtime_publisher.h>
-#include <hardware_interface/loaned_command_interface.hpp>
-#include <controller_interface/controller_interface.hpp>
-#include <hardware_interface/types/hardware_interface_type_values.hpp>
-#include <realtime_tools/realtime_buffer.h>
+#include "rclcpp/qos.hpp"
+#include "realtime_tools/realtime_publisher.h"
+#include "hardware_interface/loaned_command_interface.hpp"
+#include "hardware_interface/loaned_state_interface.hpp"
+#include "controller_interface/controller_interface.hpp"
+#include "hardware_interface/types/hardware_interface_type_values.hpp"
+#include "realtime_tools/realtime_buffer.h"
+#include "realtime_tools/realtime_publisher.h"
+#include "rclcpp_lifecycle/state.hpp"
+#include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
+// #include "robot_joint_controller/visibility_control.h"
+#include "visibility_control.h"
 #include <rclcpp/rclcpp.hpp>
 
 #include <std_msgs/msg/float64.h>
@@ -19,9 +26,14 @@
 #include <math.h>
 #include <cstring>
 #include <string.h>
+#include <utility>
 
 #define PosStopF  (2.146E+9f)
 #define VelStopF  (16000.0f)
+
+
+namespace robot_joint_controller
+{
 
 typedef struct 
 {
@@ -40,21 +52,45 @@ typedef struct
     std::reference_wrapper<hardware_interface::LoanedStateInterface> eff; //todo:
 } JointState;
 
-namespace robot_joint_controller
-{
-class RobotJointController: public controller_interface::ControllerInterface
+using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
+using MotorState = robot_msgs::msg::MotorState;
+using MotorCommand = robot_msgs::msg::MotorCommand;
+
+class RobotJointController : public controller_interface::ControllerInterface
 {
 private:
-    using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
-    using MotorState = robot_msgs::msg::MotorState;
-    using MotorCommand = robot_msgs::msg::MotorCommand;
     
     std::reference_wrapper<hardware_interface::LoanedCommandInterface> joint_command_interface_; //todo:
     JointState joint_state_;
-    rclcpp::Subscription<robot_msgs::msg::MotorCommand>::SharedPtr joint_command_subscriber_;
-    std::shared_ptr<realtime_tools::RealtimePublisher<robot_msgs::msg::MotorState>> joint_state_publisher_ ;
+    rclcpp::Subscription<MotorCommand>::SharedPtr joint_command_subscriber_;
+    std::shared_ptr<realtime_tools::RealtimePublisher<MotorState>> joint_state_publisher_ ;
+
+    void setCommandCB(const MotorCommand::SharedPtr msg);
 
 public:
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    RobotJointController();
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    controller_interface::return_type init(const std::string & controller_name) override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    controller_interface::InterfaceConfiguration command_interface_configuration() const override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    controller_interface::InterfaceConfiguration state_interface_configuration() const override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    CallbackReturn on_configure(const rclcpp_lifecycle::State & previous_state) override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    CallbackReturn on_activate(const rclcpp_lifecycle::State & previous_state) override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    CallbackReturn on_deactivate(const rclcpp_lifecycle::State & previous_state) override;
+
+    ROBOT_JOINT_CONTROLLER_PUBLIC
+    controller_interface::return_type update() override;
     urdf::JointConstSharedPtr joint_urdf_;
     std::string joint_name_; 
     realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> realtime_cmd_buffer_;
@@ -62,24 +98,15 @@ public:
     robot_msgs::msg::MotorCommand last_command_;
     robot_msgs::msg::MotorCommand last_servo_command_;
     robot_msgs::msg::MotorState last_state_;
+    std::string command_interface_name_;
+    std::string command_interface_name_;
 
     ServoCommand servo_command_;
 
-    RobotJointController();
-    ~RobotJointController();
-    controller_interface::return_type init(const std::string & controller_name) override;
-    controller_interface::return_type update() override;
-    CallbackReturn on_configure(const rclcpp_lifecycle::State &previous_state) override;
-    CallbackReturn on_activate(const rclcpp_lifecycle::State &previous_state) override;
-    CallbackReturn on_deactivate(const rclcpp_lifecycle::State &previous_state) override;
-    controller_interface::InterfaceConfiguration command_interface_configuration() const override;
-    controller_interface::InterfaceConfiguration state_interface_configuration() const override;
-
-
-    void setCommandCB(const robot_msgs::msg::MotorCommand::SharedPtr msg);
     void positionLimits(double &position);
     void velocityLimits(double &velocity);
     void effortLimits(double &effort);
+    double clamp(double &value, double min, double max);
 };
 }
 

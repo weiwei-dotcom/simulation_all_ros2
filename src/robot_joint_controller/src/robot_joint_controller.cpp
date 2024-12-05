@@ -3,7 +3,16 @@
 
 // #define rqtTune // use rqt or not
 
-double clamp(double &value, double min, double max)
+namespace robot_joint_controller
+{
+
+RobotJointController::RobotJointController()
+:controller_interface::ControllerInterface(),
+joint_urdf_(nullptr)
+{
+}
+
+double RobotJointController::clamp(double &value, double min, double max)
 {
     if (value < min) {
         value = min;
@@ -12,11 +21,6 @@ double clamp(double &value, double min, double max)
     }
     return value;
 }
-
-namespace robot_joint_controller
-{
-
-RobotJointController::~RobotJointController() {}
 
 void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
 {
@@ -32,21 +36,26 @@ void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
     realtime_cmd_buffer_.writeFromNonRT(last_command_);
 }
 
-controller_interface::return_type RobotJointController::init(const std::string & controller_name) {
+return_type RobotJointController::init(const std::string & controller_name) {
     auto ret = ControllerInterface::init(controller_name);
-
     if (ret != controller_interface::return_type::OK)
     {
         return ret;
     }
-
-    auto_declare("joint", "joint_name");
-    auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
-
+    try 
+    {
+        auto_declare("joint", "joint_name");
+        auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
+    }
+    catch (const std::exception & e)
+    {
+        fprintf(stderr, "Exception thrown during init stage with message: %s \n", e.what());
+        return controller_interface::return_type::ERROR;
+    }
     return controller_interface::return_type::SUCCESS;
 }
 
-RobotJointController::CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State &previous_state) {
+CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State & previous_state) {
 
     urdf::Model model;
     if (!model.initString(get_node()->get_parameter("robot_description").as_string())) {
@@ -54,6 +63,12 @@ RobotJointController::CallbackReturn RobotJointController::on_configure(const rc
         return CallbackReturn::ERROR;
     }
     joint_name_ = get_node()->get_parameter("joint").as_string();
+
+    if (joint_name_.empty())
+    {
+        RCLCPP_ERROR(get_node()->get_logger(), "'joint' parameter was empty");
+        return CallbackReturn::ERROR;
+    }
     joint_urdf_ = model.getJoint(joint_name_);
     if (!joint_urdf_) {
         RCLCPP_ERROR(get_node()->get_logger(), "Could not find joint '%s' in urdf", joint_name_.c_str());
@@ -62,83 +77,28 @@ RobotJointController::CallbackReturn RobotJointController::on_configure(const rc
     return CallbackReturn::SUCCESS;
 }
 
-RobotJointController::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state) {
-    auto command_interface_it = std::find_if(
-        command_interfaces_.begin(), command_interfaces_.end(), 
-        [](const hardware_interface::LoanedCommandInterface & command_interface) {
-            return command_interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
-        }
-    );
-    if (command_interface_it == command_interfaces_.end())
-    {
-        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 position command interface");
-        return CallbackReturn::ERROR;
-    }
-    if (command_interface_it->get_name() != joint_name_)
-    {
-        RCLCPP_ERROR_STREAM(
-        get_node()->get_logger(), "Position command interface is different than joint name `"
-                                << command_interface_it->get_name() << "` != `" << joint_name_
-                                << "`");
-        return CallbackReturn::ERROR;
-    }
-    const auto pos_state_it = std::find_if(
-        state_interfaces_.begin(), state_interfaces_.end(), 
-        [](const hardware_interface::LoanedStateInterface & state_interface) {
-            return state_interface.get_interface_name() == hardware_interface::HW_IF_POSITION;
-        }
-    );
-    if (pos_state_it == state_interfaces_.end()) {
-        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 position state interface");
-        return CallbackReturn::ERROR;
-    }
-    if (pos_state_it->get_name() != joint_name_) {
-        RCLCPP_ERROR_STREAM(
-        get_node()->get_logger(), "Position state interface is different than joint name `"
-                                << pos_state_it->get_name() << "` != `" << joint_name_
-                                << "`");
-        return CallbackReturn::ERROR;
-    }
-    const auto vel_state_it = std::find_if(
-        state_interfaces_.begin(), state_interfaces_.end(),
-        [] (const hardware_interface::LoanedStateInterface & state_interface) {
-            return state_interface.get_interface_name() == hardware_interface::HW_IF_VELOCITY;
-        }
-    );
-    if (vel_state_it == state_interfaces_.end()) {
-        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 velocity state interface");
-        return CallbackReturn::ERROR;
-    }
-    if (vel_state_it->get_name() != joint_name_) {
-        RCLCPP_ERROR_STREAM(
-            get_node()->get_logger(), "Velocity state interface is different than joint name `"
-                                << vel_state_it->get_name() << "` != `" << joint_name_
-                                << "`");
-        return CallbackReturn::ERROR;
-    }
-    const auto eff_state_it = std::find_if(
-        state_interfaces_.begin(), state_interfaces_.end(),
-        [] (const hardware_interface::LoanedStateInterface & state_interface) {
-            return state_interface.get_interface_name() == hardware_interface::HW_IF_EFFORT;
-        }
-    );
-    if (eff_state_it == state_interfaces_.end()) {
-        RCLCPP_ERROR(get_node()->get_logger(), "Expected 1 effort state interface");
-        return CallbackReturn::ERROR;
-    }
-    if (eff_state_it->get_name() != joint_name_) {
-        RCLCPP_ERROR_STREAM(
-            get_node()->get_logger(), "Effort state interface is different than joint name `"
-                                << eff_state_it->get_name() << "` != `" << joint_name_
-                                << "`");
-        return CallbackReturn::ERROR;
-    }
+controller_interface::InterfaceConfiguration
+RobotJointController::command_interface_configuration() const
+{
+    controller_interface::InterfaceConfiguration command_interfaces_config;
+    command_interfaces_config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
+    command_interfaces_config.names.push_back(this->joint_name_ + "/effort");
+    return command_interfaces_config;
+}
 
-    joint_command_interface_ = *command_interface_it;
-    joint_state_.pos = *pos_state_it;
-    joint_state_.vel = *vel_state_it;
-    joint_state_.eff = *eff_state_it;
+controller_interface::InterfaceConfiguration
+RobotJointController::state_interface_configuration() const
+{
+    controller_interface::InterfaceConfiguration state_interfaces_config;
+    state_interfaces_config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
+    state_interfaces_config.names.push_back(this->joint_name_ + "/position");
+    state_interfaces_config.names.push_back(this->joint_name_ + "/velocity");
+    state_interfaces_config.names.push_back(this->joint_name_ + "/effort");
+    return state_interfaces_config;
+}
 
+RobotJointController::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state) 
+{
     std::string name_space = get_node()->get_namespace();
 
     joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("command", 10,

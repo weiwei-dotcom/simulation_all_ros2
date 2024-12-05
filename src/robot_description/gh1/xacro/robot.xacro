@@ -82,7 +82,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/base_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -177,7 +177,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L1_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L1_link.STL" />
       </geometry>
       <material
         name="">
@@ -236,7 +236,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L2_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L2_link.STL" />
       </geometry>
       <material
         name="">
@@ -292,7 +292,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L3_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L3_link.STL" />
       </geometry>
       <material
         name="">
@@ -346,7 +346,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L4_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L4_link.STL" />
       </geometry>
       <material
         name="">
@@ -400,7 +400,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L5_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L5_link.STL" />
       </geometry>
       <material
         name="">
@@ -478,7 +478,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R1_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R1_link.STL" />
       </geometry>
       <material
         name="">
@@ -533,7 +533,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R2_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R2_link.STL" />
       </geometry>
       <material
         name="">
@@ -588,7 +588,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R3_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R3_link.STL" />
       </geometry>
       <material
         name="">
@@ -642,7 +642,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R4_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R4_link.STL" />
       </geometry>
       <material
         name="">
@@ -696,7 +696,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R5_link.STL" />
+          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R5_link.STL" />
       </geometry>
       <material
         name="">

@@ -8,8 +8,14 @@ controller_manager:
         l_hip_roll_controller:
             type: robot_joint_controller/RobotJointController
 
-    # left leg Controllers ---------------------------------------
+# left leg Controllers ---------------------------------------
 l_hip_roll_controller:
     ros__parameters:
-        joint: l_hip_roll
-
+        joint: 
+            - l_hip_roll
+        # command_interface: 
+        #     - position
+        # state_interface: 
+        #     - position
+        #     - velocity
+        #     - effort
