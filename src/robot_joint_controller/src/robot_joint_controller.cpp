@@ -7,8 +7,8 @@ namespace robot_joint_controller
 {
 
 RobotJointController::RobotJointController()
-:controller_interface::ControllerInterface(),
-joint_urdf_(nullptr)
+: controller_interface::ControllerInterface(),
+    joint_urdf_(nullptr)
 {
 }
 
@@ -24,19 +24,20 @@ double RobotJointController::clamp(double &value, double min, double max)
 
 void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
 {
-    last_command_.q = msg->q;
-    last_command_.kp = msg->kp;
-    last_command_.dq = msg->dq;
-    last_command_.kd = msg->kd;
-    last_command_.tau = msg->tau;
+    MotorCommand recieve_cmd;
+    recieve_cmd.q = msg->q;
+    recieve_cmd.kp = msg->kp;
+    recieve_cmd.dq = msg->dq;
+    recieve_cmd.kd = msg->kd;
+    recieve_cmd.tau = msg->tau;
 
     // the writeFromNonRT can be used in RT, if you have the guarantee that
     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
     //  * there is only one single rt thread
-    realtime_cmd_buffer_.writeFromNonRT(last_command_);
+    rt_cmd_buff.writeFromNonRT(recieve_cmd);
 }
 
-return_type RobotJointController::init(const std::string & controller_name) {
+controller_interface::return_type RobotJointController::init(const std::string & controller_name) {
     auto ret = ControllerInterface::init(controller_name);
     if (ret != controller_interface::return_type::OK)
     {
@@ -55,8 +56,8 @@ return_type RobotJointController::init(const std::string & controller_name) {
     return controller_interface::return_type::SUCCESS;
 }
 
-CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State & previous_state) {
-
+CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State & previous_state) 
+{
     urdf::Model model;
     if (!model.initString(get_node()->get_parameter("robot_description").as_string())) {
         RCLCPP_ERROR(get_node()->get_logger(), "Failed to parse urdf file");
@@ -101,28 +102,28 @@ RobotJointController::CallbackReturn RobotJointController::on_activate(const rcl
 {
     std::string name_space = get_node()->get_namespace();
 
-    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("command", 10,
+    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("command", rclcpp::SystemDefaultsQoS(),
         std::bind(&RobotJointController::setCommandCB,
             this,
             std::placeholders::_1));
     joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
-        get_node()->create_publisher<MotorState>(name_space + "/state", 10));
+        get_node()->create_publisher<MotorState>(name_space + "/state", rclcpp::SystemDefaultsQoS()));
 
-    double init_pos = joint_state_.pos.get().get_value();
+    double init_pos = state_interfaces_[0].get_value();
     last_command_.q = init_pos;
     last_state_.q = init_pos;
     last_command_.dq = 0;
     last_state_.dq = 0;
     last_command_.tau = 0;
     last_state_.tau_est = 0;
-    realtime_cmd_buffer_.initRT(last_command_);
+    rt_cmd_buff.initRT(last_command_);
 
     return CallbackReturn::SUCCESS;
 }
 
 controller_interface::return_type RobotJointController::update() {
     double currentPos, currentVel, currentTau, calcTorque;
-    robot_msgs::msg::MotorCommand current_command = *(realtime_cmd_buffer_.readFromRT());
+    robot_msgs::msg::MotorCommand current_command = *(rt_cmd_buff.readFromRT());
 
     // set command data
     robot_msgs::msg::MotorCommand current_servo_command = current_command;
@@ -136,21 +137,20 @@ controller_interface::return_type RobotJointController::update() {
     }
     effortLimits(current_servo_command.tau);
 
-    currentPos = joint_state_.pos.get().get_value();
-    currentVel = joint_state_.vel.get().get_value();
+    currentPos = state_interfaces_[0].get_value();
+    currentVel = state_interfaces_[1].get_value();
     // // 也可以使用位置差分的方式计算速度
     // currentVel = currentPos - last_state_.q;
     calcTorque = current_servo_command.kp * (current_servo_command.q - currentPos) + current_servo_command.kd * (current_servo_command.dq - currentVel) +
                  current_servo_command.tau;
     effortLimits(calcTorque);
-
     //
-    joint_command_interface_.get().set_value(calcTorque);
+    command_interfaces_[0].set_value(calcTorque);
 
     last_servo_command_ = current_servo_command;
     last_command_ = current_command;
 
-    currentTau = joint_state_.eff.get().get_value();
+    currentTau = state_interfaces_[2].get_value();
     // publish state
     if (joint_state_publisher_ && joint_state_publisher_->trylock()) {
         joint_state_publisher_->msg_.q = currentPos;
@@ -161,7 +161,6 @@ controller_interface::return_type RobotJointController::update() {
     last_state_.q = currentPos;
     last_state_.dq = currentVel;
     last_state_.tau_est = currentTau;
-
     return controller_interface::return_type::SUCCESS;
 }
 

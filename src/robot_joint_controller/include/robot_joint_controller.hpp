@@ -12,7 +12,6 @@
 #include "realtime_tools/realtime_publisher.h"
 #include "rclcpp_lifecycle/state.hpp"
 #include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
-// #include "robot_joint_controller/visibility_control.h"
 #include "visibility_control.h"
 #include <rclcpp/rclcpp.hpp>
 
@@ -45,13 +44,6 @@ typedef struct
     double torque;
 } ServoCommand;
 
-typedef struct 
-{
-    std::reference_wrapper<hardware_interface::LoanedStateInterface> pos; //todo:
-    std::reference_wrapper<hardware_interface::LoanedStateInterface> vel; //todo:
-    std::reference_wrapper<hardware_interface::LoanedStateInterface> eff; //todo:
-} JointState;
-
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 using MotorState = robot_msgs::msg::MotorState;
 using MotorCommand = robot_msgs::msg::MotorCommand;
@@ -60,8 +52,6 @@ class RobotJointController : public controller_interface::ControllerInterface
 {
 private:
     
-    std::reference_wrapper<hardware_interface::LoanedCommandInterface> joint_command_interface_; //todo:
-    JointState joint_state_;
     rclcpp::Subscription<MotorCommand>::SharedPtr joint_command_subscriber_;
     std::shared_ptr<realtime_tools::RealtimePublisher<MotorState>> joint_state_publisher_ ;
 
@@ -93,13 +83,11 @@ public:
     controller_interface::return_type update() override;
     urdf::JointConstSharedPtr joint_urdf_;
     std::string joint_name_; 
-    realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> realtime_cmd_buffer_;
+    realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> rt_cmd_buff;
 
     robot_msgs::msg::MotorCommand last_command_;
     robot_msgs::msg::MotorCommand last_servo_command_;
     robot_msgs::msg::MotorState last_state_;
-    std::string command_interface_name_;
-    std::string command_interface_name_;
 
     ServoCommand servo_command_;
 

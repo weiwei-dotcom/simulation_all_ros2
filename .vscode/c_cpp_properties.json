@@ -12,6 +12,8 @@
         "/${workspaceFolder}/src/robot_joint_controller/include/**",
         "/${workspaceFolder}/install/**",
         "/opt/ros/foxy/share/**",
+        "/${workspaceFolder}/src/robot_joint_hardware//include/**",
+        "/${workspaceFolder}/src/robot_joint_hardware/include/robot_joint_hardware/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
