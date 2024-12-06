@@ -18,6 +18,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
   controller_interface
   realtime_tools
   robot_msgs
+  urdf
 )
 
 # Specify the required version of ros2_control
@@ -38,6 +39,7 @@ endforeach()
 ## COMPILE
 add_library(
   robot_joint_controller
+  SHARED
   src/robot_joint_controller.cpp
 )
 target_compile_features(robot_joint_controller PUBLIC cxx_std_17)
@@ -45,10 +47,13 @@ target_include_directories(robot_joint_controller PUBLIC
 $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include/robot_joint_controller>
 )
+
 ament_target_dependencies(
   robot_joint_controller PUBLIC
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
+
+# target_link_libraries(robot_joint_controller ${urdf_LIBRARIES})
 
 # Export hardware plugins
 pluginlib_export_plugin_description_file(controller_interface robot_joint_controller_plugins.xml)

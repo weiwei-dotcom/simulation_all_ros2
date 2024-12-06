@@ -82,7 +82,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/base_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -177,7 +177,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L1_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L1_link.STL" />
       </geometry>
       <material
         name="">
@@ -236,7 +236,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L2_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L2_link.STL" />
       </geometry>
       <material
         name="">
@@ -292,7 +292,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L3_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L3_link.STL" />
       </geometry>
       <material
         name="">
@@ -346,7 +346,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L4_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L4_link.STL" />
       </geometry>
       <material
         name="">
@@ -400,7 +400,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L5_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/L5_link.STL" />
       </geometry>
       <material
         name="">
@@ -478,7 +478,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R1_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R1_link.STL" />
       </geometry>
       <material
         name="">
@@ -533,7 +533,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R2_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R2_link.STL" />
       </geometry>
       <material
         name="">
@@ -588,7 +588,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R3_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R3_link.STL" />
       </geometry>
       <material
         name="">
@@ -642,7 +642,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R4_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R4_link.STL" />
       </geometry>
       <material
         name="">
@@ -696,7 +696,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/ww/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R5_link.STL" />
+          filename="/home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/meshes/R5_link.STL" />
       </geometry>
       <material
         name="">
@@ -753,114 +753,18 @@
       velocity="46.024" />
   </joint>
 
-  <transmission name="l_hip_roll_tran">
-    <type>transmission_interface/SimpleTransmission</type>
+  <ros2_control name="gh1_gazebo" type="system">
+    <hardware>
+      <plugin>fake_components/GenericSystem</plugin>
+    </hardware>
+
     <joint name="l_hip_roll">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
     </joint>
-    <actuator name="l_hip_roll_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="l_hip_yaw_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_hip_yaw">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="l_hip_yaw_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="l_hip_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_hip_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="l_hip_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="l_knee_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_knee_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="l_knee_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="l_ankle_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="l_ankle_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="l_ankle_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="r_hip_roll_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_hip_roll">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="r_hip_roll_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="r_hip_yaw_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_hip_yaw">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="r_hip_yaw_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="r_hip_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_hip_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="r_hip_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="r_knee_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_knee_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="r_knee_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="r_ankle_pitch_tran">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="r_ankle_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="r_ankle_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>&quot;1&quot;</mechanicalReduction>
-    </actuator>
-  </transmission>
+  </ros2_control>
 
 </robot>

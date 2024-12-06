@@ -10,6 +10,7 @@ for gh1 robot</p>
   <maintainer email="TODO@email.com" />
   <license>BSD</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>hardward_interface</buildtool_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>rviz2</exec_depend>

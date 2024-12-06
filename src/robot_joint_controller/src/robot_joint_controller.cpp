@@ -45,8 +45,8 @@ controller_interface::return_type RobotJointController::init(const std::string &
     }
     try 
     {
-        auto_declare("joint", "joint_name");
-        auto_declare("robot_description", "robot_description"); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
+        joint_name_ = auto_declare<std::string>("joint", joint_name_);
+        robot_description_ = auto_declare<std::string>("robot_description", robot_description_); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
     }
     catch (const std::exception & e)
     {
@@ -64,6 +64,8 @@ CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State 
         return CallbackReturn::ERROR;
     }
     joint_name_ = get_node()->get_parameter("joint").as_string();
+    RCLCPP_WARN(get_node()->get_logger(), "joint name is :  %s", joint_name_.c_str());
+
 
     if (joint_name_.empty())
     {
@@ -107,7 +109,7 @@ RobotJointController::CallbackReturn RobotJointController::on_activate(const rcl
             this,
             std::placeholders::_1));
     joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
-        get_node()->create_publisher<MotorState>(name_space + "/state", rclcpp::SystemDefaultsQoS()));
+        get_node()->create_publisher<MotorState>(name_space + "state", rclcpp::SystemDefaultsQoS()));
 
     double init_pos = state_interfaces_[0].get_value();
     last_command_.q = init_pos;

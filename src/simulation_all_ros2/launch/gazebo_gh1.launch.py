@@ -40,10 +40,22 @@ def generate_launch_description():
         }.items()
     )
 
+
+    # 加载 YAML 参数到 controller_manager
     xacro_path = PathJoinSubstitution([description_path, "xacro", "robot.xacro"])
     xacro_exe_path = FindExecutable(name="xacro")
     robot_urdf_content = Command([xacro_exe_path, " ", xacro_path, " use_sim:=true", " DEBUG:=", LaunchConfiguration('user_debug')])
     robot_description = {"robot_description": robot_urdf_content}
+    control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
+
+    robot_config = Node(
+        package='controller_manager',
+        executable='ros2_control_node',
+        name='controller_manager',
+        output='screen',
+        parameters=[robot_description, control_yaml_path]
+    )
+
     # Load robot description
     robot_tf_node = Node(
         package='robot_state_publisher',
@@ -63,16 +75,6 @@ def generate_launch_description():
             '-z', '1.35',
             "-topic", "robot_description",
             '-robot_namespace', "gh1_gazebo"] 
-    )
-
-    # 加载 YAML 参数到 controller_manager
-    control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
-    robot_config = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        name='controller_manager',
-        output='screen',
-        parameters=[robot_description, control_yaml_path]
     )
 
     controller_names = ['l_hip_roll_controller']

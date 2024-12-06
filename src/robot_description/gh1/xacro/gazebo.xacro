@@ -59,4 +59,5 @@
     <self_collide>1</self_collide>
     <material>Gazebo/DarkGrey</material>
   </gazebo>
+
 </robot>

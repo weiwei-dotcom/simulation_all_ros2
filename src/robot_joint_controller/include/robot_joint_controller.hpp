@@ -83,6 +83,8 @@ public:
     controller_interface::return_type update() override;
     urdf::JointConstSharedPtr joint_urdf_;
     std::string joint_name_; 
+    std::string robot_description_; 
+    
     realtime_tools::RealtimeBuffer<robot_msgs::msg::MotorCommand> rt_cmd_buff;
 
     robot_msgs::msg::MotorCommand last_command_;

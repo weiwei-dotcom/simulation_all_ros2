@@ -4,7 +4,6 @@ controller_manager:
         # Publish all joint states -----------------------------------
         joint_state_broadcaster:
             type: joint_state_broadcaster/JointStateBroadcaster
-            # publish_rate: 1000  
         l_hip_roll_controller:
             type: robot_joint_controller/RobotJointController
 
@@ -13,9 +12,4 @@ l_hip_roll_controller:
     ros__parameters:
         joint: 
             - l_hip_roll
-        # command_interface: 
-        #     - position
-        # state_interface: 
-        #     - position
-        #     - velocity
-        #     - effort
+

@@ -30,79 +30,78 @@ hardware_interface::return_type RobotJointHardware::configure(
         // DiffBotSystem has exactly two states and one command interface on each joint
         if (joint.command_interfaces.size() != 1)
         {
-        RCLCPP_FATAL(
-            rclcpp::get_logger("DiffBotSystemHardware"),
-            "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
-            joint.command_interfaces.size());
-        return hardware_interface::return_type::ERROR;
+            RCLCPP_FATAL(
+                rclcpp::get_logger("DiffBotSystemHardware"),
+                "Joint '%s' has %d command interfaces found. 1 expected.", joint.name.c_str(),
+                joint.command_interfaces.size());
+            return hardware_interface::return_type::ERROR;
         }
 
         if (joint.command_interfaces[0].name != hardware_interface::HW_IF_VELOCITY)
         {
-        RCLCPP_FATAL(
-            rclcpp::get_logger("DiffBotSystemHardware"),
-            "Joint '%s' have %s command interfaces found. '%s' expected.", joint.name.c_str(),
-            joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_VELOCITY);
-        return hardware_interface::return_type::ERROR;
+            RCLCPP_FATAL(
+                rclcpp::get_logger("DiffBotSystemHardware"),
+                "Joint '%s' have %s command interfaces found. '%s' expected.", joint.name.c_str(),
+                joint.command_interfaces[0].name.c_str(), hardware_interface::HW_IF_VELOCITY);
+            return hardware_interface::return_type::ERROR;
         }
 
         if (joint.state_interfaces.size() != 2)
         {
-        RCLCPP_FATAL(
-            rclcpp::get_logger("DiffBotSystemHardware"),
-            "Joint '%s' has %d state interface. 2 expected.", joint.name.c_str(),
-            joint.state_interfaces.size());
-        return hardware_interface::return_type::ERROR;
+            RCLCPP_FATAL(
+                rclcpp::get_logger("DiffBotSystemHardware"),
+                "Joint '%s' has %d state interface. 2 expected.", joint.name.c_str(),
+                joint.state_interfaces.size());
+            return hardware_interface::return_type::ERROR;
         }
 
         if (joint.state_interfaces[0].name != hardware_interface::HW_IF_POSITION)
         {
-        RCLCPP_FATAL(
-            rclcpp::get_logger("DiffBotSystemHardware"),
-            "Joint '%s' have '%s' as first state interface. '%s' and '%s' expected.",
-            joint.name.c_str(), joint.state_interfaces[0].name.c_str(),
-            hardware_interface::HW_IF_POSITION);
-        return hardware_interface::return_type::ERROR;
+            RCLCPP_FATAL(
+                rclcpp::get_logger("DiffBotSystemHardware"),
+                "Joint '%s' have '%s' as first state interface. '%s' and '%s' expected.",
+                joint.name.c_str(), joint.state_interfaces[0].name.c_str(),
+                hardware_interface::HW_IF_POSITION);
+            return hardware_interface::return_type::ERROR;
         }
 
         if (joint.state_interfaces[1].name != hardware_interface::HW_IF_VELOCITY)
         {
-        RCLCPP_FATAL(
-            rclcpp::get_logger("DiffBotSystemHardware"),
-            "Joint '%s' have '%s' as second state interface. '%s' expected.", joint.name.c_str(),
-            joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
-        return hardware_interface::return_type::ERROR;
+            RCLCPP_FATAL(
+                rclcpp::get_logger("DiffBotSystemHardware"),
+                "Joint '%s' have '%s' as second state interface. '%s' expected.", joint.name.c_str(),
+                joint.state_interfaces[1].name.c_str(), hardware_interface::HW_IF_VELOCITY);
+            return hardware_interface::return_type::ERROR;
         }
     }
-
     status_ = hardware_interface::status::CONFIGURED;
     return hardware_interface::return_type::OK;
 }
 
 std::vector<hardware_interface::StateInterface> RobotJointHardware::export_state_interfaces()
 {
-  std::vector<hardware_interface::StateInterface> state_interfaces;
-  for (auto i = 0u; i < info_.joints.size(); i++)
-  {
-    state_interfaces.emplace_back(hardware_interface::StateInterface(
-      info_.joints[i].name, hardware_interface::HW_IF_POSITION, &hw_positions_[i]));
-    state_interfaces.emplace_back(hardware_interface::StateInterface(
-      info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &hw_velocities_[i]));
-  }
+    std::vector<hardware_interface::StateInterface> state_interfaces;
+    for (auto i = 0u; i < info_.joints.size(); i++)
+    {
+        state_interfaces.emplace_back(hardware_interface::StateInterface(
+            info_.joints[i].name, hardware_interface::HW_IF_POSITION, &hw_positions_[i]));
+        state_interfaces.emplace_back(hardware_interface::StateInterface(
+            info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &hw_velocities_[i]));
+    }
 
-  return state_interfaces;
+    return state_interfaces;
 }
 
 std::vector<hardware_interface::CommandInterface> RobotJointHardware::export_command_interfaces()
 {
-  std::vector<hardware_interface::CommandInterface> command_interfaces;
-  for (auto i = 0u; i < info_.joints.size(); i++)
-  {
-    command_interfaces.emplace_back(hardware_interface::CommandInterface(
-      info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &hw_commands_[i]));
-  }
+    std::vector<hardware_interface::CommandInterface> command_interfaces;
+    for (auto i = 0u; i < info_.joints.size(); i++)
+    {
+        command_interfaces.emplace_back(hardware_interface::CommandInterface(
+            info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &hw_commands_[i]));
+    }
 
-  return command_interfaces;
+    return command_interfaces;
 }
 
 hardware_interface::return_type RobotJointHardware::start()
