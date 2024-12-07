@@ -10,6 +10,4 @@ controller_manager:
 # left leg Controllers ---------------------------------------
 l_hip_roll_controller:
     ros__parameters:
-        joint: 
-            - l_hip_roll
-
+        joint: l_hip_roll

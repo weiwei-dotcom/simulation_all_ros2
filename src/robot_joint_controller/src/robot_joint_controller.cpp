@@ -104,12 +104,12 @@ RobotJointController::CallbackReturn RobotJointController::on_activate(const rcl
 {
     std::string name_space = get_node()->get_namespace();
 
-    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("command", rclcpp::SystemDefaultsQoS(),
+    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("~/command", rclcpp::SystemDefaultsQoS(),
         std::bind(&RobotJointController::setCommandCB,
             this,
             std::placeholders::_1));
     joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
-        get_node()->create_publisher<MotorState>(name_space + "state", rclcpp::SystemDefaultsQoS()));
+        get_node()->create_publisher<MotorState>("~/state", rclcpp::SystemDefaultsQoS()));
 
     double init_pos = state_interfaces_[0].get_value();
     last_command_.q = init_pos;

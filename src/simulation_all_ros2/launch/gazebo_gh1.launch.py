@@ -21,10 +21,11 @@ def generate_launch_description():
 
     # 这里要修改
     world_file_path = PathJoinSubstitution([FindPackageShare("simulation_all_ros2"), "worlds", "TestSpace.world"]) 
-    gui_flag = LaunchConfiguration('gui')
+    gui = LaunchConfiguration('gui')
     pause_flag = LaunchConfiguration('paused')
     headless_flag = LaunchConfiguration('headless')
     debug_flag = LaunchConfiguration('debug')
+    use_sim_time = LaunchConfiguration('use_sim_time')
     description_path = LaunchConfiguration('description_path')
     # Include Gazebo empty world launch file
     gazebo_launch = IncludeLaunchDescription(
@@ -34,7 +35,7 @@ def generate_launch_description():
         launch_arguments={
             'world': world_file_path,
             'pause': pause_flag,
-            'gui': gui_flag,
+            'gui': gui,
             'headless': headless_flag,
             'debug': debug_flag
         }.items()
@@ -51,7 +52,6 @@ def generate_launch_description():
     robot_config = Node(
         package='controller_manager',
         executable='ros2_control_node',
-        name='controller_manager',
         output='screen',
         parameters=[robot_description, control_yaml_path]
     )
@@ -68,10 +68,9 @@ def generate_launch_description():
     robot_model = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        name='urdf_spawner',
         output='screen',
         arguments=[
-            '-entity', "gh1_gazebo",
+            '-entity', "gh1",
             '-z', '1.35',
             "-topic", "robot_description",
             '-robot_namespace', "gh1_gazebo"] 
@@ -83,7 +82,7 @@ def generate_launch_description():
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner.py",
-        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+        arguments=["joint_state_broadcaster"],
     )
 
     robot_controllers = []
@@ -92,7 +91,6 @@ def generate_launch_description():
             Node(
                 package='controller_manager',
                 executable='spawner.py',
-                name='controller_spawner',
                 output='screen',
                 parameters=[robot_description],
                 namespace = 'gh1', # 这里要修改为机器人的命名空间

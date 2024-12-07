@@ -756,8 +756,8 @@
   <ros2_control name="gh1_gazebo" type="system">
     <hardware>
       <plugin>fake_components/GenericSystem</plugin>
+      <!-- <plugin>gazebo_ros2_control/GazeboSystem</plugin> -->
     </hardware>
-
     <joint name="l_hip_roll">
       <command_interface name="effort">
       </command_interface>
@@ -766,5 +766,11 @@
       <state_interface name="effort"/>
     </joint>
   </ros2_control>
+
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <parameters>$(find gh1)/config/robot_control.yaml</parameters>
+    </plugin>
+  </gazebo>
 
 </robot>
