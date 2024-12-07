@@ -1,5 +1,6 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
+from launch.event_handlers import OnProcessExit
 from launch.substitutions import LaunchConfiguration, Command, FindExecutable, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
@@ -49,12 +50,14 @@ def generate_launch_description():
     robot_description = {"robot_description": robot_urdf_content}
     control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
 
-    robot_config = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        output='screen',
-        parameters=[robot_description, control_yaml_path]
-    )
+    # ros2_control_node = Node(
+    #     package='controller_manager',
+    #     executable='ros2_control_node',
+    #     # name = " ", # 这个是节点名称重映射，会根据控制器名称自动创建，不能设定
+    #     output='screen',
+    #     parameters=[robot_description, control_yaml_path]
+    # )
+
 
     # Load robot description
     robot_tf_node = Node(
@@ -76,8 +79,6 @@ def generate_launch_description():
             '-robot_namespace', "gh1_gazebo"] 
     )
 
-    controller_names = ['l_hip_roll_controller']
-
     # Load joint controller configurations from YAML
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
@@ -85,27 +86,32 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-    robot_controllers = []
-    for controller_name in controller_names:
-        robot_controllers.append(
-            Node(
-                package='controller_manager',
-                executable='spawner.py',
-                output='screen',
-                parameters=[robot_description],
-                namespace = 'gh1', # 这里要修改为机器人的命名空间
-                arguments=[controller_name]
-            )
-        )
+    l_hip_roll_controller = Node(
+        package='controller_manager',
+        executable='spawner.py',
+        output='screen',
+        parameters=[robot_description],
+        # namespace = 'gh1', # 这里要修改为机器人的命名空间
+        arguments=["l_hip_roll_controller"]
+    )
 
     nodes = [
-        gazebo_launch,
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=robot_model,
+                on_exit=[joint_state_broadcaster_spawner],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=joint_state_broadcaster_spawner,
+                on_exit=[l_hip_roll_controller],
+            )
+        ),
         robot_tf_node,
+        gazebo_launch,
         robot_model,
-        robot_config,
-        joint_state_broadcaster_spawner
     ]
 
             
-    return LaunchDescription(declared_areguments + nodes + robot_controllers)
-    # return LaunchDescription(declared_areguments + nodes)
+    return LaunchDescription(declared_areguments + nodes)

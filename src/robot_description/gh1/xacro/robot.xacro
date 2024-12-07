@@ -755,8 +755,8 @@
 
   <ros2_control name="gh1_gazebo" type="system">
     <hardware>
-      <plugin>fake_components/GenericSystem</plugin>
-      <!-- <plugin>gazebo_ros2_control/GazeboSystem</plugin> -->
+      <!-- <plugin>fake_components/GenericSystem</plugin> -->
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
     </hardware>
     <joint name="l_hip_roll">
       <command_interface name="effort">

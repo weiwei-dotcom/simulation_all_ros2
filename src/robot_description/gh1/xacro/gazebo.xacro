@@ -7,16 +7,16 @@
     </plugin>
   </gazebo> -->
 
-  <gazebo>
+  <!-- <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
       <parameters>$(find gh1)/config/robot_control.yaml</parameters>
     </plugin>
-  </gazebo>
+  </gazebo> -->
 
   <gazebo>
     <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
       <link_name>base</link_name>
-      <topicName>/apply_force/body</topicName>
+      <topicName>/apply_force/base</topicName>
     </plugin>
   </gazebo>
 
