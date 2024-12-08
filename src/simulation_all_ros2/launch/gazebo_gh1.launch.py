@@ -26,6 +26,7 @@ def generate_launch_description():
     pause_flag = LaunchConfiguration('paused')
     headless_flag = LaunchConfiguration('headless')
     debug_flag = LaunchConfiguration('debug')
+    user_debug = LaunchConfiguration('user_debug')
     use_sim_time = LaunchConfiguration('use_sim_time')
     description_path = LaunchConfiguration('description_path')
     # Include Gazebo empty world launch file
@@ -44,9 +45,9 @@ def generate_launch_description():
 
 
     # 加载 YAML 参数到 controller_manager
-    xacro_path = PathJoinSubstitution([description_path, "xacro", "robot.xacro"])
+    xacro_path = PathJoinSubstitution([description_path, "xacro", "robot_system.xacro"])
     xacro_exe_path = FindExecutable(name="xacro")
-    robot_urdf_content = Command([xacro_exe_path, " ", xacro_path, " use_sim:=true", " DEBUG:=", LaunchConfiguration('user_debug')])
+    robot_urdf_content = Command([xacro_exe_path, " ", xacro_path, " ", "debug:=", user_debug])
     robot_description = {"robot_description": robot_urdf_content}
     control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
 

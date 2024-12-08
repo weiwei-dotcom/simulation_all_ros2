@@ -1,17 +1,13 @@
 <?xml version="1.0"?>
-<robot>
-  <!-- <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>gh1</robotNamespace>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-    </plugin>
-  </gazebo> -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- <gazebo>
+  <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <!-- 因为 gazebo_ros2_control 要启动 ros2_controll_node 来启动控制器 -->
+      <!-- 要启动的控制器名称在 robot_control.yaml -->
       <parameters>$(find gh1)/config/robot_control.yaml</parameters>
     </plugin>
-  </gazebo> -->
+  </gazebo>
 
   <gazebo>
     <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
