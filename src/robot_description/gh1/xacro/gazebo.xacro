@@ -66,4 +66,71 @@
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
+  <gazebo reference="l_thigh_yaw">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="l_thigh_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="l_shank_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="l_foot_pitch">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <!-- right leg -->
+  <gazebo reference="r_thigh_roll">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="r_thigh_yaw">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="r_thigh_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="r_shank_pitch">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="r_foot_pitch">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <self_collide>1</self_collide>
+    <kp value="1000000.0" />
+    <kd value="1.0" />
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
 </robot>

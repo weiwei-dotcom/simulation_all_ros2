@@ -50,15 +50,6 @@ def generate_launch_description():
     robot_description = {"robot_description": robot_urdf_content}
     control_yaml_path = PathJoinSubstitution([description_path, 'config', 'robot_control.yaml'])
 
-    # ros2_control_node = Node(
-    #     package='controller_manager',
-    #     executable='ros2_control_node',
-    #     # name = " ", # 这个是节点名称重映射，会根据控制器名称自动创建，不能设定
-    #     output='screen',
-    #     parameters=[robot_description, control_yaml_path]
-    # )
-
-
     # Load robot description
     robot_tf_node = Node(
         package='robot_state_publisher',
@@ -89,7 +80,16 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-    joint_controller_names = ['l_hip_roll_controller']
+    joint_controller_names = ['l_hip_roll_controller',
+                              'l_hip_yaw_controller',
+                              'l_hip_pitch_controller',
+                              'l_knee_pitch_controller',
+                              'l_ankle_pitch_controller',
+                              'r_hip_roll_controller',
+                              'r_hip_yaw_controller',
+                              'r_hip_pitch_controller',
+                              'r_knee_pitch_controller',
+                              'r_ankle_pitch_controller',]
     controller_nodes = []
     for joint_controller_name in joint_controller_names:
         controller_nodes.append(

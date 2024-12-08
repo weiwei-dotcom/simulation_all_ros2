@@ -6,10 +6,65 @@ controller_manager:
             type: joint_state_broadcaster/JointStateBroadcaster
         l_hip_roll_controller:
             type: robot_joint_controller/RobotJointController
+        l_hip_yaw_controller:
+            type: robot_joint_controller/RobotJointController
+        l_hip_pitch_controller:
+            type: robot_joint_controller/RobotJointController
+        l_knee_pitch_controller:
+            type: robot_joint_controller/RobotJointController
+        l_ankle_pitch_controller:
+            type: robot_joint_controller/RobotJointController
+        r_hip_roll_controller:
+           type: robot_joint_controller/RobotJointController
+        r_hip_yaw_controller:
+           type: robot_joint_controller/RobotJointController
+        r_hip_pitch_controller:
+           type: robot_joint_controller/RobotJointController
+        r_knee_pitch_controller:
+           type: robot_joint_controller/RobotJointController
+        r_ankle_pitch_controller:
+            type: robot_joint_controller/RobotJointController
 
 # left leg Controllers ---------------------------------------
 l_hip_roll_controller:
     ros__parameters:
         joint: l_hip_roll
         # 为了能读到xacro内容来获取关节标签内容(主要是关节限制内容)
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+l_hip_yaw_controller:
+    ros__parameters:
+        joint: l_hip_yaw
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+l_hip_pitch_controller:
+    ros__parameters:
+        joint: l_hip_pitch
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+l_knee_pitch_controller:
+    ros__parameters:
+        joint: l_knee_pitch
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+l_ankle_pitch_controller:
+    ros__parameters:
+        joint: l_ankle_pitch
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+# right leg Controllers ---------------------------------------
+r_hip_roll_controller:
+    ros__parameters:
+        joint: r_hip_roll
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+r_hip_yaw_controller:
+    ros__parameters:
+        joint: r_hip_yaw
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+r_hip_pitch_controller:
+    ros__parameters:
+        joint: r_hip_pitch
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+r_knee_pitch_controller:
+    ros__parameters:
+        joint: r_knee_pitch
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro
+r_ankle_pitch_controller:
+    ros__parameters:
+        joint: r_ankle_pitch
         robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro

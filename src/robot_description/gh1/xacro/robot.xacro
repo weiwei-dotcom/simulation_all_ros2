@@ -137,6 +137,12 @@
     </collision>
   </link>
 
+  <joint name="z_joint_imu" type="fixed">
+    <origin xyz="-0.0 0 -0.0" rpy="0 0 0" />
+    <parent link="body" />
+    <child link="imu_link" />
+  </joint>
+
   <link name="imu_link">
     <visual>
       <origin xyz="-0.0 0 -0.0" rpy="0 0 0" />
@@ -149,10 +155,23 @@
     </visual>
   </link>
 
-  <joint name="z_joint_imu" type="fixed">
-    <origin xyz="-0.0 0 -0.0" rpy="0 0 0" />
-    <parent link="body" />
-    <child link="imu_link" />
+  <joint
+    name="l_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.08275 0.135 -0.2975"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="l_thigh_roll" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.17"
+      upper="1.05"
+      effort="120"
+      velocity="20.92" />
   </joint>
 
   <link
@@ -196,22 +215,20 @@
   </link>
 
   <joint
-    name="l_hip_roll"
+    name="l_hip_yaw"
     type="revolute">
     <origin
-      xyz="-0.08275 0.135 -0.2975"
+      xyz="0.087 0 -0.015"
       rpy="0 0 0" />
-    <parent
-      link="body" />
-    <child
-      link="l_thigh_roll" />
+    <parent link="l_thigh_roll" />
+    <child link="l_thigh_yaw" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
     <limit
-      lower="-0.17"
-      upper="1.05"
-      effort="120"
-      velocity="20.92" />
+      lower="-0.1"
+      upper="0.1"
+      effort="70"
+      velocity="12.552" />
   </joint>
 
   <link
@@ -254,21 +271,19 @@
     </collision>
   </link>
 
-  <joint
-    name="l_hip_yaw"
-    type="revolute">
+  <joint name="l_hip_pitch" type="revolute">
     <origin
-      xyz="0.087 0 -0.015"
+      xyz="0 -0.041 -0.127"
       rpy="0 0 0" />
-    <parent link="l_thigh_roll" />
-    <child link="l_thigh_yaw" />
+    <parent link="l_thigh_yaw" />
+    <child link="l_thigh_pitch" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 1 0" />
     <limit
-      lower="-0.1"
-      upper="0.1"
-      effort="70"
-      velocity="12.552" />
+      lower="-1.75"
+      upper="1.75"
+      effort="120"
+      velocity="20.92" />
   </joint>
 
   <link name="l_thigh_pitch">
@@ -310,17 +325,17 @@
     </collision>
   </link>
 
-  <joint name="l_hip_pitch" type="revolute">
+  <joint name="l_knee_pitch" type="revolute">
     <origin
-      xyz="0 -0.041 -0.127"
+      xyz="0 0.041 -0.42"
       rpy="0 0 0" />
-    <parent link="l_thigh_yaw" />
-    <child link="l_thigh_pitch" />
+    <parent link="l_thigh_pitch" />
+    <child link="l_shank_pitch" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-1.75"
-      upper="1.75"
+      lower="0"
+      upper="2.23"
       effort="120"
       velocity="20.92" />
   </joint>
@@ -364,19 +379,19 @@
     </collision>
   </link>
 
-  <joint name="l_knee_pitch" type="revolute">
+  <joint name="l_ankle_pitch" type="revolute">
     <origin
-      xyz="0 0.041 -0.42"
+      xyz="0 0 -0.4"
       rpy="0 0 0" />
-    <parent link="l_thigh_pitch" />
-    <child link="l_shank_pitch" />
+    <parent link="l_shank_pitch" />
+    <child link="l_foot_pitch" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="2.23"
-      effort="120"
-      velocity="20.92" />
+      lower="-1.08"
+      upper="0.59"
+      effort="22"
+      velocity="46.024" />
   </joint>
 
   <link name="l_foot_pitch">
@@ -441,21 +456,6 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="l_ankle_pitch" type="revolute">
-    <origin
-      xyz="0 0 -0.4"
-      rpy="0 0 0" />
-    <parent link="l_shank_pitch" />
-    <child link="l_foot_pitch" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-1.08"
-      upper="0.59"
-      effort="22"
-      velocity="46.024" />
-  </joint>
 
   <link name="r_thigh_roll">
     <inertial>
@@ -704,14 +704,6 @@
           rgba="1 1 1 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0.025 0 -0.045"
-        rpy="0 0 0" />
-      <geometry>
-        <box size="0.25 0.05 0.02"/>
-      </geometry>
-    </collision> -->
     <collision>
       <origin
         xyz="0.02 0 -0.04"
@@ -759,6 +751,69 @@
       <plugin>gazebo_ros2_control/GazeboSystem</plugin>
     </hardware>
     <joint name="l_hip_roll">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_hip_yaw">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_hip_pitch">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_knee_pitch">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="l_ankle_pitch">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_roll">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_yaw">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_hip_pitch">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_knee_pitch">
+      <command_interface name="effort">
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="r_ankle_pitch">
       <command_interface name="effort">
       </command_interface>
       <state_interface name="position"/>
