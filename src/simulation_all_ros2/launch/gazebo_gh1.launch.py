@@ -38,6 +38,7 @@ def generate_launch_description():
             'world': world_file_path,
             'pause': pause_flag,
             'gui': gui,
+            'use_sim_time': use_sim_time,
             'headless': headless_flag,
             'debug': debug_flag
         }.items()

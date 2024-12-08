@@ -85,11 +85,7 @@ CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State 
         return CallbackReturn::ERROR;
     }
 
-    RCLCPP_INFO(get_node()->get_logger(), "read urdf success !  ! !");
-
     joint_name_ = get_node()->get_parameter("joint").as_string();
-    RCLCPP_WARN(get_node()->get_logger(), "joint name is :  %s", joint_name_.c_str());
-
 
     if (joint_name_.empty())
     {
@@ -126,8 +122,6 @@ RobotJointController::state_interface_configuration() const
 
 RobotJointController::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state) 
 {
-    std::string name_space = get_node()->get_namespace();
-
     joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("~/command", rclcpp::SystemDefaultsQoS(),
         std::bind(&RobotJointController::setCommandCB,
             this,

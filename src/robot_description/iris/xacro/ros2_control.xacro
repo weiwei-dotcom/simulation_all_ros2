@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="iris_ros2_control">
+  
+    <ros2_control name="iris_gazebo" type="system">
+      <hardware>
+        <!-- <plugin>fake_components/GenericSystem</plugin> -->
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+      <joint name="Joint1">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+      <joint name="Joint2">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+      <joint name="Joint3">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+      <joint name="Joint4">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+      <joint name="Joint5">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+      <joint name="Joint6">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="acceleration"/>
+      </joint>
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>

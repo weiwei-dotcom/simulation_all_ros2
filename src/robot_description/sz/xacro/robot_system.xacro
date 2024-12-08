@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sz" >
+
+  <xacro:arg name="debug" default="false" /> 
+
+  <xacro:include filename="$(find sz)/xacro/gazebo.xacro" />
+  <xacro:include filename="$(find sz)/xacro/robot_description.xacro" />
+  <xacro:include filename="$(find sz)/xacro/ros2_control.xacro" />
+
+  <xacro:sz_ros2_control/>
+  <xacro:sz_description debug="$(arg debug)"/>
+
+</robot>

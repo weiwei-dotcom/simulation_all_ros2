@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mz" >
+
+  <xacro:arg name="debug" default="false" /> 
+
+  <xacro:include filename="$(find mz)/xacro/gazebo.xacro" />
+  <xacro:include filename="$(find mz)/xacro/robot_description.xacro" />
+  <xacro:include filename="$(find mz)/xacro/ros2_control.xacro" />
+
+  <xacro:mz_ros2_control/>
+  <xacro:mz_description debug="$(arg debug)"/>
+
+</robot>
