@@ -76,7 +76,10 @@ def generate_launch_description():
             '-entity', "gh1",
             '-z', '1.35',
             "-topic", "robot_description",
-            '-robot_namespace', "gh1_gazebo"] 
+            '-robot_namespace', ""]  # 这里暂时不能有命名空间，
+                                     # 不然gazebo_ros2_control会找不到robot_state_publisher服务名
+                                     # 暂时不知道是不是因为找不到包含整个urdf内容的robot_description话题
+                                     # 还是只是后面的gazebo_ros2_control找不到对应名称的robot_state_publisher服务
     )
 
     # Load joint controller configurations from YAML
@@ -86,14 +89,17 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-    l_hip_roll_controller = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        output='screen',
-        parameters=[robot_description],
-        # namespace = 'gh1', # 这里要修改为机器人的命名空间
-        arguments=["l_hip_roll_controller"]
-    )
+    joint_controller_names = ['l_hip_roll_controller']
+    controller_nodes = []
+    for joint_controller_name in joint_controller_names:
+        controller_nodes.append(
+            Node(
+                package='controller_manager',
+                executable='spawner.py',
+                output='screen',
+                arguments=[joint_controller_name]
+            )
+        )
 
     nodes = [
         RegisterEventHandler(
@@ -105,7 +111,7 @@ def generate_launch_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=joint_state_broadcaster_spawner,
-                on_exit=[l_hip_roll_controller],
+                on_exit=controller_nodes,
             )
         ),
         robot_tf_node,

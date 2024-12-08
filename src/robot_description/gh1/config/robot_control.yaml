@@ -11,3 +11,5 @@ controller_manager:
 l_hip_roll_controller:
     ros__parameters:
         joint: l_hip_roll
+        # 为了能读到xacro内容来获取关节标签内容(主要是关节限制内容)
+        robot_description: /home/wl/Documents/simulation_all_ros2/src/robot_description/gh1/xacro/robot.xacro

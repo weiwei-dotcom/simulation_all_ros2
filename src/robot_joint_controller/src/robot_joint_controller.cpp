@@ -58,11 +58,35 @@ controller_interface::return_type RobotJointController::init(const std::string &
 
 CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State & previous_state) 
 {
+    robot_description_ = get_node()->get_parameter("robot_description").as_string();
+    // 临时 URDF 文件路径
+    std::string tempUrdfFile = "/tmp/temp_urdf.urdf";
+    // 构造 xacro 命令
+    std::string command = "xacro " + robot_description_ + " > " + tempUrdfFile;
+    // 执行命令
+    int ret = system(command.c_str());
+    if (ret != 0) {
+        throw std::runtime_error("Failed to execute xacro command.");
+    }
+    // 读取生成的 URDF 文件内容
+    std::ifstream urdfFile(tempUrdfFile);
+    if (!urdfFile.is_open()) {
+        throw std::runtime_error("Failed to open temporary URDF file.");
+    }
+    std::stringstream urdfContent;
+    urdfContent << urdfFile.rdbuf(); // 读取文件内容到字符串流
+    urdfFile.close();
+    // 删除临时文件（可选）
+    std::remove(tempUrdfFile.c_str());
+
     urdf::Model model;
-    if (!model.initString(get_node()->get_parameter("robot_description").as_string())) {
+    if (!model.initString(urdfContent.str().c_str())) {
         RCLCPP_ERROR(get_node()->get_logger(), "Failed to parse urdf file");
         return CallbackReturn::ERROR;
     }
+
+    RCLCPP_INFO(get_node()->get_logger(), "read urdf success !  ! !");
+
     joint_name_ = get_node()->get_parameter("joint").as_string();
     RCLCPP_WARN(get_node()->get_logger(), "joint name is :  %s", joint_name_.c_str());
 

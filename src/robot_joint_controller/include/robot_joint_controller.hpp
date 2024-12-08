@@ -26,6 +26,8 @@
 #include <cstring>
 #include <string.h>
 #include <utility>
+#include <fstream>
+#include <cstdlib>
 
 #define PosStopF  (2.146E+9f)
 #define VelStopF  (16000.0f)
