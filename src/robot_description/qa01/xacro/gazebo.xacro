@@ -6,7 +6,7 @@
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
       <!-- 因为 gazebo_ros2_control 要启动 ros2_controll_node 来启动控制器 -->
       <!-- 要启动的控制器名称在 robot_control.yaml -->
-      <parameters>$(find iris)/config/robot_control.yaml</parameters>
+      <parameters>$(find qa01)/config/robot_control.yaml</parameters>
     </plugin>
   </gazebo>
 
