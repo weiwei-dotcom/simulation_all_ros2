@@ -1,16 +1,13 @@
 #include "robot_joint_controller.hpp"
-#include <pluginlib/class_list_macros.h>
+
+#include <pluginlib/class_list_macros.hpp>
 
 // #define rqtTune // use rqt or not
 
 namespace robot_joint_controller
 {
 
-RobotJointController::RobotJointController()
-: controller_interface::ControllerInterface(),
-    joint_urdf_(nullptr)
-{
-}
+RobotJointController::RobotJointController() : controller_interface::ControllerInterface(), joint_urdf_(nullptr) {}
 
 double RobotJointController::clamp(double &value, double min, double max)
 {
@@ -37,26 +34,21 @@ void RobotJointController::setCommandCB(const MotorCommand::SharedPtr msg)
     rt_cmd_buff.writeFromNonRT(recieve_cmd);
 }
 
-controller_interface::return_type RobotJointController::init(const std::string & controller_name) {
-    auto ret = ControllerInterface::init(controller_name);
-    if (ret != controller_interface::return_type::OK)
-    {
-        return ret;
-    }
-    try 
-    {
+controller_interface::CallbackReturn RobotJointController::on_init()
+{
+    try {
         joint_name_ = auto_declare<std::string>("joint", joint_name_);
-        robot_description_ = auto_declare<std::string>("robot_description", robot_description_); //之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
-    }
-    catch (const std::exception & e)
-    {
+        robot_description_ =
+            auto_declare<std::string>("robot_description",
+                                      robot_description_);  // 之后launch文件中要先将param参数使用controller_manager robot_state_publisher发布
+    } catch (const std::exception &e) {
         fprintf(stderr, "Exception thrown during init stage with message: %s \n", e.what());
-        return controller_interface::return_type::ERROR;
+        return controller_interface::CallbackReturn::ERROR;
     }
-    return controller_interface::return_type::SUCCESS;
+    return controller_interface::CallbackReturn::SUCCESS;
 }
 
-CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State & previous_state) 
+controller_interface::CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State &previous_state)
 {
     robot_description_ = get_node()->get_parameter("robot_description").as_string();
     // 临时 URDF 文件路径
@@ -74,7 +66,7 @@ CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State 
         throw std::runtime_error("Failed to open temporary URDF file.");
     }
     std::stringstream urdfContent;
-    urdfContent << urdfFile.rdbuf(); // 读取文件内容到字符串流
+    urdfContent << urdfFile.rdbuf();  // 读取文件内容到字符串流
     urdfFile.close();
     // 删除临时文件（可选）
     std::remove(tempUrdfFile.c_str());
@@ -82,26 +74,24 @@ CallbackReturn RobotJointController::on_configure(const rclcpp_lifecycle::State 
     urdf::Model model;
     if (!model.initString(urdfContent.str().c_str())) {
         RCLCPP_ERROR(get_node()->get_logger(), "Failed to parse urdf file");
-        return CallbackReturn::ERROR;
+        return controller_interface::CallbackReturn::ERROR;
     }
 
     joint_name_ = get_node()->get_parameter("joint").as_string();
 
-    if (joint_name_.empty())
-    {
+    if (joint_name_.empty()) {
         RCLCPP_ERROR(get_node()->get_logger(), "'joint' parameter was empty");
-        return CallbackReturn::ERROR;
+        return controller_interface::CallbackReturn::ERROR;
     }
     joint_urdf_ = model.getJoint(joint_name_);
     if (!joint_urdf_) {
         RCLCPP_ERROR(get_node()->get_logger(), "Could not find joint '%s' in urdf", joint_name_.c_str());
-        return CallbackReturn::ERROR;
+        return controller_interface::CallbackReturn::ERROR;
     }
-    return CallbackReturn::SUCCESS;
+    return controller_interface::CallbackReturn::SUCCESS;
 }
 
-controller_interface::InterfaceConfiguration
-RobotJointController::command_interface_configuration() const
+controller_interface::InterfaceConfiguration RobotJointController::command_interface_configuration() const
 {
     controller_interface::InterfaceConfiguration command_interfaces_config;
     command_interfaces_config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
@@ -109,8 +99,7 @@ RobotJointController::command_interface_configuration() const
     return command_interfaces_config;
 }
 
-controller_interface::InterfaceConfiguration
-RobotJointController::state_interface_configuration() const
+controller_interface::InterfaceConfiguration RobotJointController::state_interface_configuration() const
 {
     controller_interface::InterfaceConfiguration state_interfaces_config;
     state_interfaces_config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
@@ -120,12 +109,12 @@ RobotJointController::state_interface_configuration() const
     return state_interfaces_config;
 }
 
-RobotJointController::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state) 
+controller_interface::CallbackReturn RobotJointController::on_activate(const rclcpp_lifecycle::State &previous_state)
 {
-    joint_command_subscriber_ = get_node()->create_subscription<MotorCommand>("~/command", rclcpp::SystemDefaultsQoS(),
-        std::bind(&RobotJointController::setCommandCB,
-            this,
-            std::placeholders::_1));
+    joint_command_subscriber_ =
+        get_node()->create_subscription<MotorCommand>("~/command",
+                                                      rclcpp::SystemDefaultsQoS(),
+                                                      std::bind(&RobotJointController::setCommandCB, this, std::placeholders::_1));
     joint_state_publisher_ = std::make_shared<realtime_tools::RealtimePublisher<MotorState>>(
         get_node()->create_publisher<MotorState>("~/state", rclcpp::SystemDefaultsQoS()));
 
@@ -138,10 +127,11 @@ RobotJointController::CallbackReturn RobotJointController::on_activate(const rcl
     last_state_.tau_est = 0;
     rt_cmd_buff.initRT(last_command_);
 
-    return CallbackReturn::SUCCESS;
+    return controller_interface::CallbackReturn::SUCCESS;
 }
 
-controller_interface::return_type RobotJointController::update() {
+controller_interface::return_type RobotJointController::update(const rclcpp::Time &time, const rclcpp::Duration &period)
+{
     double currentPos, currentVel, currentTau, calcTorque;
     robot_msgs::msg::MotorCommand current_command = *(rt_cmd_buff.readFromRT());
 
@@ -161,8 +151,8 @@ controller_interface::return_type RobotJointController::update() {
     currentVel = state_interfaces_[1].get_value();
     // // 也可以使用位置差分的方式计算速度
     // currentVel = currentPos - last_state_.q;
-    calcTorque = current_servo_command.kp * (current_servo_command.q - currentPos) + current_servo_command.kd * (current_servo_command.dq - currentVel) +
-                 current_servo_command.tau;
+    calcTorque = current_servo_command.kp * (current_servo_command.q - currentPos) +
+                 current_servo_command.kd * (current_servo_command.dq - currentVel) + current_servo_command.tau;
     effortLimits(calcTorque);
     //
     command_interfaces_[0].set_value(calcTorque);
@@ -181,10 +171,11 @@ controller_interface::return_type RobotJointController::update() {
     last_state_.q = currentPos;
     last_state_.dq = currentVel;
     last_state_.tau_est = currentTau;
-    return controller_interface::return_type::SUCCESS;
+    return controller_interface::return_type::OK;
 }
 
-RobotJointController::CallbackReturn RobotJointController::on_deactivate(const rclcpp_lifecycle::State &previous_state) {
+controller_interface::CallbackReturn RobotJointController::on_deactivate(const rclcpp_lifecycle::State &previous_state)
+{
     joint_state_publisher_.reset();
     joint_command_subscriber_.reset();
     release_interfaces();
